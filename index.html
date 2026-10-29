@@ -186,79 +186,197 @@ footer{padding:24px 0;border-top:1px solid #293e50;color:#9eafbd;font-size:12px;
 */
 const $ = id => document.getElementById(id);
 const STORAGE_KEY = "hipermix_preview_config_v1";
-const defaultConfig = {imageUrl:"",date:"Data a confirmar",location:"Local a confirmar",title:"1º TREINÃO DE ANIVERSÁRIO",total:200,prizes:{m1:"Prêmio a confirmar",m2:"Prêmio a confirmar",f1:"Prêmio a confirmar",f2:"Prêmio a confirmar"},unavailable:[]};
+
+// ⬇️ URL raw da imagem (link direto do GitHub, sem página em volta).
+// Para atualizar automaticamente quando trocar a imagem no repositório,
+// troque o hash do commit pela branch, por exemplo:
+// https://raw.githubusercontent.com/teiteitata36-ops/treinao/main/WhatsApp%20Image%202026-10-29%20at%2014.10.26.jpeg
+const RAW_IMAGE_URL = "https://raw.githubusercontent.com/teiteitata36-ops/treinao/57d28b7f1a9712f24d8c16cfc9ca59d0e933576d/WhatsApp%20Image%202026-10-29%20at%2014.10.26.jpeg";
+
+const defaultConfig = {
+  imageUrl: RAW_IMAGE_URL,
+  date: "Data a confirmar",
+  location: "Local a confirmar",
+  // \n vira <br> no render(), preservando o layout de duas linhas do título
+  title: "1º TREINÃO\nDE ANIVERSÁRIO",
+  total: 200,
+  prizes: {
+    m1: "Prêmio a confirmar",
+    m2: "Prêmio a confirmar",
+    f1: "Prêmio a confirmar",
+    f2: "Prêmio a confirmar"
+  },
+  unavailable: []
+};
+
 let config = loadConfig();
 let selected = "";
-function loadConfig(){try{return {...defaultConfig,...JSON.parse(localStorage.getItem(STORAGE_KEY)||"{}")}}catch{return {...defaultConfig}}}
-function saveConfig(){localStorage.setItem(STORAGE_KEY,JSON.stringify(config))}
-function showStatus(id,msg){$(id).textContent=msg;$(id).classList.remove("hidden")}
+
+function loadConfig(){
+  try{
+    const stored = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
+    const merged = { ...defaultConfig, ...stored };
+    // Se a config antiga do navegador tiver imageUrl vazio, usa a padrão
+    if(!merged.imageUrl) merged.imageUrl = defaultConfig.imageUrl;
+    return merged;
+  }catch{
+    return { ...defaultConfig };
+  }
+}
+
+function saveConfig(){
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(config));
+}
+
+function showStatus(id,msg){
+  $(id).textContent = msg;
+  $(id).classList.remove("hidden");
+}
+
 function setImage(url){
- const img=$("runnerImage"),placeholder=$("runnerPlaceholder");
- if(!url){img.classList.add("hidden");img.removeAttribute("src");placeholder.classList.remove("hidden");return}
- img.onload=()=>{img.classList.remove("hidden");placeholder.classList.add("hidden")};
- img.onerror=()=>{img.classList.add("hidden");placeholder.classList.remove("hidden");placeholder.textContent="Não foi possível carregar a imagem. Confira se o link é público e aponta diretamente para um PNG/JPG."};
- img.src=url;
+  const img = $("runnerImage");
+  const placeholder = $("runnerPlaceholder");
+  if(!url){
+    img.classList.add("hidden");
+    img.removeAttribute("src");
+    placeholder.classList.remove("hidden");
+    return;
+  }
+  img.onload = () => {
+    img.classList.remove("hidden");
+    placeholder.classList.add("hidden");
+  };
+  img.onerror = () => {
+    img.classList.add("hidden");
+    placeholder.classList.remove("hidden");
+    placeholder.textContent = "Não foi possível carregar a imagem. Confira se o link é público e aponta diretamente para um PNG/JPG.";
+  };
+  img.src = url;
 }
+
 function render(){
-  $("eventDate").textContent=config.date||"Data a confirmar";
-  $("eventLocation").textContent=config.location||"Local a confirmar";
-  $("eventTitle").innerHTML=(config.title||defaultConfig.title).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/
-/g,"<br>").replace("DE ANIVERSÁRIO",'<span>DE ANIVERSÁRIO</span>');
-  $("prizeM1").textContent=config.prizes?.m1||"Prêmio a confirmar";
-  $("prizeM2").textContent=config.prizes?.m2||"Prêmio a confirmar";
-  $("prizeF1").textContent=config.prizes?.f1||"Prêmio a confirmar";
-  $("prizeF2").textContent=config.prizes?.f2||"Prêmio a confirmar";
+  $("eventDate").textContent = config.date || "Data a confirmar";
+  $("eventLocation").textContent = config.location || "Local a confirmar";
+  $("eventTitle").innerHTML = (config.title || defaultConfig.title)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/\n/g,"<br>")
+    .replace("DE ANIVERSÁRIO",'<span>DE ANIVERSÁRIO</span>');
+
+  $("prizeM1").textContent = config.prizes?.m1 || "Prêmio a confirmar";
+  $("prizeM2").textContent = config.prizes?.m2 || "Prêmio a confirmar";
+  $("prizeF1").textContent = config.prizes?.f1 || "Prêmio a confirmar";
+  $("prizeF2").textContent = config.prizes?.f2 || "Prêmio a confirmar";
+
   setImage(config.imageUrl);
-  const total=Math.max(1,Math.min(2000,Number(config.total)||200));
-  const unavailable=new Set(config.unavailable||[]);
-  const count=Math.max(0,total-unavailable.size);
-  $("availableCount").textContent=count;
-  $("remainingCount").textContent=count;
-  $("totalCount").textContent=total;
-  $("takenCount").textContent=total-count;
-  $("availabilityBar").style.width=((total-count)/total*100)+"%";
-  $("adminRemaining").textContent=count;
-  $("adminTotal").textContent=total;
-  $("adminTaken").textContent=total-count;
-  const select=$("numberSelect");
-  if(select) select.value="auto";
+
+  const total = Math.max(1, Math.min(2000, Number(config.total) || 200));
+  const unavailable = new Set(config.unavailable || []);
+  const count = Math.max(0, total - unavailable.size);
+
+  $("availableCount").textContent = count;
+  $("remainingCount").textContent = count;
+  $("totalCount").textContent = total;
+  $("takenCount").textContent = total - count;
+  $("availabilityBar").style.width = ((total - count) / total * 100) + "%";
+  $("adminRemaining").textContent = count;
+  $("adminTotal").textContent = total;
+  $("adminTaken").textContent = total - count;
+
+  const select = $("numberSelect");
+  if(select) select.value = "auto";
 }
-$("birthDate").max=new Date().toISOString().slice(0,10);
-$("registrationForm").addEventListener("submit",e=>{
- e.preventDefault();
- if(!selected){showStatus("formMessage","Selecione um número disponível.");return}
- const birth=$("birthDate").value;
- if(!birth){showStatus("formMessage","Informe sua data de nascimento.");return}
- const b=new Date(birth+"T12:00:00"),now=new Date();
- let age=now.getFullYear()-b.getFullYear();
- if(now.getMonth()<b.getMonth()||(now.getMonth()===b.getMonth()&&now.getDate()<b.getDate()))age--;
- if(age<16){showStatus("formMessage","A inscrição é permitida somente para pessoas com 16 anos ou mais.");return}
- if((config.unavailable||[]).includes(selected)){showStatus("formMessage","Esse número está indisponível. Escolha outro.");render();return}
- showStatus("formMessage","Prévia: validação de idade e seleção concluídas, mas nenhuma inscrição real foi enviada. A conexão com o Firebase e a Eduzz ainda precisa ser implementada.");
+
+$("birthDate").max = new Date().toISOString().slice(0,10);
+
+$("registrationForm").addEventListener("submit", e => {
+  e.preventDefault();
+  const birth = $("birthDate").value;
+  if(!birth){
+    showStatus("formMessage","Informe sua data de nascimento.");
+    return;
+  }
+  const b = new Date(birth + "T12:00:00"), now = new Date();
+  let age = now.getFullYear() - b.getFullYear();
+  if(now.getMonth() < b.getMonth() || (now.getMonth() === b.getMonth() && now.getDate() < b.getDate())) age--;
+  if(age < 16){
+    showStatus("formMessage","A inscrição é permitida somente para pessoas com 16 anos ou mais.");
+    return;
+  }
+  if((config.unavailable || []).includes(selected)){
+    showStatus("formMessage","Esse número está indisponível. Escolha outro.");
+    render();
+    return;
+  }
+  showStatus("formMessage","Prévia: validação de idade concluída, mas nenhuma inscrição real foi enviada. A conexão com o Firebase e a Eduzz ainda precisa ser implementada.");
 });
-$("openAdmin").addEventListener("click",()=>{$("adminModal").classList.add("open");$("loginArea").classList.remove("hidden");$("adminArea").classList.add("hidden")});
-$("closeAdmin").addEventListener("click",()=>$("adminModal").classList.remove("open"));
-$("adminModal").addEventListener("click",e=>{if(e.target===$("adminModal"))$("adminModal").classList.remove("open")});
-$("demoLogin").addEventListener("click",()=>{
- if(!$("adminEmail").value.trim()||!$("adminPassword").value){showStatus("loginMessage","Preencha e-mail e senha para entrar na demonstração.");return}
- $("loginArea").classList.add("hidden");$("adminArea").classList.remove("hidden");
- $("imageUrl").value=config.imageUrl||"";$("dateConfig").value=config.date||"";$("locationConfig").value=config.location||"";$("titleConfig").value=config.title||"";$("totalConfig").value=config.total||200;
- $("pm1").value=config.prizes?.m1||"";$("pm2").value=config.prizes?.m2||"";$("pf1").value=config.prizes?.f1||"";$("pf2").value=config.prizes?.f2||"";
+
+$("openAdmin").addEventListener("click", () => {
+  $("adminModal").classList.add("open");
+  $("loginArea").classList.remove("hidden");
+  $("adminArea").classList.add("hidden");
 });
-document.querySelectorAll("[data-tab]").forEach(btn=>btn.addEventListener("click",()=>{
- document.querySelectorAll("[data-tab]").forEach(x=>x.classList.toggle("active",x===btn));
- document.querySelectorAll(".admin-section").forEach(x=>x.classList.toggle("active",x.id===btn.dataset.tab));
+
+$("closeAdmin").addEventListener("click", () => $("adminModal").classList.remove("open"));
+
+$("adminModal").addEventListener("click", e => {
+  if(e.target === $("adminModal")) $("adminModal").classList.remove("open");
+});
+
+$("demoLogin").addEventListener("click", () => {
+  if(!$("adminEmail").value.trim() || !$("adminPassword").value){
+    showStatus("loginMessage","Preencha e-mail e senha para entrar na demonstração.");
+    return;
+  }
+  $("loginArea").classList.add("hidden");
+  $("adminArea").classList.remove("hidden");
+  $("imageUrl").value = config.imageUrl || "";
+  $("dateConfig").value = config.date || "";
+  $("locationConfig").value = config.location || "";
+  $("titleConfig").value = config.title || "";
+  $("totalConfig").value = config.total || 200;
+  $("pm1").value = config.prizes?.m1 || "";
+  $("pm2").value = config.prizes?.m2 || "";
+  $("pf1").value = config.prizes?.f1 || "";
+  $("pf2").value = config.prizes?.f2 || "";
+});
+
+document.querySelectorAll("[data-tab]").forEach(btn => btn.addEventListener("click", () => {
+  document.querySelectorAll("[data-tab]").forEach(x => x.classList.toggle("active", x === btn));
+  document.querySelectorAll(".admin-section").forEach(x => x.classList.toggle("active", x.id === btn.dataset.tab));
 }));
-$("saveAppearance").addEventListener("click",()=>{
- config.imageUrl=$("imageUrl").value.trim();config.date=$("dateConfig").value.trim()||"Data a confirmar";config.location=$("locationConfig").value.trim()||"Local a confirmar";config.title=$("titleConfig").value.trim()||defaultConfig.title;config.total=Math.max(1,Math.min(2000,Number($("totalConfig").value)||200));
- config.unavailable=(config.unavailable||[]).filter(n=>Number(n)<=config.total);
- saveConfig();render();showStatus("adminMessage","Configurações salvas neste navegador. Para atualizar para todos os visitantes, conecte o Firebase.");
+
+$("saveAppearance").addEventListener("click", () => {
+  config.imageUrl = $("imageUrl").value.trim() || defaultConfig.imageUrl;
+  config.date = $("dateConfig").value.trim() || "Data a confirmar";
+  config.location = $("locationConfig").value.trim() || "Local a confirmar";
+  config.title = $("titleConfig").value.trim() || defaultConfig.title;
+  config.total = Math.max(1, Math.min(2000, Number($("totalConfig").value) || 200));
+  config.unavailable = (config.unavailable || []).filter(n => Number(n) <= config.total);
+  saveConfig();
+  render();
+  showStatus("adminMessage","Configurações salvas neste navegador. Para atualizar para todos os visitantes, conecte o Firebase.");
 });
-$("savePrizes").addEventListener("click",()=>{
- config.prizes={m1:$("pm1").value.trim()||"Prêmio a confirmar",m2:$("pm2").value.trim()||"Prêmio a confirmar",f1:$("pf1").value.trim()||"Prêmio a confirmar",f2:$("pf2").value.trim()||"Prêmio a confirmar"};
- saveConfig();render();showStatus("adminMessage","Premiação salva nesta prévia local.");
+
+$("savePrizes").addEventListener("click", () => {
+  config.prizes = {
+    m1: $("pm1").value.trim() || "Prêmio a confirmar",
+    m2: $("pm2").value.trim() || "Prêmio a confirmar",
+    f1: $("pf1").value.trim() || "Prêmio a confirmar",
+    f2: $("pf2").value.trim() || "Prêmio a confirmar"
+  };
+  saveConfig();
+  render();
+  showStatus("adminMessage","Premiação salva nesta prévia local.");
 });
-$("logout").addEventListener("click",()=>{$("adminArea").classList.add("hidden");$("loginArea").classList.remove("hidden");$("adminPassword").value=""});
+
+$("logout").addEventListener("click", () => {
+  $("adminArea").classList.add("hidden");
+  $("loginArea").classList.remove("hidden");
+  $("adminPassword").value = "";
+});
+
 render();
 </script>
 </body>
