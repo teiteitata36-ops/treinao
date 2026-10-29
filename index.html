@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1º Treinão de Aniversário | Hiper Mix</title>
+<style>
+:root{--navy:#071827;--navy2:#0d263b;--yellow:#ffd21a;--white:#f7f8fa;--muted:#b9c5d0;--line:#30485c;--green:#23865b;--red:#a83d3d}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#07121d;color:var(--white);font-family:Arial,Helvetica,sans-serif}
+button,input,select{font:inherit}button,a{cursor:pointer}.wrap{max-width:1180px;margin:auto;padding:0 24px}
+header{border-bottom:1px solid #263949;background:#071827}
+.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.brand{font-weight:900;font-style:italic;font-size:25px;letter-spacing:-1.2px}.brand span{color:var(--yellow)}
+.navlinks{display:flex;gap:26px}.navlinks a{color:#e8edf2;text-decoration:none;font-size:12px;font-weight:700;letter-spacing:.7px}
+.admin-open{border:1px solid #8294a5;background:transparent;color:white;padding:11px 15px;border-radius:4px;font-weight:700;font-size:12px}
+.hero{position:relative;overflow:hidden;background:linear-gradient(115deg,#071827 0%,#0b2235 68%,#102c40 100%);min-height:590px}
+.hero:before{content:"";position:absolute;inset:auto -8% -140px -8%;height:240px;border-top:2px solid #516273;transform:rotate(-7deg);background:repeating-linear-gradient(174deg,transparent 0 44px,rgba(255,210,26,.12) 45px 48px,transparent 49px 85px);pointer-events:none}
+.hero-inner{position:relative;display:grid;grid-template-columns:1.12fr .88fr;gap:25px;align-items:center;min-height:590px;padding-top:30px;padding-bottom:35px}
+.eyebrow{font-size:13px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:#dfe7ed}
+h1{font-size:clamp(42px,6vw,76px);line-height:.93;letter-spacing:-3px;margin:18px 0 12px;font-weight:900;text-transform:uppercase}
+h1 span{color:var(--yellow)}.tagline{font-size:16px;font-weight:800;font-style:italic;letter-spacing:.5px}.tagline span{color:var(--yellow)}
+.facts{display:flex;flex-wrap:wrap;gap:18px;margin:28px 0 24px}.fact{border-left:2px solid var(--yellow);padding-left:12px;min-width:115px}.fact small{display:block;color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:1px;margin-bottom:5px}.fact strong{font-size:13px;line-height:1.45}
+.signup{max-width:590px;border:1px solid #496176;background:rgba(4,17,29,.72);padding:20px;border-radius:5px}
+.signup h2{font-size:22px;color:var(--yellow);margin:0 0 5px;text-transform:uppercase}.signup p{margin:0 0 15px;color:#d7e0e8;font-size:13px}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:10px}.fields input,.fields select{width:100%;background:#081a29;color:white;border:1px solid #587087;padding:13px 12px;border-radius:3px;min-width:0}.fields input::placeholder{color:#c1ccd5}.fields .wide{grid-column:1/-1}
+.cta{width:100%;margin-top:12px;padding:15px;border:0;background:var(--yellow);color:#091522;font-weight:900;text-transform:uppercase;letter-spacing:.5px}
+.fineprint{font-size:11px!important;color:#aebdca!important;line-height:1.5;margin-top:10px!important}
+.runner-stage{height:500px;position:relative;display:flex;align-items:flex-end;justify-content:center;overflow:hidden}
+.runner-stage:before{content:"";position:absolute;inset:8% 2% 0 8%;border-left:6px solid var(--yellow);transform:skew(-22deg);opacity:.9}
+.runner-stage:after{content:"";position:absolute;bottom:0;left:0;right:0;height:110px;background:linear-gradient(transparent,#07121d)}
+.runner-stage img{position:relative;z-index:1;max-width:100%;max-height:100%;object-fit:contain;object-position:bottom;filter:drop-shadow(0 15px 24px rgba(0,0,0,.35))}
+.runner-placeholder{position:relative;z-index:1;align-self:center;text-align:center;color:#aebdca;border:1px dashed #718496;padding:30px;max-width:280px;background:rgba(7,24,39,.75);line-height:1.5}
+.highlights{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #293e50;border-bottom:1px solid #293e50;padding:22px 0;gap:10px}
+.highlight{padding:6px 16px;border-right:1px solid #3b5061}.highlight:last-child{border:0}.highlight strong{display:block;color:var(--yellow);font-size:12px;text-transform:uppercase;margin-bottom:6px}.highlight span{font-size:11px;color:#d4dde5;line-height:1.5}
+section.content{padding:45px 0}.section-title{font-size:27px;text-transform:uppercase;margin:0 0 8px}.section-title span{color:var(--yellow)}.section-desc{color:var(--muted);margin:0 0 22px;font-size:14px}
+.prizes{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.prize{border-top:3px solid var(--yellow);background:#0d2233;padding:18px}.prize small{color:var(--muted);text-transform:uppercase;font-size:10px;letter-spacing:1px}.prize h3{font-size:15px;margin:9px 0}.prize p{font-size:13px;color:#d4dde5;margin:0}
+.availability-card{max-width:560px;margin-top:24px;padding:26px;border:1px solid #385268;background:linear-gradient(135deg,#0d263b,#081a29);border-radius:6px}
+.availability-top{display:flex;align-items:center;gap:9px;font-size:11px;font-weight:900;letter-spacing:1.5px;color:#8ee0b5}
+.availability-pulse{width:9px;height:9px;border-radius:50%;background:#36c982;box-shadow:0 0 0 5px rgba(54,201,130,.12)}
+.availability-number{display:flex;align-items:baseline;gap:12px;margin:18px 0 14px;flex-wrap:wrap}
+.availability-number strong{font-size:clamp(46px,7vw,68px);line-height:1;color:var(--yellow);letter-spacing:-2px}
+.availability-number span{font-size:15px;font-weight:700;color:#f7f8fa}
+.availability-track{height:9px;background:#253c4e;border-radius:99px;overflow:hidden}
+.availability-track span{display:block;height:100%;width:0;background:var(--yellow);border-radius:99px;transition:width .25s ease}
+.availability-card>p{font-size:12px;color:#b9c5d0;margin:12px 0 20px}
+.availability-card>p strong{color:#fff}
+.availability-cta{display:block;text-align:center;text-decoration:none;background:var(--yellow);color:#091522;font-size:12px;font-weight:900;letter-spacing:.5px;padding:15px;border-radius:3px}
+.legend{display:flex;gap:16px;flex-wrap:wrap;color:#c5d0d9;font-size:12px}.dot{display:inline-block;width:10px;height:10px;margin-right:5px;background:#e4eaf0}.dot.sel{background:var(--yellow)}.dot.off{background:#374654}
+.notice{border-left:3px solid var(--yellow);padding:12px 14px;background:#102438;color:#cbd6df;font-size:12px;line-height:1.6;margin-top:18px}
+footer{padding:24px 0;border-top:1px solid #293e50;color:#9eafbd;font-size:12px;text-align:center}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.76);z-index:10;display:none;align-items:center;justify-content:center;padding:18px;overflow:auto}.modal.open{display:flex}.panel{width:min(780px,100%);background:#0b1e2d;border:1px solid #52687a;padding:24px;max-height:94vh;overflow:auto}.panel-head{display:flex;align-items:center;justify-content:space-between;gap:15px;border-bottom:1px solid #30485c;padding-bottom:14px;margin-bottom:18px}.panel h2{margin:0;font-size:23px}.close{background:transparent;color:white;border:1px solid #64788a;padding:8px 12px}.panel label{display:block;font-size:12px;color:#cad5de;margin:12px 0 6px}.panel input,.panel select{width:100%;padding:12px;background:#061522;border:1px solid #52687a;color:white}.panel button.primary{background:var(--yellow);color:#091522;border:0;padding:12px 16px;font-weight:800;margin-top:12px}.panel button.secondary{background:transparent;border:1px solid #718496;color:white;padding:10px 14px;margin-top:12px}.panel-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.admin-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:15px}.admin-tabs button{background:#142d40;color:white;border:1px solid #3c566b;padding:10px}.admin-tabs button.active{border-color:var(--yellow);color:var(--yellow)}.admin-section{display:none}.admin-section.active{display:block}.small{font-size:11px;line-height:1.5;color:#aebdca}.status{padding:10px;background:#102b3d;color:#dce7ef;margin-top:12px;font-size:12px;line-height:1.5}.hidden{display:none!important}
+@media(max-width:760px){.wrap{padding:0 15px}.nav{height:auto;min-height:70px;flex-wrap:wrap;padding:14px 0}.navlinks{order:3;width:100%;justify-content:space-between;gap:8px}.navlinks a{font-size:10px}.hero-inner{grid-template-columns:1fr;gap:0;padding-top:38px}.runner-stage{height:330px;grid-row:1}.runner-stage:before{inset:2% 12% 0 12%}.hero-copy{grid-row:2}.hero-inner{min-height:auto}.hero{min-height:0}h1{font-size:48px}.facts{gap:12px}.fact{min-width:95px}.signup{padding:15px}.highlights{grid-template-columns:1fr 1fr}.highlight:nth-child(2){border-right:0}.prizes{grid-template-columns:1fr 1fr}.slots{grid-template-columns:repeat(5,minmax(0,1fr))}.panel-grid{grid-template-columns:1fr}}
+@media(max-width:380px){h1{font-size:39px}.fields{grid-template-columns:1fr}.fields .wide{grid-column:auto}.highlights,.prizes{grid-template-columns:1fr}.highlight{border-right:0;border-bottom:1px solid #3b5061}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <div class="brand">HIPER <span>MIX</span></div>
+    <nav class="navlinks"><a href="#inicio">INÍCIO</a><a href="#sobre">SOBRE</a><a href="#vagas">INSCRIÇÕES</a><a href="#premiacao">PREMIAÇÃO</a></nav>
+    <button class="admin-open" id="openAdmin">⚙ ADMINISTRAÇÃO</button>
+  </div>
+</header>
+<main>
+<section class="hero" id="inicio">
+  <div class="wrap hero-inner">
+    <div class="hero-copy">
+      <div class="eyebrow" id="eyebrow">HIPER MIX APRESENTA</div>
+      <h1 id="eventTitle">1º TREINÃO<br><span>DE ANIVERSÁRIO</span></h1>
+      <div class="tagline" id="tagline">SUPERE SEUS LIMITES. <span>CELEBRE CADA CONQUISTA.</span></div>
+      <div class="facts">
+        <div class="fact"><small>Data</small><strong id="eventDate">Data a confirmar</strong></div>
+        <div class="fact"><small>Local</small><strong id="eventLocation">Local a confirmar</strong></div>
+        <div class="fact"><small>Vagas</small><strong><span id="availableCount">200</span> disponíveis</strong></div>
+      </div>
+      <div class="signup" id="cadastro">
+        <h2>Faça sua inscrição</h2><p>Preencha seus dados para solicitar sua vaga.</p>
+        <form id="registrationForm">
+          <div class="fields">
+            <input class="wide" id="fullName" required maxlength="120" placeholder="Nome completo" autocomplete="name">
+            <input id="email" type="email" required placeholder="E-mail" autocomplete="email">
+            <input id="phone" type="tel" required placeholder="Telefone com DDD" autocomplete="tel">
+            <input class="wide" id="birthDate" type="date" required aria-label="Data de nascimento">
+            <input class="wide" id="numberSelect" type="hidden" value="auto">
+          </div>
+          <button class="cta" type="submit">Continuar inscrição →</button>
+          <p class="fineprint">Idade mínima: 16 anos. Nesta versão inicial, o formulário é demonstrativo e ainda não envia inscrições reais nem recebe pagamentos.</p>
+        </form>
+        <div id="formMessage" class="status hidden" role="status"></div>
+      </div>
+    </div>
+    <div class="runner-stage" id="runnerStage">
+      <div class="runner-placeholder" id="runnerPlaceholder">A imagem do corredor aparecerá aqui.<br><br>Adicione o link de um PNG transparente no painel administrativo.</div>
+      <img id="runnerImage" alt="Corredor do Treinão Hiper Mix" class="hidden">
+    </div>
+  </div>
+</section>
+<div class="wrap">
+  <div class="highlights" id="sobre">
+    <div class="highlight"><strong>Experiência</strong><span>Esporte, saúde e superação.</span></div>
+    <div class="highlight"><strong>Participação</strong><span>Vagas limitadas para o evento.</span></div>
+    <div class="highlight"><strong>Organização</strong><span>Informações claras para todos.</span></div>
+    <div class="highlight"><strong>Premiação</strong><span>Reconhecimento aos destaques.</span></div>
+  </div>
+</div>
+<section class="content wrap" id="premiacao">
+  <h2 class="section-title">A <span>premiação</span></h2>
+  <p class="section-desc">Confira os prêmios definidos pela organização.</p>
+  <div class="prizes">
+    <article class="prize"><small>Masculino</small><h3>1º lugar</h3><p id="prizeM1">Prêmio a confirmar</p></article>
+    <article class="prize"><small>Masculino</small><h3>2º lugar</h3><p id="prizeM2">Prêmio a confirmar</p></article>
+    <article class="prize"><small>Feminino</small><h3>1º lugar</h3><p id="prizeF1">Prêmio a confirmar</p></article>
+    <article class="prize"><small>Feminino</small><h3>2º lugar</h3><p id="prizeF2">Prêmio a confirmar</p></article>
+  </div>
+</section>
+<section class="content wrap" id="vagas">
+  <h2 class="section-title">Garanta sua <span>vaga</span></h2>
+  <p class="section-desc">As vagas são limitadas. Faça sua inscrição enquanto ainda há disponibilidade.</p>
+  <div class="availability-card">
+    <div class="availability-top"><span class="availability-pulse"></span> INSCRIÇÕES ABERTAS</div>
+    <div class="availability-number"><strong id="remainingCount">200</strong><span>vagas disponíveis</span></div>
+    <div class="availability-track"><span id="availabilityBar"></span></div>
+    <p><strong id="takenCount">0</strong> de <strong id="totalCount">200</strong> vagas preenchidas</p>
+    <a class="availability-cta" href="#cadastro">FAZER MINHA INSCRIÇÃO →</a>
+  </div>
+  <div class="notice">O contador será atualizado para todos quando o site estiver conectado ao Firebase e as inscrições forem registradas.</div>
+</section>
+</main>
+<footer><div class="wrap">Treinão Hiper Mix · Informações e premiações sujeitas à confirmação oficial.</div></footer>
+
+<div class="modal" id="adminModal" role="dialog" aria-modal="true" aria-labelledby="adminTitle">
+ <div class="panel">
+  <div class="panel-head"><h2 id="adminTitle">Painel administrativo</h2><button class="close" id="closeAdmin">Fechar ✕</button></div>
+  <div id="loginArea">
+    <p class="small">Área restrita à organização. A autenticação real será conectada ao Firebase antes da publicação.</p>
+    <label for="adminEmail">E-mail administrativo</label><input id="adminEmail" type="email" autocomplete="username" placeholder="seu@email.com">
+    <label for="adminPassword">Senha</label><input id="adminPassword" type="password" autocomplete="current-password" placeholder="Senha">
+    <button class="primary" id="demoLogin">Entrar na prévia administrativa</button>
+    <p class="small">Demonstração local: este acesso de exemplo não é seguro e não protege dados reais.</p>
+    <div id="loginMessage" class="status hidden"></div>
+  </div>
+  <div id="adminArea" class="hidden">
+    <div class="status">Você está na prévia local do painel. As alterações ficam neste navegador; para compartilhar com todos os visitantes, será necessário conectar o Firebase.</div>
+    <div class="admin-tabs">
+      <button class="active" data-tab="appearance">Imagem e evento</button><button data-tab="prizesAdmin">Premiação</button><button data-tab="numbersAdmin">Vagas</button>
+    </div>
+    <div class="admin-section active" id="appearance">
+      <label for="imageUrl">URL pública da imagem PNG transparente</label><input id="imageUrl" type="url" placeholder="https://.../corredor.png">
+      <p class="small">Use um link direto para a imagem. O PNG deve ter transparência verdadeira; a imagem não deve conter fundo quadriculado desenhado.</p>
+      <div class="panel-grid">
+        <div><label for="dateConfig">Data do evento</label><input id="dateConfig" placeholder="Ex.: 15 de novembro de 2026"></div>
+        <div><label for="locationConfig">Local</label><input id="locationConfig" placeholder="Local do evento"></div>
+        <div><label for="titleConfig">Título</label><input id="titleConfig" placeholder="1º TREINÃO DE ANIVERSÁRIO"></div>
+        <div><label for="totalConfig">Total de vagas (prévia)</label><input id="totalConfig" type="number" min="1" max="2000" value="200"></div>
+      </div>
+      <button class="primary" id="saveAppearance">Salvar configurações nesta prévia</button>
+    </div>
+    <div class="admin-section" id="prizesAdmin">
+      <div class="panel-grid">
+        <div><label for="pm1">Masculino — 1º lugar</label><input id="pm1" placeholder="Prêmio a confirmar"></div>
+        <div><label for="pm2">Masculino — 2º lugar</label><input id="pm2" placeholder="Prêmio a confirmar"></div>
+        <div><label for="pf1">Feminino — 1º lugar</label><input id="pf1" placeholder="Prêmio a confirmar"></div>
+        <div><label for="pf2">Feminino — 2º lugar</label><input id="pf2" placeholder="Prêmio a confirmar"></div>
+      </div>
+      <button class="primary" id="savePrizes">Salvar premiação nesta prévia</button>
+    </div>
+    <div class="admin-section" id="numbersAdmin">
+      <div class="availability-card">
+        <div class="availability-top"><span class="availability-pulse"></span> RESUMO DE VAGAS</div>
+        <div class="availability-number"><strong id="adminRemaining">200</strong><span>vagas restantes</span></div>
+        <p><strong id="adminTaken">0</strong> de <strong id="adminTotal">200</strong> vagas preenchidas.</p>
+      </div>
+      <p class="small">Nesta prévia, o contador é demonstrativo. Com o Firebase conectado, esta área poderá listar inscrições e atualizar as vagas em tempo real.</p>
+    </div>
+    <div id="adminMessage" class="status hidden"></div>
+    <button class="secondary" id="logout">Sair do painel</button>
+  </div>
+ </div>
+</div>
+<script>
+/*
+  PROTÓTIPO VISUAL.
+  Ainda não conectado ao Firebase/Eduzz. Não colete dados reais nesta versão.
+  Na versão de produção, a autenticação e as alterações administrativas devem
+  ser validadas no Firebase/servidor, nunca apenas neste JavaScript.
+*/
+const $ = id => document.getElementById(id);
+const STORAGE_KEY = "hipermix_preview_config_v1";
+const defaultConfig = {imageUrl:"",date:"Data a confirmar",location:"Local a confirmar",title:"1º TREINÃO DE ANIVERSÁRIO",total:200,prizes:{m1:"Prêmio a confirmar",m2:"Prêmio a confirmar",f1:"Prêmio a confirmar",f2:"Prêmio a confirmar"},unavailable:[]};
+let config = loadConfig();
+let selected = "";
+function loadConfig(){try{return {...defaultConfig,...JSON.parse(localStorage.getItem(STORAGE_KEY)||"{}")}}catch{return {...defaultConfig}}}
+function saveConfig(){localStorage.setItem(STORAGE_KEY,JSON.stringify(config))}
+function showStatus(id,msg){$(id).textContent=msg;$(id).classList.remove("hidden")}
+function setImage(url){
+ const img=$("runnerImage"),placeholder=$("runnerPlaceholder");
+ if(!url){img.classList.add("hidden");img.removeAttribute("src");placeholder.classList.remove("hidden");return}
+ img.onload=()=>{img.classList.remove("hidden");placeholder.classList.add("hidden")};
+ img.onerror=()=>{img.classList.add("hidden");placeholder.classList.remove("hidden");placeholder.textContent="Não foi possível carregar a imagem. Confira se o link é público e aponta diretamente para um PNG/JPG."};
+ img.src=url;
+}
+function render(){
+  $("eventDate").textContent=config.date||"Data a confirmar";
+  $("eventLocation").textContent=config.location||"Local a confirmar";
+  $("eventTitle").innerHTML=(config.title||defaultConfig.title).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/
+/g,"<br>").replace("DE ANIVERSÁRIO",'<span>DE ANIVERSÁRIO</span>');
+  $("prizeM1").textContent=config.prizes?.m1||"Prêmio a confirmar";
+  $("prizeM2").textContent=config.prizes?.m2||"Prêmio a confirmar";
+  $("prizeF1").textContent=config.prizes?.f1||"Prêmio a confirmar";
+  $("prizeF2").textContent=config.prizes?.f2||"Prêmio a confirmar";
+  setImage(config.imageUrl);
+  const total=Math.max(1,Math.min(2000,Number(config.total)||200));
+  const unavailable=new Set(config.unavailable||[]);
+  const count=Math.max(0,total-unavailable.size);
+  $("availableCount").textContent=count;
+  $("remainingCount").textContent=count;
+  $("totalCount").textContent=total;
+  $("takenCount").textContent=total-count;
+  $("availabilityBar").style.width=((total-count)/total*100)+"%";
+  $("adminRemaining").textContent=count;
+  $("adminTotal").textContent=total;
+  $("adminTaken").textContent=total-count;
+  const select=$("numberSelect");
+  if(select) select.value="auto";
+}
+$("birthDate").max=new Date().toISOString().slice(0,10);
+$("registrationForm").addEventListener("submit",e=>{
+ e.preventDefault();
+ if(!selected){showStatus("formMessage","Selecione um número disponível.");return}
+ const birth=$("birthDate").value;
+ if(!birth){showStatus("formMessage","Informe sua data de nascimento.");return}
+ const b=new Date(birth+"T12:00:00"),now=new Date();
+ let age=now.getFullYear()-b.getFullYear();
+ if(now.getMonth()<b.getMonth()||(now.getMonth()===b.getMonth()&&now.getDate()<b.getDate()))age--;
+ if(age<16){showStatus("formMessage","A inscrição é permitida somente para pessoas com 16 anos ou mais.");return}
+ if((config.unavailable||[]).includes(selected)){showStatus("formMessage","Esse número está indisponível. Escolha outro.");render();return}
+ showStatus("formMessage","Prévia: validação de idade e seleção concluídas, mas nenhuma inscrição real foi enviada. A conexão com o Firebase e a Eduzz ainda precisa ser implementada.");
+});
+$("openAdmin").addEventListener("click",()=>{$("adminModal").classList.add("open");$("loginArea").classList.remove("hidden");$("adminArea").classList.add("hidden")});
+$("closeAdmin").addEventListener("click",()=>$("adminModal").classList.remove("open"));
+$("adminModal").addEventListener("click",e=>{if(e.target===$("adminModal"))$("adminModal").classList.remove("open")});
+$("demoLogin").addEventListener("click",()=>{
+ if(!$("adminEmail").value.trim()||!$("adminPassword").value){showStatus("loginMessage","Preencha e-mail e senha para entrar na demonstração.");return}
+ $("loginArea").classList.add("hidden");$("adminArea").classList.remove("hidden");
+ $("imageUrl").value=config.imageUrl||"";$("dateConfig").value=config.date||"";$("locationConfig").value=config.location||"";$("titleConfig").value=config.title||"";$("totalConfig").value=config.total||200;
+ $("pm1").value=config.prizes?.m1||"";$("pm2").value=config.prizes?.m2||"";$("pf1").value=config.prizes?.f1||"";$("pf2").value=config.prizes?.f2||"";
+});
+document.querySelectorAll("[data-tab]").forEach(btn=>btn.addEventListener("click",()=>{
+ document.querySelectorAll("[data-tab]").forEach(x=>x.classList.toggle("active",x===btn));
+ document.querySelectorAll(".admin-section").forEach(x=>x.classList.toggle("active",x.id===btn.dataset.tab));
+}));
+$("saveAppearance").addEventListener("click",()=>{
+ config.imageUrl=$("imageUrl").value.trim();config.date=$("dateConfig").value.trim()||"Data a confirmar";config.location=$("locationConfig").value.trim()||"Local a confirmar";config.title=$("titleConfig").value.trim()||defaultConfig.title;config.total=Math.max(1,Math.min(2000,Number($("totalConfig").value)||200));
+ config.unavailable=(config.unavailable||[]).filter(n=>Number(n)<=config.total);
+ saveConfig();render();showStatus("adminMessage","Configurações salvas neste navegador. Para atualizar para todos os visitantes, conecte o Firebase.");
+});
+$("savePrizes").addEventListener("click",()=>{
+ config.prizes={m1:$("pm1").value.trim()||"Prêmio a confirmar",m2:$("pm2").value.trim()||"Prêmio a confirmar",f1:$("pf1").value.trim()||"Prêmio a confirmar",f2:$("pf2").value.trim()||"Prêmio a confirmar"};
+ saveConfig();render();showStatus("adminMessage","Premiação salva nesta prévia local.");
+});
+$("logout").addEventListener("click",()=>{$("adminArea").classList.add("hidden");$("loginArea").classList.remove("hidden");$("adminPassword").value=""});
+render();
+</script>
+</body>
+</html>
