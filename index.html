@@ -48,8 +48,8 @@ section.content{padding:45px 0}.section-title{font-size:27px;text-transform:uppe
 .legend{display:flex;gap:16px;flex-wrap:wrap;color:#c5d0d9;font-size:12px}.dot{display:inline-block;width:10px;height:10px;margin-right:5px;background:#e4eaf0}.dot.sel{background:var(--yellow)}.dot.off{background:#374654}
 .notice{border-left:3px solid var(--yellow);padding:12px 14px;background:#102438;color:#cbd6df;font-size:12px;line-height:1.6;margin-top:18px}
 footer{padding:24px 0;border-top:1px solid #293e50;color:#9eafbd;font-size:12px;text-align:center}
-.modal{position:fixed;inset:0;background:rgba(0,0,0,.76);z-index:10;display:none;align-items:center;justify-content:center;padding:18px;overflow:auto}.modal.open{display:flex}.panel{width:min(780px,100%);background:#0b1e2d;border:1px solid #52687a;padding:24px;max-height:94vh;overflow:auto}.panel-head{display:flex;align-items:center;justify-content:space-between;gap:15px;border-bottom:1px solid #30485c;padding-bottom:14px;margin-bottom:18px}.panel h2{margin:0;font-size:23px}.close{background:transparent;color:white;border:1px solid #64788a;padding:8px 12px}.panel label{display:block;font-size:12px;color:#cad5de;margin:12px 0 6px}.panel input,.panel select{width:100%;padding:12px;background:#061522;border:1px solid #52687a;color:white}.panel button.primary{background:var(--yellow);color:#091522;border:0;padding:12px 16px;font-weight:800;margin-top:12px}.panel button.secondary{background:transparent;border:1px solid #718496;color:white;padding:10px 14px;margin-top:12px}.panel-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.admin-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:15px}.admin-tabs button{background:#142d40;color:white;border:1px solid #3c566b;padding:10px}.admin-tabs button.active{border-color:var(--yellow);color:var(--yellow)}.admin-section{display:none}.admin-section.active{display:block}.small{font-size:11px;line-height:1.5;color:#aebdca}.status{padding:10px;background:#102b3d;color:#dce7ef;margin-top:12px;font-size:12px;line-height:1.5}.hidden{display:none!important}
-@media(max-width:760px){.wrap{padding:0 15px}.nav{height:auto;min-height:70px;flex-wrap:wrap;padding:14px 0}.navlinks{order:3;width:100%;justify-content:space-between;gap:8px}.navlinks a{font-size:10px}.hero-inner{grid-template-columns:1fr;gap:0;padding-top:38px}.runner-stage{height:330px;grid-row:1}.runner-stage:before{inset:2% 12% 0 12%}.hero-copy{grid-row:2}.hero-inner{min-height:auto}.hero{min-height:0}h1{font-size:48px}.facts{gap:12px}.fact{min-width:95px}.signup{padding:15px}.highlights{grid-template-columns:1fr 1fr}.highlight:nth-child(2){border-right:0}.prizes{grid-template-columns:1fr 1fr}.slots{grid-template-columns:repeat(5,minmax(0,1fr))}.panel-grid{grid-template-columns:1fr}}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.76);z-index:10;display:none;align-items:center;justify-content:center;padding:18px;overflow:auto}.modal.open{display:flex}.panel{width:min(780px,100%);background:#0b1e2d;border:1px solid #52687a;padding:24px;max-height:94vh;overflow:auto}.panel-head{display:flex;align-items:center;justify-content:space-between;gap:15px;border-bottom:1px solid #30485c;padding-bottom:14px;margin-bottom:18px}.panel h2{margin:0;font-size:23px}.close{background:transparent;color:white;border:1px solid #64788a;padding:8px 12px}.panel label{display:block;font-size:12px;color:#cad5de;margin:12px 0 6px}.panel input,.panel select{width:100%;padding:12px;background:#061522;border:1px solid #52687a;color:white}.panel button.primary{background:var(--yellow);color:#091522;border:0;padding:12px 16px;font-weight:800;margin-top:12px}.panel button.primary:disabled{opacity:.6;cursor:not-allowed}.panel button.secondary{background:transparent;border:1px solid #718496;color:white;padding:10px 14px;margin-top:12px}.panel-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.admin-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:15px}.admin-tabs button{background:#142d40;color:white;border:1px solid #3c566b;padding:10px}.admin-tabs button.active{border-color:var(--yellow);color:var(--yellow)}.admin-section{display:none}.admin-section.active{display:block}.small{font-size:11px;line-height:1.5;color:#aebdca}.status{padding:10px;background:#102b3d;color:#dce7ef;margin-top:12px;font-size:12px;line-height:1.5}.status.error{background:#3a1a1a;color:#f0b8b8}.hidden{display:none!important}.logged-user{font-size:11px;color:#8ee0b5;margin-top:6px}
+@media(max-width:760px){.wrap{padding:0 15px}.nav{height:auto;min-height:70px;flex-wrap:wrap;padding:14px 0}.navlinks{order:3;width:100%;justify-content:space-between;gap:8px}.navlinks a{font-size:10px}.hero-inner{grid-template-columns:1fr;gap:0;padding-top:38px}.runner-stage{height:330px;grid-row:1}.runner-stage:before{inset:2% 12% 0 12%}.hero-copy{grid-row:2}.hero-inner{min-height:auto}.hero{min-height:0}h1{font-size:48px}.facts{gap:12px}.fact{min-width:95px}.signup{padding:15px}.highlights{grid-template-columns:1fr 1fr}.highlight:nth-child(2){border-right:0}.prizes{grid-template-columns:1fr 1fr}.panel-grid{grid-template-columns:1fr}}
 @media(max-width:380px){h1{font-size:39px}.fields{grid-template-columns:1fr}.fields .wide{grid-column:auto}.highlights,.prizes{grid-template-columns:1fr}.highlight{border-right:0;border-bottom:1px solid #3b5061}}
 </style>
 </head>
@@ -123,7 +123,7 @@ footer{padding:24px 0;border-top:1px solid #293e50;color:#9eafbd;font-size:12px;
     <p><strong id="takenCount">0</strong> de <strong id="totalCount">200</strong> vagas preenchidas</p>
     <a class="availability-cta" href="#cadastro">FAZER MINHA INSCRIÇÃO →</a>
   </div>
-  <div class="notice">O contador será atualizado para todos quando o site estiver conectado ao Firebase e as inscrições forem registradas.</div>
+  <div class="notice">O contador será atualizado para todos quando o site estiver conectado ao Firestore e as inscrições forem registradas.</div>
 </section>
 </main>
 <footer><div class="wrap">Treinão Hiper Mix · Informações e premiações sujeitas à confirmação oficial.</div></footer>
@@ -132,15 +132,15 @@ footer{padding:24px 0;border-top:1px solid #293e50;color:#9eafbd;font-size:12px;
  <div class="panel">
   <div class="panel-head"><h2 id="adminTitle">Painel administrativo</h2><button class="close" id="closeAdmin">Fechar ✕</button></div>
   <div id="loginArea">
-    <p class="small">Área restrita à organização. A autenticação real será conectada ao Firebase antes da publicação.</p>
+    <p class="small">Área restrita à organização. Faça login com o e-mail e senha cadastrados no Firebase.</p>
     <label for="adminEmail">E-mail administrativo</label><input id="adminEmail" type="email" autocomplete="username" placeholder="seu@email.com">
     <label for="adminPassword">Senha</label><input id="adminPassword" type="password" autocomplete="current-password" placeholder="Senha">
-    <button class="primary" id="demoLogin">Entrar na prévia administrativa</button>
-    <p class="small">Demonstração local: este acesso de exemplo não é seguro e não protege dados reais.</p>
+    <button class="primary" id="loginBtn">Entrar</button>
     <div id="loginMessage" class="status hidden"></div>
   </div>
   <div id="adminArea" class="hidden">
-    <div class="status">Você está na prévia local do painel. As alterações ficam neste navegador; para compartilhar com todos os visitantes, será necessário conectar o Firebase.</div>
+    <div class="status">Você está autenticado. As alterações ficam neste navegador (localStorage); para compartilhar com todos os visitantes, será necessário conectar o Firestore.</div>
+    <p class="logged-user" id="loggedUser"></p>
     <div class="admin-tabs">
       <button class="active" data-tab="appearance">Imagem e evento</button><button data-tab="prizesAdmin">Premiação</button><button data-tab="numbersAdmin">Vagas</button>
     </div>
@@ -170,34 +170,58 @@ footer{padding:24px 0;border-top:1px solid #293e50;color:#9eafbd;font-size:12px;
         <div class="availability-number"><strong id="adminRemaining">200</strong><span>vagas restantes</span></div>
         <p><strong id="adminTaken">0</strong> de <strong id="adminTotal">200</strong> vagas preenchidas.</p>
       </div>
-      <p class="small">Nesta prévia, o contador é demonstrativo. Com o Firebase conectado, esta área poderá listar inscrições e atualizar as vagas em tempo real.</p>
+      <p class="small">Nesta prévia, o contador é demonstrativo. Com o Firestore conectado, esta área poderá listar inscrições e atualizar as vagas em tempo real.</p>
     </div>
     <div id="adminMessage" class="status hidden"></div>
     <button class="secondary" id="logout">Sair do painel</button>
   </div>
  </div>
 </div>
-<script>
-/*
-  PROTÓTIPO VISUAL.
-  Ainda não conectado ao Firebase/Eduzz. Não colete dados reais nesta versão.
-  Na versão de produção, a autenticação e as alterações administrativas devem
-  ser validadas no Firebase/servidor, nunca apenas neste JavaScript.
-*/
-const $ = id => document.getElementById(id);
-const STORAGE_KEY = "hipermix_preview_config_v1";
 
-// ⬇️ URL raw da imagem (link direto do GitHub, sem página em volta).
-// Para atualizar automaticamente quando trocar a imagem no repositório,
-// troque o hash do commit pela branch, por exemplo:
-// https://raw.githubusercontent.com/teiteitata36-ops/treinao/main/WhatsApp%20Image%202026-10-29%20at%2014.10.26.jpeg
-const RAW_IMAGE_URL = "https://raw.githubusercontent.com/teiteitata36-ops/treinao/57d28b7f1a9712f24d8c16cfc9ca59d0e933576d/WhatsApp%20Image%202026-10-29%20at%2014.10.26.jpeg";
+<!-- Firebase SDK (compat) -->
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+
+<script>
+/* =====================================================================
+   ⚠️ COLE AQUI O SEU firebaseConfig (Firebase Console → Project Settings)
+   ===================================================================== */
+const firebaseConfig = {
+  apiKey: "COLE_AQUI",
+  authDomain: "COLE_AQUI",
+  projectId: "COLE_AQUI",
+  storageBucket: "COLE_AQUI",
+  messagingSenderId: "COLE_AQUI",
+  appId: "COLE_AQUI"
+};
+
+/* =====================================================================
+   Inicialização do Firebase (com fallback seguro)
+   ===================================================================== */
+let auth = null;
+try {
+  if (typeof firebase === "undefined") throw new Error("SDK do Firebase não carregou.");
+  if (!firebaseConfig.apiKey || firebaseConfig.apiKey === "COLE_AQUI") {
+    throw new Error("firebaseConfig não preenchido.");
+  }
+  firebase.initializeApp(firebaseConfig);
+  auth = firebase.auth();
+} catch (e) {
+  console.warn("[Firebase] Indisponível:", e.message);
+}
+
+/* =====================================================================
+   Configuração local (localStorage)
+   ===================================================================== */
+const $ = id => document.getElementById(id);
+const STORAGE_KEY = "hipermix_preview_config_v2";
+
+const RAW_IMAGE_URL = "https://raw.githubusercontent.com/teiteitata36-ops/treinao/54119c9bc86d1cbd26b3cdc8f621fa0dbb6a1621/WhatsApp_Image_2026-10-29_at_14.24.36-removebg-preview.png";
 
 const defaultConfig = {
   imageUrl: RAW_IMAGE_URL,
   date: "Data a confirmar",
   location: "Local a confirmar",
-  // \n vira <br> no render(), preservando o layout de duas linhas do título
   title: "1º TREINÃO\nDE ANIVERSÁRIO",
   total: 200,
   prizes: {
@@ -216,7 +240,6 @@ function loadConfig(){
   try{
     const stored = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
     const merged = { ...defaultConfig, ...stored };
-    // Se a config antiga do navegador tiver imageUrl vazio, usa a padrão
     if(!merged.imageUrl) merged.imageUrl = defaultConfig.imageUrl;
     return merged;
   }catch{
@@ -228,11 +251,20 @@ function saveConfig(){
   localStorage.setItem(STORAGE_KEY, JSON.stringify(config));
 }
 
-function showStatus(id,msg){
-  $(id).textContent = msg;
-  $(id).classList.remove("hidden");
+function showStatus(id,msg,isError){
+  const el = $(id);
+  el.textContent = msg;
+  el.classList.remove("hidden");
+  el.classList.toggle("error", !!isError);
 }
 
+function hideStatus(id){
+  $(id).classList.add("hidden");
+}
+
+/* =====================================================================
+   Imagem do corredor
+   ===================================================================== */
 function setImage(url){
   const img = $("runnerImage");
   const placeholder = $("runnerPlaceholder");
@@ -254,6 +286,9 @@ function setImage(url){
   img.src = url;
 }
 
+/* =====================================================================
+   Render principal
+   ===================================================================== */
 function render(){
   $("eventDate").textContent = config.date || "Data a confirmar";
   $("eventLocation").textContent = config.location || "Local a confirmar";
@@ -288,34 +323,39 @@ function render(){
   if(select) select.value = "auto";
 }
 
+/* =====================================================================
+   Formulário de inscrição (demo)
+   ===================================================================== */
 $("birthDate").max = new Date().toISOString().slice(0,10);
 
 $("registrationForm").addEventListener("submit", e => {
   e.preventDefault();
   const birth = $("birthDate").value;
   if(!birth){
-    showStatus("formMessage","Informe sua data de nascimento.");
+    showStatus("formMessage","Informe sua data de nascimento.", true);
     return;
   }
   const b = new Date(birth + "T12:00:00"), now = new Date();
   let age = now.getFullYear() - b.getFullYear();
   if(now.getMonth() < b.getMonth() || (now.getMonth() === b.getMonth() && now.getDate() < b.getDate())) age--;
   if(age < 16){
-    showStatus("formMessage","A inscrição é permitida somente para pessoas com 16 anos ou mais.");
+    showStatus("formMessage","A inscrição é permitida somente para pessoas com 16 anos ou mais.", true);
     return;
   }
-  if((config.unavailable || []).includes(selected)){
-    showStatus("formMessage","Esse número está indisponível. Escolha outro.");
-    render();
-    return;
-  }
-  showStatus("formMessage","Prévia: validação de idade concluída, mas nenhuma inscrição real foi enviada. A conexão com o Firebase e a Eduzz ainda precisa ser implementada.");
+  showStatus("formMessage","Prévia: validação de idade concluída, mas nenhuma inscrição real foi enviada. A conexão com o Firestore e a Eduzz ainda precisa ser implementada.");
 });
 
+/* =====================================================================
+   Painel administrativo — abertura
+   ===================================================================== */
 $("openAdmin").addEventListener("click", () => {
   $("adminModal").classList.add("open");
-  $("loginArea").classList.remove("hidden");
-  $("adminArea").classList.add("hidden");
+  hideStatus("loginMessage");
+  // onAuthStateChanged cuidará de mostrar login ou admin
+  if (!auth) {
+    showLoginArea();
+    showStatus("loginMessage","Firebase não configurado. Preencha o firebaseConfig no código para habilitar o login.", true);
+  }
 });
 
 $("closeAdmin").addEventListener("click", () => $("adminModal").classList.remove("open"));
@@ -324,13 +364,17 @@ $("adminModal").addEventListener("click", e => {
   if(e.target === $("adminModal")) $("adminModal").classList.remove("open");
 });
 
-$("demoLogin").addEventListener("click", () => {
-  if(!$("adminEmail").value.trim() || !$("adminPassword").value){
-    showStatus("loginMessage","Preencha e-mail e senha para entrar na demonstração.");
-    return;
-  }
+function showLoginArea(){
+  $("loginArea").classList.remove("hidden");
+  $("adminArea").classList.add("hidden");
+}
+
+function showAdminArea(user){
   $("loginArea").classList.add("hidden");
   $("adminArea").classList.remove("hidden");
+  $("loggedUser").textContent = user?.email ? "Logado como: " + user.email : "";
+
+  // Preenche os campos com a config atual
   $("imageUrl").value = config.imageUrl || "";
   $("dateConfig").value = config.date || "";
   $("locationConfig").value = config.location || "";
@@ -340,13 +384,82 @@ $("demoLogin").addEventListener("click", () => {
   $("pm2").value = config.prizes?.m2 || "";
   $("pf1").value = config.prizes?.f1 || "";
   $("pf2").value = config.prizes?.f2 || "";
+}
+
+/* =====================================================================
+   Firebase Auth
+   ===================================================================== */
+if (auth) {
+  auth.onAuthStateChanged(user => {
+    if (user) showAdminArea(user);
+    else showLoginArea();
+  });
+}
+
+$("loginBtn").addEventListener("click", async () => {
+  const email = $("adminEmail").value.trim();
+  const password = $("adminPassword").value;
+
+  hideStatus("loginMessage");
+
+  if (!email || !password) {
+    showStatus("loginMessage","Preencha e-mail e senha.", true);
+    return;
+  }
+  if (!auth) {
+    showStatus("loginMessage","Firebase não configurado. Preencha o firebaseConfig no código.", true);
+    return;
+  }
+
+  const btn = $("loginBtn");
+  btn.disabled = true;
+  btn.textContent = "Entrando...";
+
+  try {
+    await auth.signInWithEmailAndPassword(email, password);
+    // onAuthStateChanged vai cuidar de trocar a UI
+    $("adminPassword").value = "";
+  } catch (err) {
+    const messages = {
+      "auth/invalid-email": "E-mail inválido.",
+      "auth/user-not-found": "Usuário não encontrado. Confira o e-mail.",
+      "auth/wrong-password": "Senha incorreta.",
+      "auth/invalid-credential": "E-mail ou senha incorretos.",
+      "auth/too-many-requests": "Muitas tentativas. Tente novamente em alguns minutos.",
+      "auth/user-disabled": "Esta conta foi desativada.",
+      "auth/network-request-failed": "Falha de conexão. Verifique sua internet.",
+      "auth/operation-not-allowed": "Login por e-mail/senha está desabilitado no Firebase. Ative em Authentication → Sign-in method."
+    };
+    showStatus("loginMessage", messages[err.code] || ("Erro: " + err.message), true);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = "Entrar";
+  }
 });
 
+/* =====================================================================
+   Logout
+   ===================================================================== */
+$("logout").addEventListener("click", async () => {
+  if (auth) {
+    try { await auth.signOut(); } catch(e){ console.warn(e); }
+  }
+  $("adminPassword").value = "";
+  hideStatus("adminMessage");
+  showLoginArea();
+});
+
+/* =====================================================================
+   Abas do painel
+   ===================================================================== */
 document.querySelectorAll("[data-tab]").forEach(btn => btn.addEventListener("click", () => {
   document.querySelectorAll("[data-tab]").forEach(x => x.classList.toggle("active", x === btn));
   document.querySelectorAll(".admin-section").forEach(x => x.classList.toggle("active", x.id === btn.dataset.tab));
 }));
 
+/* =====================================================================
+   Salvar configurações (permanece em localStorage por enquanto)
+   ===================================================================== */
 $("saveAppearance").addEventListener("click", () => {
   config.imageUrl = $("imageUrl").value.trim() || defaultConfig.imageUrl;
   config.date = $("dateConfig").value.trim() || "Data a confirmar";
@@ -356,7 +469,7 @@ $("saveAppearance").addEventListener("click", () => {
   config.unavailable = (config.unavailable || []).filter(n => Number(n) <= config.total);
   saveConfig();
   render();
-  showStatus("adminMessage","Configurações salvas neste navegador. Para atualizar para todos os visitantes, conecte o Firebase.");
+  showStatus("adminMessage","Configurações salvas neste navegador. Para atualizar para todos os visitantes, conecte o Firestore.");
 });
 
 $("savePrizes").addEventListener("click", () => {
@@ -371,12 +484,9 @@ $("savePrizes").addEventListener("click", () => {
   showStatus("adminMessage","Premiação salva nesta prévia local.");
 });
 
-$("logout").addEventListener("click", () => {
-  $("adminArea").classList.add("hidden");
-  $("loginArea").classList.remove("hidden");
-  $("adminPassword").value = "";
-});
-
+/* =====================================================================
+   Init
+   ===================================================================== */
 render();
 </script>
 </body>
