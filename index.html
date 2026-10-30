@@ -26,16 +26,23 @@ h1 span{color:var(--yellow)}.tagline{font-size:16px;font-weight:800;font-style:i
 .badge span {color: var(--yellow); font-weight: 900; margin-left: 5px;}
 .badge-shirt {background: rgba(35, 134, 91, 0.15); border-color: var(--green); color: #fff;}
 
-/* CONTADOR */
-.countdown-box{display:flex;gap:15px;margin-bottom:20px;background:rgba(255,255,255,.05);padding:15px;border-radius:5px;border:1px solid #30485c;max-width:max-content;}
-.countdown-item{text-align:center}
-.countdown-item span{display:block;font-size:24px;font-weight:900;color:var(--yellow)}
-.countdown-item small{font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--muted)}
+/* CONTADOR MELHORADO */
+.countdown-box{display:flex;gap:12px;margin-bottom:25px;background:rgba(0,0,0,0.4);padding:15px 20px;border-radius:8px;border:1px solid var(--line);max-width:max-content; box-shadow: 0 10px 20px rgba(0,0,0,0.3);}
+.countdown-item{text-align:center;min-width:65px;}
+.countdown-item span{display:block;font-size:36px;font-weight:900;color:var(--yellow);line-height:1;}
+.countdown-item small{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-top:6px;display:block;font-weight:bold;}
+
+/* INFORMAÇÕES (DATA, LOCAL, VAGAS) FORMATADAS */
+.facts{display:grid;grid-template-columns:repeat(3, 1fr);gap:15px;margin:25px 0;}
+.fact{background:rgba(255,255,255,0.03);border-left:3px solid var(--yellow);padding:12px 15px;border-radius:4px;}
+.fact small{display:block;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;}
+.fact strong{display:block;font-size:16px;color:#fff;font-weight:700;}
 
 .signup{max-width:590px;border:1px solid #496176;background:rgba(4,17,29,.72);padding:20px;border-radius:5px}
 .signup h2{font-size:22px;color:var(--yellow);margin:0 0 5px;text-transform:uppercase}.signup p{margin:0 0 15px;color:#d7e0e8;font-size:13px}
 .fields{display:grid;grid-template-columns:1fr 1fr;gap:10px}.fields input,.fields select{width:100%;background:#081a29;color:white;border:1px solid #587087;padding:13px 12px;border-radius:3px;min-width:0}.fields input::placeholder{color:#c1ccd5}.fields .wide{grid-column:1/-1}
-.cta{width:100%;margin-top:12px;padding:15px;border:0;background:var(--yellow);color:#091522;font-weight:900;text-transform:uppercase;letter-spacing:.5px}
+.cta{width:100%;margin-top:12px;padding:15px;border:0;background:var(--yellow);color:#091522;font-weight:900;text-transform:uppercase;letter-spacing:.5px; transition: all 0.3s;}
+.cta:disabled {background: #3b5061; color: #8294a5; cursor: not-allowed;}
 .fineprint{font-size:11px!important;color:#aebdca!important;line-height:1.5;margin-top:10px!important}
 
 /* ANIMAÇÃO DO CORREDOR */
@@ -79,7 +86,7 @@ section.content{padding:45px 0}.section-title{font-size:27px;text-transform:uppe
 footer{padding:24px 0;border-top:1px solid #293e50;color:#9eafbd;font-size:12px;text-align:center}
 
 /* MODAL ADMIN */
-.modal{position:fixed;inset:0;background:rgba(0,0,0,.76);z-index:10;display:none;align-items:center;justify-content:center;padding:18px;overflow:auto}.modal.open{display:flex}.panel{width:min(980px,100%);background:#0b1e2d;border:1px solid #52687a;padding:24px;max-height:94vh;overflow:auto}.panel-head{display:flex;align-items:center;justify-content:space-between;gap:15px;border-bottom:1px solid #30485c;padding-bottom:14px;margin-bottom:18px}.panel h2{margin:0;font-size:23px}.close{background:transparent;color:white;border:1px solid #64788a;padding:8px 12px}.panel label{display:block;font-size:12px;color:#cad5de;margin:12px 0 6px}.panel input,.panel select{width:100%;padding:12px;background:#061522;border:1px solid #52687a;color:white}.panel button.primary{background:var(--yellow);color:#091522;border:0;padding:12px 16px;font-weight:800;margin-top:12px}.panel button.primary:disabled{opacity:.6;cursor:not-allowed}.panel button.secondary{background:transparent;border:1px solid #718496;color:white;padding:10px 14px;margin-top:12px}.panel-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.admin-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:15px}.admin-tabs button{background:#142d40;color:white;border:1px solid #3c566b;padding:10px}.admin-tabs button.active{border-color:var(--yellow);color:var(--yellow)}.admin-section{display:none}.admin-section.active{display:block}.small{font-size:11px;line-height:1.5;color:#aebdca}.status{padding:10px;background:#102b3d;color:#dce7ef;margin-top:12px;font-size:12px;line-height:1.5}.status.error{background:#3a1a1a;color:#f0b8b8}.hidden{display:none!important}.logged-user{font-size:11px;color:#8ee0b5;margin-top:6px}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.76);z-index:10;display:none;align-items:center;justify-content:center;padding:18px;overflow:auto}.modal.open{display:flex}.panel{width:min(980px,100%);background:#0b1e2d;border:1px solid #52687a;padding:24px;max-height:94vh;overflow:auto}.panel-head{display:flex;align-items:center;justify-content:space-between;gap:15px;border-bottom:1px solid #30485c;padding-bottom:14px;margin-bottom:18px}.panel h2{margin:0;font-size:23px}.close{background:transparent;color:white;border:1px solid #64788a;padding:8px 12px}.panel label{display:block;font-size:12px;color:#cad5de;margin:12px 0 6px}.panel input,.panel select{width:100%;padding:12px;background:#061522;border:1px solid #52687a;color:white}.panel button.primary{background:var(--yellow);color:#091522;border:0;padding:12px 16px;font-weight:800;margin-top:12px}.panel button.primary:disabled{opacity:.6;cursor:not-allowed}.panel button.secondary{background:transparent;border:1px solid #718496;color:white;padding:10px 14px;margin-top:12px}.panel-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.admin-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:15px}.admin-tabs button{background:#142d40;color:white;border:1px solid #3c566b;padding:10px}.admin-tabs button.active{border-color:var(--yellow);color:var(--yellow)}.admin-section{display:none}.admin-section.active{display:block}.small{font-size:11px;line-height:1.5;color:#aebdca}.status{padding:10px;background:#102b3d;color:#dce7ef;margin-top:12px;font-size:12px;line-height:1.5; border-radius:4px;}.status.error{background:#3a1a1a;color:#f0b8b8}.hidden{display:none!important}.logged-user{font-size:11px;color:#8ee0b5;margin-top:6px}
 
 /* TABELA ADMIN */
 .table-responsive{overflow-x:auto; margin-top:15px;}
@@ -101,8 +108,10 @@ th{background:#142d40;color:var(--yellow);font-weight:700}
 }
 
 @media(max-width:760px){
-  .wrap{padding:0 15px}.nav{height:auto;min-height:70px;flex-wrap:wrap;padding:14px 0}.navlinks{order:3;width:100%;justify-content:space-between;gap:8px}.navlinks a{font-size:10px}.hero-inner{grid-template-columns:1fr;gap:0;padding-top:38px}.runner-stage{height:330px;grid-row:1}.runner-stage:before{inset:2% 12% 0 12%}.hero-copy{grid-row:2}.hero-inner{min-height:auto}.hero{min-height:0}h1{font-size:48px}.facts{gap:12px}.fact{min-width:95px}.signup{padding:15px}.highlights{grid-template-columns:1fr 1fr}.highlight:nth-child(2){border-right:0}.prizes{grid-template-columns:1fr}.panel-grid{grid-template-columns:1fr}
+  .wrap{padding:0 15px}.nav{height:auto;min-height:70px;flex-wrap:wrap;padding:14px 0}.navlinks{order:3;width:100%;justify-content:space-between;gap:8px}.navlinks a{font-size:10px}.hero-inner{grid-template-columns:1fr;gap:0;padding-top:38px}.runner-stage{height:330px;grid-row:1}.runner-stage:before{inset:2% 12% 0 12%}.hero-copy{grid-row:2}.hero-inner{min-height:auto}.hero{min-height:0}h1{font-size:48px}.facts{grid-template-columns:1fr; gap:10px;}.signup{padding:15px}.highlights{grid-template-columns:1fr 1fr}.highlight:nth-child(2){border-right:0}.prizes{grid-template-columns:1fr}.panel-grid{grid-template-columns:1fr}
   .map-wrapper iframe {height: 300px;}
+  .countdown-item {min-width: 50px;}
+  .countdown-item span {font-size: 28px;}
 }
 @media(max-width:380px){
   h1{font-size:39px}.fields{grid-template-columns:1fr}.fields .wide{grid-column:auto}.highlights{grid-template-columns:1fr}.highlight{border-right:0;border-bottom:1px solid #3b5061}
@@ -139,10 +148,11 @@ th{background:#142d40;color:var(--yellow);font-weight:700}
       </div>
 
       <div class="facts">
-        <div class="fact"><small>Data</small><strong id="eventDate">Data a confirmar</strong></div>
-        <div class="fact"><small>Local</small><strong id="eventLocation">Local a confirmar</strong></div>
-        <div class="fact"><small>Vagas</small><strong><span id="availableCount">200</span> disponíveis</strong></div>
+        <div class="fact"><small>Data do Evento</small><strong id="eventDate">Data a confirmar</strong></div>
+        <div class="fact"><small>Local de Largada</small><strong id="eventLocation">Local a confirmar</strong></div>
+        <div class="fact"><small>Vagas Restantes</small><strong><span id="availableCount">200</span> disponíveis</strong></div>
       </div>
+      
       <div class="signup" id="cadastro">
         <h2>Faça sua inscrição</h2><p>Preencha seus dados para garantir sua vaga.</p>
         <form id="registrationForm">
@@ -302,8 +312,8 @@ th{background:#142d40;color:var(--yellow);font-weight:700}
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-database-compat.js"></script>
-<!-- EmailJS SDK -->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<!-- Confetti SDK -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
 <script>
 /* =====================================================================
@@ -320,7 +330,7 @@ const firebaseConfig = {
   measurementId: "G-LFWE2ETJZP"
 };
 
-// E-MAIL DA NOVA ADMINISTRADORA (Ela só verá a tabela e poderá apagar)
+// E-MAIL DA NOVA ADMINISTRADORA
 const EMAIL_ADMIN_2 = "hipermix296@gmail.com"; 
 
 let auth = null;
@@ -332,16 +342,13 @@ try {
 } catch (e) { console.warn("[Firebase] Indisponível:", e.message); }
 
 /* =====================================================================
-   CONFIGURAÇÃO DO EMAILJS (Aviso de nova inscrição)
+   CONFIGURAÇÃO DO EMAILJS 
    ===================================================================== */
-// Substitua pelas suas credenciais do EmailJS (https://www.emailjs.com/)
 const EMAILJS_PUBLIC_KEY = "SUA_PUBLIC_KEY_AQUI"; 
 const EMAILJS_SERVICE_ID = "SEU_SERVICE_ID_AQUI";
 const EMAILJS_TEMPLATE_ID = "SEU_TEMPLATE_ID_AQUI";
 
-if (typeof emailjs !== "undefined") {
-  emailjs.init(EMAILJS_PUBLIC_KEY);
-}
+if (typeof emailjs !== "undefined") { emailjs.init(EMAILJS_PUBLIC_KEY); }
 
 /* =====================================================================
    CONFIGURAÇÕES PADRÃO
@@ -384,15 +391,13 @@ function showStatus(id,msg,isError){
 function hideStatus(id){ const el = $(id); if(el) el.classList.add("hidden"); }
 
 /* =====================================================================
-   CONTADOR E RENDERIZAÇÃO (DATA + HORA)
+   CONTADOR E RENDERIZAÇÃO
    ===================================================================== */
 let countdownInterval;
 function startCountdown(dateString, timeString) {
   clearInterval(countdownInterval);
-  
   if (!dateString) { $("countdownContainer").classList.add("hidden"); return; }
   
-  // Junta a data e a hora configurada (Ex: "2026-11-15T06:00:00")
   const timeToUse = timeString || "06:00";
   const targetDate = new Date(dateString + "T" + timeToUse + ":00").getTime();
   
@@ -443,26 +448,91 @@ function render(){
   $("prizeF3").textContent = config.prizes?.f3 || "A confirmar";
 
   setImage(config.imageUrl);
-  startCountdown(config.date, config.time); // Passando hora também
+  startCountdown(config.date, config.time);
   
   if(config.mapUrl) { $("googleMap").src = config.mapUrl; }
-
-  const total = Math.max(1, Math.min(2000, Number(config.total) || 200));
-  const unavailable = new Set(config.unavailable || []);
-  const count = Math.max(0, total - unavailable.size);
-
-  $("availableCount").textContent = count;
-  $("remainingCount").textContent = count;
-  $("totalCount").textContent = total;
-  $("takenCount").textContent = total - count;
-  $("availabilityBar").style.width = ((total - count) / total * 100) + "%";
-  $("adminRemaining").textContent = count;
-  $("adminTotal").textContent = total;
-  $("adminTaken").textContent = total - count;
 }
 
 /* =====================================================================
-   FORMULÁRIO DE INSCRIÇÃO (FIREBASE + EMAIL)
+   ATUALIZAÇÃO DE VAGAS EM TEMPO REAL & CONTROLE DO BOTÃO
+   ===================================================================== */
+function updateVagasUI(totalRegistrations) {
+  const total = Math.max(1, Math.min(2000, Number(config.total) || 200));
+  const available = Math.max(0, total - totalRegistrations);
+
+  // Elementos na tela principal e admin
+  $("availableCount").textContent = available;
+  $("remainingCount").textContent = available;
+  $("totalCount").textContent = total;
+  $("takenCount").textContent = totalRegistrations;
+  
+  $("adminRemaining").textContent = available;
+  $("adminTotal").textContent = total;
+  $("adminTaken").textContent = totalRegistrations;
+
+  const barWidth = totalRegistrations > total ? 100 : (totalRegistrations / total * 100);
+  $("availabilityBar").style.width = barWidth + "%";
+
+  // Regra de bloqueio se esgotar
+  if (available <= 0) {
+    $("btnSubmit").disabled = true;
+    $("btnSubmit").textContent = "VAGAS ESGOTADAS";
+    $("registrationForm").querySelectorAll('input').forEach(i => i.disabled = true);
+    showStatus("formMessage", "As inscrições para este evento estão esgotadas.", true);
+  } else {
+    $("btnSubmit").disabled = false;
+    $("btnSubmit").textContent = "Confirmar Inscrição";
+    $("registrationForm").querySelectorAll('input').forEach(i => i.disabled = false);
+    hideStatus("formMessage"); // limpa msg se voltar a ter vaga
+  }
+}
+
+// Escuta o Firebase para atualizar Vagas e Tabela do Admin
+if (db) {
+  db.ref('inscricoes').on('value', (snapshot) => {
+    const dados = snapshot.val();
+    const totalRegistrations = dados ? Object.keys(dados).length : 0;
+    
+    // 1. Atualiza os contadores na tela
+    updateVagasUI(totalRegistrations);
+
+    // 2. Atualiza o Relatório (se a tabela existir)
+    const tbody = document.querySelector("#tabelaInscritos tbody");
+    if (!tbody) return; 
+    
+    tbody.innerHTML = "";
+    if (!dados) {
+      tbody.innerHTML = "<tr><td colspan='5' style='text-align:center;'>Nenhuma inscrição recebida ainda.</td></tr>";
+      return;
+    }
+    
+    const lista = Object.keys(dados).map(id => ({ id, ...dados[id] }));
+    lista.sort((a, b) => new Date(b.dataInscricao) - new Date(a.dataInscricao));
+
+    lista.forEach(item => {
+      const dataInsc = new Date(item.dataInscricao).toLocaleString('pt-BR');
+      const dataNasc = item.nascimento ? new Date(item.nascimento + "T12:00:00").toLocaleDateString('pt-BR') : '-';
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${item.nome}</td>
+        <td>${item.email}<br><span style="font-size:11px;color:#aaa">${item.telefone}</span></td>
+        <td>${dataNasc}</td>
+        <td>${dataInsc}</td>
+        <td class="no-print"><button class="btn-delete" onclick="deletarInscrito('${item.id}')">Excluir</button></td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }, (error) => {
+    console.error("Erro no Firebase:", error);
+    const tbody = document.querySelector("#tabelaInscritos tbody");
+    if (tbody) {
+      tbody.innerHTML = "<tr><td colspan='5' style='text-align:center; color:#ff6b6b;'>Erro de permissão. Verifique as regras do Firebase Realtime Database.</td></tr>";
+    }
+  });
+}
+
+/* =====================================================================
+   FORMULÁRIO E CONFETES
    ===================================================================== */
 $("birthDate").max = new Date().toISOString().slice(0,10);
 
@@ -484,39 +554,42 @@ $("registrationForm").addEventListener("submit", e => {
   btn.disabled = true; btn.textContent = "Enviando...";
 
   const novaInscricao = {
-    nome: nome,
-    email: emailUser,
-    telefone: telefone,
-    nascimento: nascimento,
-    dataInscricao: new Date().toISOString(),
-    status: "confirmado" // Evento gratuito, já entra confirmado
+    nome: nome, email: emailUser, telefone: telefone, nascimento: nascimento,
+    dataInscricao: new Date().toISOString(), status: "confirmado"
   };
 
-  // 1. Salva no Firebase Realtime Database
   db.ref('inscricoes').push(novaInscricao)
     .then(() => {
       showStatus("formMessage", "Inscrição realizada com sucesso! Sua vaga está garantida. Nos vemos lá!", false);
       $("registrationForm").reset();
+      
+      // 🎉 EFEITO DE CONFETE 🎉
+      confetti({
+        particleCount: 150,
+        spread: 80,
+        origin: { y: 0.6 },
+        colors: ['#ffd21a', '#ffffff', '#23865b']
+      });
+      setTimeout(() => {
+        confetti({ particleCount: 100, angle: 60, spread: 55, origin: { x: 0 }, colors: ['#ffd21a'] });
+        confetti({ particleCount: 100, angle: 120, spread: 55, origin: { x: 1 }, colors: ['#23865b'] });
+      }, 250);
 
-      // 2. Dispara o e-mail via EmailJS para a administradora
       if (typeof emailjs !== "undefined" && EMAILJS_PUBLIC_KEY !== "SUA_PUBLIC_KEY_AQUI") {
-        const templateParams = {
-          to_email: EMAIL_ADMIN_2,
-          nome: nome,
-          email: emailUser,
-          telefone: telefone,
-          nascimento: nascimento
-        };
-        emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
-          .then(() => console.log("E-mail de notificação enviado!"))
-          .catch((err) => console.error("Erro ao enviar e-mail:", err));
+        const templateParams = { to_email: EMAIL_ADMIN_2, nome, email: emailUser, telefone, nascimento };
+        emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams).catch(()=>{});
       }
     })
     .catch((error) => {
       console.error("Erro:", error);
       showStatus("formMessage", "Erro ao enviar. Tente novamente.", true);
     })
-    .finally(() => { btn.disabled = false; btn.textContent = "Confirmar Inscrição"; });
+    .finally(() => { 
+      // Se ainda houver vagas, o botão é reativado pelo updateVagasUI
+      if(btn.textContent === "Enviando...") {
+        btn.textContent = "Confirmar Inscrição";
+      }
+    });
 });
 
 /* =====================================================================
@@ -541,35 +614,19 @@ function showAdminArea(user){
   if (isDev) {
     $("tabAppearance").style.display = "block"; $("tabPrizes").style.display = "block"; $("tabNumbers").style.display = "block";
     document.querySelector('[data-tab="participantsAdmin"]').click();
-  } else if (isAdmin2) {
-    // A segunda admin só vê o relatório
-    $("tabAppearance").style.display = "none"; $("tabPrizes").style.display = "none"; $("tabNumbers").style.display = "none";
-    document.querySelector('[data-tab="participantsAdmin"]').click();
   } else {
-    // Se alguém sem permissão logar (por erro), esconde tudo
     $("tabAppearance").style.display = "none"; $("tabPrizes").style.display = "none"; $("tabNumbers").style.display = "none";
     document.querySelector('[data-tab="participantsAdmin"]').click();
   }
 
-  // Preenche campos do Admin
-  $("imageUrl").value = config.imageUrl || "";
-  $("dateConfig").value = config.date || "";
-  $("timeConfig").value = config.time || "";
-  $("locationConfig").value = config.location || "";
-  $("distanceConfig").value = config.distance || "";
-  $("titleConfig").value = config.title || "";
-  $("shirtConfig").value = config.shirt || "";
-  $("mapConfig").value = config.mapUrl || "";
+  $("imageUrl").value = config.imageUrl || ""; $("dateConfig").value = config.date || "";
+  $("timeConfig").value = config.time || ""; $("locationConfig").value = config.location || "";
+  $("distanceConfig").value = config.distance || ""; $("titleConfig").value = config.title || "";
+  $("shirtConfig").value = config.shirt || ""; $("mapConfig").value = config.mapUrl || "";
   $("totalConfig").value = config.total || 200;
   
-  $("pm1").value = config.prizes?.m1 || "";
-  $("pm2").value = config.prizes?.m2 || "";
-  $("pm3").value = config.prizes?.m3 || "";
-  $("pf1").value = config.prizes?.f1 || "";
-  $("pf2").value = config.prizes?.f2 || "";
-  $("pf3").value = config.prizes?.f3 || "";
-
-  carregarInscritos();
+  $("pm1").value = config.prizes?.m1 || ""; $("pm2").value = config.prizes?.m2 || ""; $("pm3").value = config.prizes?.m3 || "";
+  $("pf1").value = config.prizes?.f1 || ""; $("pf2").value = config.prizes?.f2 || ""; $("pf3").value = config.prizes?.f3 || "";
 }
 
 if (auth) { auth.onAuthStateChanged(user => { if (user) showAdminArea(user); else showLoginArea(); }); }
@@ -600,9 +657,6 @@ document.querySelectorAll("[data-tab]").forEach(btn => btn.addEventListener("cli
   document.querySelectorAll(".admin-section").forEach(x => x.classList.toggle("active", x.id === btn.dataset.tab));
 }));
 
-/* =====================================================================
-   SALVAR CONFIGURAÇÕES DO ADMIN
-   ===================================================================== */
 $("saveAppearance").addEventListener("click", () => {
   config.imageUrl = $("imageUrl").value.trim() || defaultConfig.imageUrl;
   config.date = $("dateConfig").value;
@@ -618,6 +672,13 @@ $("saveAppearance").addEventListener("click", () => {
 
   config.total = Math.max(1, Math.min(2000, Number($("totalConfig").value) || 200));
   saveConfig(); render();
+  
+  // Força atualizar o contador de vagas com o novo total
+  if (db) {
+    db.ref('inscricoes').once('value').then(snap => {
+      updateVagasUI(snap.exists() ? Object.keys(snap.val()).length : 0);
+    });
+  }
   showStatus("adminMessage","Configurações salvas com sucesso!");
 });
 
@@ -629,40 +690,6 @@ $("savePrizes").addEventListener("click", () => {
   saveConfig(); render();
   showStatus("adminMessage","Premiação salva com sucesso!");
 });
-
-/* =====================================================================
-   LISTAGEM E EXCLUSÃO DE INSCRITOS
-   ===================================================================== */
-function carregarInscritos() {
-  if (!db) return;
-  const tbody = document.querySelector("#tabelaInscritos tbody");
-  
-  // Fica ouvindo em tempo real
-  db.ref('inscricoes').on('value', (snapshot) => {
-    const dados = snapshot.val();
-    tbody.innerHTML = "";
-    if (!dados) {
-      tbody.innerHTML = "<tr><td colspan='5' style='text-align:center;'>Nenhuma inscrição recebida ainda.</td></tr>";
-      return;
-    }
-    const lista = Object.keys(dados).map(id => ({ id, ...dados[id] }));
-    lista.sort((a, b) => new Date(b.dataInscricao) - new Date(a.dataInscricao));
-
-    lista.forEach(item => {
-      const dataInsc = new Date(item.dataInscricao).toLocaleString('pt-BR');
-      const dataNasc = item.nascimento ? new Date(item.nascimento + "T12:00:00").toLocaleDateString('pt-BR') : '-';
-      const tr = document.createElement("tr");
-      tr.innerHTML = `
-        <td>${item.nome}</td>
-        <td>${item.email}<br><span style="font-size:11px;color:#aaa">${item.telefone}</span></td>
-        <td>${dataNasc}</td>
-        <td>${dataInsc}</td>
-        <td class="no-print"><button class="btn-delete" onclick="deletarInscrito('${item.id}')">Excluir</button></td>
-      `;
-      tbody.appendChild(tr);
-    });
-  });
-}
 
 window.deletarInscrito = (id) => {
   if (confirm("Tem certeza que deseja excluir esta inscrição permanentemente?")) {
