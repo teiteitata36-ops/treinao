@@ -19,21 +19,48 @@ header{border-bottom:1px solid #263949;background:#071827}
 .eyebrow{font-size:13px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:#dfe7ed}
 h1{font-size:clamp(42px,6vw,76px);line-height:.93;letter-spacing:-3px;margin:18px 0 12px;font-weight:900;text-transform:uppercase}
 h1 span{color:var(--yellow)}.tagline{font-size:16px;font-weight:800;font-style:italic;letter-spacing:.5px}.tagline span{color:var(--yellow)}
-.facts{display:flex;flex-wrap:wrap;gap:18px;margin:28px 0 24px}.fact{border-left:2px solid var(--yellow);padding-left:12px;min-width:115px}.fact small{display:block;color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:1px;margin-bottom:5px}.fact strong{font-size:13px;line-height:1.45}
+
+/* NOVOS SELOS (BADGES) */
+.hero-badges {display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px;}
+.badge {background: rgba(255, 210, 26, 0.1); border: 1px solid var(--yellow); color: var(--white); padding: 8px 14px; border-radius: 50px; font-size: 12px; font-weight: 700; display: flex; align-items: center; gap: 6px; text-transform: uppercase; letter-spacing: 0.5px;}
+.badge span {color: var(--yellow); font-weight: 900;}
+.badge-shirt {background: rgba(35, 134, 91, 0.15); border-color: var(--green);}
+
+/* CONTADOR */
+.countdown-box{display:flex;gap:15px;margin-bottom:20px;background:rgba(255,255,255,.05);padding:15px;border-radius:5px;border:1px solid #30485c;max-width:max-content;}
+.countdown-item{text-align:center}
+.countdown-item span{display:block;font-size:24px;font-weight:900;color:var(--yellow)}
+.countdown-item small{font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--muted)}
+
 .signup{max-width:590px;border:1px solid #496176;background:rgba(4,17,29,.72);padding:20px;border-radius:5px}
 .signup h2{font-size:22px;color:var(--yellow);margin:0 0 5px;text-transform:uppercase}.signup p{margin:0 0 15px;color:#d7e0e8;font-size:13px}
 .fields{display:grid;grid-template-columns:1fr 1fr;gap:10px}.fields input,.fields select{width:100%;background:#081a29;color:white;border:1px solid #587087;padding:13px 12px;border-radius:3px;min-width:0}.fields input::placeholder{color:#c1ccd5}.fields .wide{grid-column:1/-1}
 .cta{width:100%;margin-top:12px;padding:15px;border:0;background:var(--yellow);color:#091522;font-weight:900;text-transform:uppercase;letter-spacing:.5px}
 .fineprint{font-size:11px!important;color:#aebdca!important;line-height:1.5;margin-top:10px!important}
+
+/* ANIMAÇÃO DO CORREDOR */
 .runner-stage{height:500px;position:relative;display:flex;align-items:flex-end;justify-content:center;overflow:hidden}
 .runner-stage:before{content:"";position:absolute;inset:8% 2% 0 8%;border-left:6px solid var(--yellow);transform:skew(-22deg);opacity:.9}
 .runner-stage:after{content:"";position:absolute;bottom:0;left:0;right:0;height:110px;background:linear-gradient(transparent,#07121d)}
-.runner-stage img{position:relative;z-index:1;max-width:100%;max-height:100%;object-fit:contain;object-position:bottom;filter:drop-shadow(0 15px 24px rgba(0,0,0,.35))}
+.runner-stage img{position:relative;z-index:1;max-width:100%;max-height:100%;object-fit:contain;object-position:bottom;filter:drop-shadow(0 15px 24px rgba(0,0,0,.35));animation:flutuar 4s ease-in-out infinite;}
+@keyframes flutuar {0%, 100% {transform: translateY(0);}50% {transform: translateY(-15px);}}
+
 .runner-placeholder{position:relative;z-index:1;align-self:center;text-align:center;color:#aebdca;border:1px dashed #718496;padding:30px;max-width:280px;background:rgba(7,24,39,.75);line-height:1.5}
 .highlights{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #293e50;border-bottom:1px solid #293e50;padding:22px 0;gap:10px}
 .highlight{padding:6px 16px;border-right:1px solid #3b5061}.highlight:last-child{border:0}.highlight strong{display:block;color:var(--yellow);font-size:12px;text-transform:uppercase;margin-bottom:6px}.highlight span{font-size:11px;color:#d4dde5;line-height:1.5}
 section.content{padding:45px 0}.section-title{font-size:27px;text-transform:uppercase;margin:0 0 8px}.section-title span{color:var(--yellow)}.section-desc{color:var(--muted);margin:0 0 22px;font-size:14px}
-.prizes{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.prize{border-top:3px solid var(--yellow);background:#0d2233;padding:18px}.prize small{color:var(--muted);text-transform:uppercase;font-size:10px;letter-spacing:1px}.prize h3{font-size:15px;margin:9px 0}.prize p{font-size:13px;color:#d4dde5;margin:0}
+
+/* PREMIAÇÃO E MAPA */
+.prizes{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.prize{border-top:3px solid var(--yellow);background:#0d2233;padding:18px;transition:transform 0.2s;}
+.prize:hover{transform:translateY(-3px);}
+.prize small{color:var(--muted);text-transform:uppercase;font-size:10px;letter-spacing:1px}.prize h3{font-size:15px;margin:9px 0}.prize p{font-size:13px;color:#d4dde5;margin:0}
+
+.map-wrapper {margin-top: 20px; border-radius: 8px; overflow: hidden; border: 2px solid #30485c; box-shadow: 0 10px 30px rgba(0,0,0,0.5); transition: all 0.4s ease; position: relative;}
+.map-wrapper:hover {border-color: var(--yellow); box-shadow: 0 15px 40px rgba(255, 210, 26, 0.15);}
+.map-wrapper iframe {width: 100%; height: 400px; border: 0; display: block; filter: grayscale(20%) contrast(1.1);}
+.map-wrapper:hover iframe {filter: grayscale(0%) contrast(1.1);}
+
 .availability-card{max-width:560px;margin-top:24px;padding:26px;border:1px solid #385268;background:linear-gradient(135deg,#0d263b,#081a29);border-radius:6px}
 .availability-top{display:flex;align-items:center;gap:9px;font-size:11px;font-weight:900;letter-spacing:1.5px;color:#8ee0b5}
 .availability-pulse{width:9px;height:9px;border-radius:50%;background:#36c982;box-shadow:0 0 0 5px rgba(54,201,130,.12)}
@@ -45,29 +72,70 @@ section.content{padding:45px 0}.section-title{font-size:27px;text-transform:uppe
 .availability-card>p{font-size:12px;color:#b9c5d0;margin:12px 0 20px}
 .availability-card>p strong{color:#fff}
 .availability-cta{display:block;text-align:center;text-decoration:none;background:var(--yellow);color:#091522;font-size:12px;font-weight:900;letter-spacing:.5px;padding:15px;border-radius:3px}
-.legend{display:flex;gap:16px;flex-wrap:wrap;color:#c5d0d9;font-size:12px}.dot{display:inline-block;width:10px;height:10px;margin-right:5px;background:#e4eaf0}.dot.sel{background:var(--yellow)}.dot.off{background:#374654}
 .notice{border-left:3px solid var(--yellow);padding:12px 14px;background:#102438;color:#cbd6df;font-size:12px;line-height:1.6;margin-top:18px}
 footer{padding:24px 0;border-top:1px solid #293e50;color:#9eafbd;font-size:12px;text-align:center}
-.modal{position:fixed;inset:0;background:rgba(0,0,0,.76);z-index:10;display:none;align-items:center;justify-content:center;padding:18px;overflow:auto}.modal.open{display:flex}.panel{width:min(780px,100%);background:#0b1e2d;border:1px solid #52687a;padding:24px;max-height:94vh;overflow:auto}.panel-head{display:flex;align-items:center;justify-content:space-between;gap:15px;border-bottom:1px solid #30485c;padding-bottom:14px;margin-bottom:18px}.panel h2{margin:0;font-size:23px}.close{background:transparent;color:white;border:1px solid #64788a;padding:8px 12px}.panel label{display:block;font-size:12px;color:#cad5de;margin:12px 0 6px}.panel input,.panel select{width:100%;padding:12px;background:#061522;border:1px solid #52687a;color:white}.panel button.primary{background:var(--yellow);color:#091522;border:0;padding:12px 16px;font-weight:800;margin-top:12px}.panel button.primary:disabled{opacity:.6;cursor:not-allowed}.panel button.secondary{background:transparent;border:1px solid #718496;color:white;padding:10px 14px;margin-top:12px}.panel-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.admin-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:15px}.admin-tabs button{background:#142d40;color:white;border:1px solid #3c566b;padding:10px}.admin-tabs button.active{border-color:var(--yellow);color:var(--yellow)}.admin-section{display:none}.admin-section.active{display:block}.small{font-size:11px;line-height:1.5;color:#aebdca}.status{padding:10px;background:#102b3d;color:#dce7ef;margin-top:12px;font-size:12px;line-height:1.5}.status.error{background:#3a1a1a;color:#f0b8b8}.hidden{display:none!important}.logged-user{font-size:11px;color:#8ee0b5;margin-top:6px}
-@media(max-width:760px){.wrap{padding:0 15px}.nav{height:auto;min-height:70px;flex-wrap:wrap;padding:14px 0}.navlinks{order:3;width:100%;justify-content:space-between;gap:8px}.navlinks a{font-size:10px}.hero-inner{grid-template-columns:1fr;gap:0;padding-top:38px}.runner-stage{height:330px;grid-row:1}.runner-stage:before{inset:2% 12% 0 12%}.hero-copy{grid-row:2}.hero-inner{min-height:auto}.hero{min-height:0}h1{font-size:48px}.facts{gap:12px}.fact{min-width:95px}.signup{padding:15px}.highlights{grid-template-columns:1fr 1fr}.highlight:nth-child(2){border-right:0}.prizes{grid-template-columns:1fr 1fr}.panel-grid{grid-template-columns:1fr}}
-@media(max-width:380px){h1{font-size:39px}.fields{grid-template-columns:1fr}.fields .wide{grid-column:auto}.highlights,.prizes{grid-template-columns:1fr}.highlight{border-right:0;border-bottom:1px solid #3b5061}}
+
+/* MODAL ADMIN */
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.76);z-index:10;display:none;align-items:center;justify-content:center;padding:18px;overflow:auto}.modal.open{display:flex}.panel{width:min(980px,100%);background:#0b1e2d;border:1px solid #52687a;padding:24px;max-height:94vh;overflow:auto}.panel-head{display:flex;align-items:center;justify-content:space-between;gap:15px;border-bottom:1px solid #30485c;padding-bottom:14px;margin-bottom:18px}.panel h2{margin:0;font-size:23px}.close{background:transparent;color:white;border:1px solid #64788a;padding:8px 12px}.panel label{display:block;font-size:12px;color:#cad5de;margin:12px 0 6px}.panel input,.panel select{width:100%;padding:12px;background:#061522;border:1px solid #52687a;color:white}.panel button.primary{background:var(--yellow);color:#091522;border:0;padding:12px 16px;font-weight:800;margin-top:12px}.panel button.primary:disabled{opacity:.6;cursor:not-allowed}.panel button.secondary{background:transparent;border:1px solid #718496;color:white;padding:10px 14px;margin-top:12px}.panel-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.admin-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:15px}.admin-tabs button{background:#142d40;color:white;border:1px solid #3c566b;padding:10px}.admin-tabs button.active{border-color:var(--yellow);color:var(--yellow)}.admin-section{display:none}.admin-section.active{display:block}.small{font-size:11px;line-height:1.5;color:#aebdca}.status{padding:10px;background:#102b3d;color:#dce7ef;margin-top:12px;font-size:12px;line-height:1.5}.status.error{background:#3a1a1a;color:#f0b8b8}.hidden{display:none!important}.logged-user{font-size:11px;color:#8ee0b5;margin-top:6px}
+
+/* TABELA ADMIN */
+.table-responsive{overflow-x:auto; margin-top:15px;}
+table{width:100%;border-collapse:collapse;font-size:13px;text-align:left}
+th,td{padding:10px;border-bottom:1px solid #30485c}
+th{background:#142d40;color:var(--yellow);font-weight:700}
+.btn-delete{background:#a83d3d;color:white;border:0;padding:5px 10px;border-radius:3px;font-size:11px;cursor:pointer}
+.btn-print{background:var(--green);color:white;border:0;padding:10px 15px;border-radius:3px;font-weight:bold;cursor:pointer;margin-bottom:10px}
+
+/* ESTILOS DE IMPRESSÃO */
+@media print {
+  body * { visibility: hidden; }
+  #printArea, #printArea * { visibility: visible; }
+  #printArea { position: absolute; left: 0; top: 0; width: 100%; color: black; }
+  #printArea table { border: 1px solid #000; }
+  #printArea th, #printArea td { border: 1px solid #000; padding: 8px; color: black; }
+  #printArea h2 { color: black; display: block !important; }
+  .no-print { display: none !important; }
+}
+
+@media(max-width:760px){
+  .wrap{padding:0 15px}.nav{height:auto;min-height:70px;flex-wrap:wrap;padding:14px 0}.navlinks{order:3;width:100%;justify-content:space-between;gap:8px}.navlinks a{font-size:10px}.hero-inner{grid-template-columns:1fr;gap:0;padding-top:38px}.runner-stage{height:330px;grid-row:1}.runner-stage:before{inset:2% 12% 0 12%}.hero-copy{grid-row:2}.hero-inner{min-height:auto}.hero{min-height:0}h1{font-size:48px}.facts{gap:12px}.fact{min-width:95px}.signup{padding:15px}.highlights{grid-template-columns:1fr 1fr}.highlight:nth-child(2){border-right:0}.prizes{grid-template-columns:1fr 1fr}.panel-grid{grid-template-columns:1fr}
+  .map-wrapper iframe {height: 300px;}
+}
+@media(max-width:380px){
+  h1{font-size:39px}.fields{grid-template-columns:1fr}.fields .wide{grid-column:auto}.highlights,.prizes{grid-template-columns:1fr}.highlight{border-right:0;border-bottom:1px solid #3b5061}
+}
 </style>
 </head>
 <body>
-<header>
+<header class="no-print">
   <div class="wrap nav">
     <div class="brand">HIPER <span>MIX</span></div>
-    <nav class="navlinks"><a href="#inicio">INÍCIO</a><a href="#sobre">SOBRE</a><a href="#vagas">INSCRIÇÕES</a><a href="#premiacao">PREMIAÇÃO</a></nav>
+    <nav class="navlinks"><a href="#inicio">INÍCIO</a><a href="#sobre">SOBRE</a><a href="#vagas">INSCRIÇÕES</a><a href="#premiacao">PREMIAÇÃO</a><a href="#localizacao">LOCAL</a></nav>
     <button class="admin-open" id="openAdmin">⚙ ADMINISTRAÇÃO</button>
   </div>
 </header>
-<main>
+<main class="no-print">
 <section class="hero" id="inicio">
   <div class="wrap hero-inner">
     <div class="hero-copy">
       <div class="eyebrow" id="eyebrow">HIPER MIX APRESENTA</div>
       <h1 id="eventTitle">1º TREINÃO<br><span>DE ANIVERSÁRIO</span></h1>
       <div class="tagline" id="tagline">SUPERE SEUS LIMITES. <span>CELEBRE CADA CONQUISTA.</span></div>
+      
+      <div class="hero-badges">
+        <div class="badge">🏃‍♂️ Distância: <span id="eventDistance">7km</span></div>
+        <div class="badge">⏰ Largada: <span id="eventTime">06:00</span></div>
+        <div class="badge badge-shirt">👕 <span id="eventShirt">Garante a camiseta!</span></div>
+      </div>
+
+      <!-- CONTADOR REGRESSIVO -->
+      <div class="countdown-box" id="countdownContainer">
+        <div class="countdown-item"><span id="cdDays">0</span><small>Dias</small></div>
+        <div class="countdown-item"><span id="cdHours">0</span><small>Horas</small></div>
+        <div class="countdown-item"><span id="cdMins">0</span><small>Minutos</small></div>
+        <div class="countdown-item"><span id="cdSecs">0</span><small>Segs</small></div>
+      </div>
+
       <div class="facts">
         <div class="fact"><small>Data</small><strong id="eventDate">Data a confirmar</strong></div>
         <div class="fact"><small>Local</small><strong id="eventLocation">Local a confirmar</strong></div>
@@ -81,16 +149,15 @@ footer{padding:24px 0;border-top:1px solid #293e50;color:#9eafbd;font-size:12px;
             <input id="email" type="email" required placeholder="E-mail" autocomplete="email">
             <input id="phone" type="tel" required placeholder="Telefone com DDD" autocomplete="tel">
             <input class="wide" id="birthDate" type="date" required aria-label="Data de nascimento">
-            <input class="wide" id="numberSelect" type="hidden" value="auto">
           </div>
-          <button class="cta" type="submit">Continuar inscrição →</button>
-          <p class="fineprint">Idade mínima: 16 anos. Nesta versão inicial, o formulário é demonstrativo e ainda não envia inscrições reais nem recebe pagamentos.</p>
+          <button class="cta" type="submit" id="btnSubmit">Continuar inscrição →</button>
+          <p class="fineprint">Idade mínima: 16 anos. O pagamento será realizado via Eduzz na próxima etapa (em breve).</p>
         </form>
         <div id="formMessage" class="status hidden" role="status"></div>
       </div>
     </div>
     <div class="runner-stage" id="runnerStage">
-      <div class="runner-placeholder" id="runnerPlaceholder">A imagem do corredor aparecerá aqui.<br><br>Adicione o link de um PNG transparente no painel administrativo.</div>
+      <div class="runner-placeholder" id="runnerPlaceholder">A imagem do corredor aparecerá aqui.</div>
       <img id="runnerImage" alt="Corredor do Treinão Hiper Mix" class="hidden">
     </div>
   </div>
@@ -109,8 +176,10 @@ footer{padding:24px 0;border-top:1px solid #293e50;color:#9eafbd;font-size:12px;
   <div class="prizes">
     <article class="prize"><small>Masculino</small><h3>1º lugar</h3><p id="prizeM1">Prêmio a confirmar</p></article>
     <article class="prize"><small>Masculino</small><h3>2º lugar</h3><p id="prizeM2">Prêmio a confirmar</p></article>
+    <article class="prize"><small>Masculino</small><h3>3º lugar</h3><p id="prizeM3">Prêmio a confirmar</p></article>
     <article class="prize"><small>Feminino</small><h3>1º lugar</h3><p id="prizeF1">Prêmio a confirmar</p></article>
     <article class="prize"><small>Feminino</small><h3>2º lugar</h3><p id="prizeF2">Prêmio a confirmar</p></article>
+    <article class="prize"><small>Feminino</small><h3>3º lugar</h3><p id="prizeF3">Prêmio a confirmar</p></article>
   </div>
 </section>
 <section class="content wrap" id="vagas">
@@ -123,14 +192,26 @@ footer{padding:24px 0;border-top:1px solid #293e50;color:#9eafbd;font-size:12px;
     <p><strong id="takenCount">0</strong> de <strong id="totalCount">200</strong> vagas preenchidas</p>
     <a class="availability-cta" href="#cadastro">FAZER MINHA INSCRIÇÃO →</a>
   </div>
-  <div class="notice">O contador será atualizado para todos quando o site estiver conectado ao Firestore e as inscrições forem registradas.</div>
 </section>
-</main>
-<footer><div class="wrap">Treinão Hiper Mix · Informações e premiações sujeitas à confirmação oficial.</div></footer>
 
-<div class="modal" id="adminModal" role="dialog" aria-modal="true" aria-labelledby="adminTitle">
+<!-- SEÇÃO DO MAPA -->
+<section class="content wrap" id="localizacao">
+  <h2 class="section-title">Como <span>Chegar</span></h2>
+  <p class="section-desc">Confira o local da largada e programe-se para chegar no horário.</p>
+  <div class="map-wrapper">
+    <!-- O SRC será preenchido dinamicamente pelo JavaScript com base no Admin -->
+    <iframe id="googleMap" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+  </div>
+</section>
+
+</main>
+<footer class="no-print"><div class="wrap">Treinão Hiper Mix · Informações e premiações sujeitas à confirmação oficial.</div></footer>
+
+<!-- MODAL ADMIN -->
+<div class="modal no-print" id="adminModal" role="dialog" aria-modal="true" aria-labelledby="adminTitle">
  <div class="panel">
   <div class="panel-head"><h2 id="adminTitle">Painel administrativo</h2><button class="close" id="closeAdmin">Fechar ✕</button></div>
+  
   <div id="loginArea">
     <p class="small">Área restrita à organização. Faça login com o e-mail e senha cadastrados no Firebase.</p>
     <label for="adminEmail">E-mail administrativo</label><input id="adminEmail" type="email" autocomplete="username" placeholder="seu@email.com">
@@ -138,53 +219,94 @@ footer{padding:24px 0;border-top:1px solid #293e50;color:#9eafbd;font-size:12px;
     <button class="primary" id="loginBtn">Entrar</button>
     <div id="loginMessage" class="status hidden"></div>
   </div>
+  
   <div id="adminArea" class="hidden">
-    <div class="status">Você está autenticado. As alterações ficam neste navegador (localStorage); para compartilhar com todos os visitantes, será necessário conectar o Firestore.</div>
     <p class="logged-user" id="loggedUser"></p>
-    <div class="admin-tabs">
-      <button class="active" data-tab="appearance">Imagem e evento</button><button data-tab="prizesAdmin">Premiação</button><button data-tab="numbersAdmin">Vagas</button>
+    
+    <div class="admin-tabs" id="adminTabs">
+      <button class="active" data-tab="participantsAdmin" id="tabParticipants">Inscritos (Relatório)</button>
+      <button data-tab="appearance" id="tabAppearance">Imagem e evento</button>
+      <button data-tab="prizesAdmin" id="tabPrizes">Premiação</button>
+      <button data-tab="numbersAdmin" id="tabNumbers">Vagas</button>
     </div>
-    <div class="admin-section active" id="appearance">
+
+    <div class="admin-section active" id="participantsAdmin">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+        <h3 style="margin:0; font-size:16px; color:var(--yellow);">Relatório de Inscritos</h3>
+        <button class="btn-print" onclick="window.print()">🖨️ Imprimir Relatório</button>
+      </div>
+      <div id="printArea">
+        <h2 style="display:none; text-align:center; margin-bottom:20px;">Relatório Oficial - Treinão Hiper Mix</h2>
+        <div class="table-responsive">
+          <table id="tabelaInscritos">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Contato</th>
+                <th>Nascimento</th>
+                <th>Data Inscrição</th>
+                <th class="no-print">Ação</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td colspan="5" style="text-align:center;">Carregando dados...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="small no-print" style="margin-top:10px;">Os dados são atualizados em tempo real. A exclusão é permanente.</p>
+    </div>
+
+    <div class="admin-section" id="appearance">
       <label for="imageUrl">URL pública da imagem PNG transparente</label><input id="imageUrl" type="url" placeholder="https://.../corredor.png">
-      <p class="small">Use um link direto para a imagem. O PNG deve ter transparência verdadeira; a imagem não deve conter fundo quadriculado desenhado.</p>
+      
       <div class="panel-grid">
-        <div><label for="dateConfig">Data do evento</label><input id="dateConfig" placeholder="Ex.: 15 de novembro de 2026"></div>
-        <div><label for="locationConfig">Local</label><input id="locationConfig" placeholder="Local do evento"></div>
-        <div><label for="titleConfig">Título</label><input id="titleConfig" placeholder="1º TREINÃO DE ANIVERSÁRIO"></div>
+        <div><label for="dateConfig">Data do evento (Para o contador)</label><input id="dateConfig" type="date"></div>
+        <div><label for="timeConfig">Horário de Largada</label><input id="timeConfig" placeholder="Ex: 06:00"></div>
+        <div><label for="locationConfig">Nome do Local</label><input id="locationConfig" placeholder="Ex: Supermercado Supermix"></div>
+        <div><label for="distanceConfig">Distância do Percurso</label><input id="distanceConfig" placeholder="Ex: 7km"></div>
+        <div><label for="titleConfig">Título</label><input id="titleConfig" placeholder="1º TREINÃO..."></div>
+        <div><label for="shirtConfig">Texto da Camiseta</label><input id="shirtConfig" placeholder="Garante a camiseta!"></div>
         <div><label for="totalConfig">Total de vagas (prévia)</label><input id="totalConfig" type="number" min="1" max="2000" value="200"></div>
+        <div class="wide" style="grid-column: 1/-1;"><label for="mapConfig">Link SRC do Mapa (Google Maps Embed)</label><input id="mapConfig" placeholder="https://www.google.com/maps/embed?..."></div>
       </div>
       <button class="primary" id="saveAppearance">Salvar configurações nesta prévia</button>
     </div>
+
     <div class="admin-section" id="prizesAdmin">
       <div class="panel-grid">
-        <div><label for="pm1">Masculino — 1º lugar</label><input id="pm1" placeholder="Prêmio a confirmar"></div>
-        <div><label for="pm2">Masculino — 2º lugar</label><input id="pm2" placeholder="Prêmio a confirmar"></div>
-        <div><label for="pf1">Feminino — 1º lugar</label><input id="pf1" placeholder="Prêmio a confirmar"></div>
-        <div><label for="pf2">Feminino — 2º lugar</label><input id="pf2" placeholder="Prêmio a confirmar"></div>
+        <div><label for="pm1">Masculino — 1º lugar</label><input id="pm1" placeholder="Prêmio"></div>
+        <div><label for="pm2">Masculino — 2º lugar</label><input id="pm2" placeholder="Prêmio"></div>
+        <div><label for="pm3">Masculino — 3º lugar</label><input id="pm3" placeholder="Prêmio"></div>
+        <div><label for="pf1">Feminino — 1º lugar</label><input id="pf1" placeholder="Prêmio"></div>
+        <div><label for="pf2">Feminino — 2º lugar</label><input id="pf2" placeholder="Prêmio"></div>
+        <div><label for="pf3">Feminino — 3º lugar</label><input id="pf3" placeholder="Prêmio"></div>
       </div>
       <button class="primary" id="savePrizes">Salvar premiação nesta prévia</button>
     </div>
+
     <div class="admin-section" id="numbersAdmin">
       <div class="availability-card">
         <div class="availability-top"><span class="availability-pulse"></span> RESUMO DE VAGAS</div>
         <div class="availability-number"><strong id="adminRemaining">200</strong><span>vagas restantes</span></div>
         <p><strong id="adminTaken">0</strong> de <strong id="adminTotal">200</strong> vagas preenchidas.</p>
       </div>
-      <p class="small">Nesta prévia, o contador é demonstrativo. Com o Firestore conectado, esta área poderá listar inscrições e atualizar as vagas em tempo real.</p>
     </div>
+    
     <div id="adminMessage" class="status hidden"></div>
     <button class="secondary" id="logout">Sair do painel</button>
   </div>
  </div>
 </div>
 
-<!-- Firebase SDK (compat) -->
+<!-- Firebase SDK -->
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-database-compat.js"></script>
 
 <script>
 /* =====================================================================
-   ⚠️ COLE AQUI O SEU firebaseConfig (Firebase Console → Project Settings)
+   CONFIGURAÇÃO DO FIREBASE
    ===================================================================== */
 const firebaseConfig = {
   apiKey: "AIzaSyAB10RdzPkWo0NHMDsdRvAFZs08S_LrUh0",
@@ -197,46 +319,42 @@ const firebaseConfig = {
   measurementId: "G-LFWE2ETJZP"
 };
 
-/* =====================================================================
-   Inicialização do Firebase (com fallback seguro)
-   ===================================================================== */
+// E-MAIL DA NOVA ADMINISTRADORA (ELA SÓ VERÁ A ABA DE RELATÓRIO)
+const EMAIL_ADMIN_2 = "hipermix296@gmail.com"; // ⚠️ TROQUE AQUI PARA O EMAIL DELA
+
 let auth = null;
+let db = null;
 try {
-  if (typeof firebase === "undefined") throw new Error("SDK do Firebase não carregou.");
-  if (!firebaseConfig.apiKey || firebaseConfig.apiKey === "COLE_AQUI") {
-    throw new Error("firebaseConfig não preenchido.");
-  }
   firebase.initializeApp(firebaseConfig);
   auth = firebase.auth();
-} catch (e) {
-  console.warn("[Firebase] Indisponível:", e.message);
-}
+  db = firebase.database();
+} catch (e) { console.warn("[Firebase] Indisponível:", e.message); }
 
 /* =====================================================================
-   Configuração local (localStorage)
+   CONFIGURAÇÕES PADRÃO
    ===================================================================== */
 const $ = id => document.getElementById(id);
-const STORAGE_KEY = "hipermix_preview_config_v2";
-
+const STORAGE_KEY = "hipermix_config_v4"; // Atualizado para v4 devido as novas opções
 const RAW_IMAGE_URL = "https://raw.githubusercontent.com/teiteitata36-ops/treinao/54119c9bc86d1cbd26b3cdc8f621fa0dbb6a1621/WhatsApp_Image_2026-10-29_at_14.24.36-removebg-preview.png";
+
+// Link extraído do iframe que você mandou
+const DEFAULT_MAP_URL = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3971.5157703600235!2d-47.44721352410529!3d-5.4901350944896885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x92cf8b218bd40d2f%3A0xb6951643f68d1de2!2sSUPERMERCADO%20SUPERMIX%20VAREJO!5e0!3m2!1spt-BR!2sbr!4v1793319142130!5m2!1spt-BR!2sbr";
 
 const defaultConfig = {
   imageUrl: RAW_IMAGE_URL,
-  date: "Data a confirmar",
-  location: "Local a confirmar",
+  date: "",
+  time: "06:00",
+  location: "Supermercado Supermix Varejo",
+  distance: "7km",
+  shirt: "Garante a camiseta!",
+  mapUrl: DEFAULT_MAP_URL,
   title: "1º TREINÃO\nDE ANIVERSÁRIO",
   total: 200,
-  prizes: {
-    m1: "Prêmio a confirmar",
-    m2: "Prêmio a confirmar",
-    f1: "Prêmio a confirmar",
-    f2: "Prêmio a confirmar"
-  },
+  prizes: { m1: "A confirmar", m2: "A confirmar", m3: "A confirmar", f1: "A confirmar", f2: "A confirmar", f3: "A confirmar" },
   unavailable: []
 };
 
 let config = loadConfig();
-let selected = "";
 
 function loadConfig(){
   try{
@@ -244,9 +362,7 @@ function loadConfig(){
     const merged = { ...defaultConfig, ...stored };
     if(!merged.imageUrl) merged.imageUrl = defaultConfig.imageUrl;
     return merged;
-  }catch{
-    return { ...defaultConfig };
-  }
+  }catch{ return { ...defaultConfig }; }
 }
 
 function saveConfig(){
@@ -254,59 +370,70 @@ function saveConfig(){
 }
 
 function showStatus(id,msg,isError){
-  const el = $(id);
-  el.textContent = msg;
-  el.classList.remove("hidden");
-  el.classList.toggle("error", !!isError);
+  const el = $(id); if(!el) return;
+  el.textContent = msg; el.classList.remove("hidden"); el.classList.toggle("error", !!isError);
 }
-
-function hideStatus(id){
-  $(id).classList.add("hidden");
-}
+function hideStatus(id){ const el = $(id); if(el) el.classList.add("hidden"); }
 
 /* =====================================================================
-   Imagem do corredor
+   CONTADOR E RENDERIZAÇÃO
    ===================================================================== */
+let countdownInterval;
+function startCountdown(dateString) {
+  clearInterval(countdownInterval);
+  if (!dateString) { $("countdownContainer").classList.add("hidden"); return; }
+  const targetDate = new Date(dateString + "T23:59:59").getTime();
+  if(isNaN(targetDate)) { $("countdownContainer").classList.add("hidden"); return; }
+  $("countdownContainer").classList.remove("hidden");
+
+  countdownInterval = setInterval(() => {
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+    if (distance < 0) {
+      clearInterval(countdownInterval);
+      $("countdownContainer").innerHTML = "<span style='color:var(--yellow);font-weight:bold;'>O evento começou!</span>";
+      return;
+    }
+    $("cdDays").textContent = Math.floor(distance / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+    $("cdHours").textContent = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+    $("cdMins").textContent = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+    $("cdSecs").textContent = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0');
+  }, 1000);
+}
+
 function setImage(url){
-  const img = $("runnerImage");
-  const placeholder = $("runnerPlaceholder");
-  if(!url){
-    img.classList.add("hidden");
-    img.removeAttribute("src");
-    placeholder.classList.remove("hidden");
-    return;
-  }
-  img.onload = () => {
-    img.classList.remove("hidden");
-    placeholder.classList.add("hidden");
-  };
-  img.onerror = () => {
-    img.classList.add("hidden");
-    placeholder.classList.remove("hidden");
-    placeholder.textContent = "Não foi possível carregar a imagem. Confira se o link é público e aponta diretamente para um PNG/JPG.";
-  };
+  const img = $("runnerImage"); const placeholder = $("runnerPlaceholder");
+  if(!url){ img.classList.add("hidden"); img.removeAttribute("src"); placeholder.classList.remove("hidden"); return; }
+  img.onload = () => { img.classList.remove("hidden"); placeholder.classList.add("hidden"); };
+  img.onerror = () => { img.classList.add("hidden"); placeholder.classList.remove("hidden"); placeholder.textContent = "Erro ao carregar imagem."; };
   img.src = url;
 }
 
-/* =====================================================================
-   Render principal
-   ===================================================================== */
 function render(){
-  $("eventDate").textContent = config.date || "Data a confirmar";
+  $("eventDate").textContent = config.date ? new Date(config.date + "T12:00:00").toLocaleDateString('pt-BR') : "Data a confirmar";
+  $("eventTime").textContent = config.time || "06:00";
+  $("eventDistance").textContent = config.distance || "7km";
+  $("eventShirt").textContent = config.shirt || "Garante a camiseta!";
   $("eventLocation").textContent = config.location || "Local a confirmar";
+  
   $("eventTitle").innerHTML = (config.title || defaultConfig.title)
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/\n/g,"<br>")
-    .replace("DE ANIVERSÁRIO",'<span>DE ANIVERSÁRIO</span>');
+    .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")
+    .replace(/\n/g,"<br>").replace("DE ANIVERSÁRIO",'<span>DE ANIVERSÁRIO</span>');
 
-  $("prizeM1").textContent = config.prizes?.m1 || "Prêmio a confirmar";
-  $("prizeM2").textContent = config.prizes?.m2 || "Prêmio a confirmar";
-  $("prizeF1").textContent = config.prizes?.f1 || "Prêmio a confirmar";
-  $("prizeF2").textContent = config.prizes?.f2 || "Prêmio a confirmar";
+  $("prizeM1").textContent = config.prizes?.m1 || "A confirmar";
+  $("prizeM2").textContent = config.prizes?.m2 || "A confirmar";
+  $("prizeM3").textContent = config.prizes?.m3 || "A confirmar";
+  $("prizeF1").textContent = config.prizes?.f1 || "A confirmar";
+  $("prizeF2").textContent = config.prizes?.f2 || "A confirmar";
+  $("prizeF3").textContent = config.prizes?.f3 || "A confirmar";
 
   setImage(config.imageUrl);
+  startCountdown(config.date);
+  
+  // Atualiza Mapa
+  if(config.mapUrl) {
+    $("googleMap").src = config.mapUrl;
+  }
 
   const total = Math.max(1, Math.min(2000, Number(config.total) || 200));
   const unavailable = new Set(config.unavailable || []);
@@ -320,175 +447,192 @@ function render(){
   $("adminRemaining").textContent = count;
   $("adminTotal").textContent = total;
   $("adminTaken").textContent = total - count;
-
-  const select = $("numberSelect");
-  if(select) select.value = "auto";
 }
 
 /* =====================================================================
-   Formulário de inscrição (demo)
+   FORMULÁRIO DE INSCRIÇÃO
    ===================================================================== */
 $("birthDate").max = new Date().toISOString().slice(0,10);
 
 $("registrationForm").addEventListener("submit", e => {
   e.preventDefault();
-  const birth = $("birthDate").value;
-  if(!birth){
-    showStatus("formMessage","Informe sua data de nascimento.", true);
-    return;
-  }
-  const b = new Date(birth + "T12:00:00"), now = new Date();
+  const btn = $("btnSubmit");
+  const nascimento = $("birthDate").value;
+
+  if(!nascimento){ showStatus("formMessage","Informe sua data de nascimento.", true); return; }
+  const b = new Date(nascimento + "T12:00:00"), now = new Date();
   let age = now.getFullYear() - b.getFullYear();
   if(now.getMonth() < b.getMonth() || (now.getMonth() === b.getMonth() && now.getDate() < b.getDate())) age--;
-  if(age < 16){
-    showStatus("formMessage","A inscrição é permitida somente para pessoas com 16 anos ou mais.", true);
-    return;
-  }
-  showStatus("formMessage","Prévia: validação de idade concluída, mas nenhuma inscrição real foi enviada. A conexão com o Firestore e a Eduzz ainda precisa ser implementada.");
+  if(age < 16){ showStatus("formMessage","A inscrição é permitida somente para pessoas com 16 anos ou mais.", true); return; }
+  if (!db) { showStatus("formMessage","Erro: Banco de dados não configurado.", true); return; }
+
+  btn.disabled = true; btn.textContent = "Enviando...";
+
+  const novaInscricao = {
+    nome: $("fullName").value.trim(),
+    email: $("email").value.trim(),
+    telefone: $("phone").value.trim(),
+    nascimento: nascimento,
+    dataInscricao: new Date().toISOString(),
+    status: "pendente"
+  };
+
+  db.ref('inscricoes').push(novaInscricao)
+    .then(() => {
+      showStatus("formMessage", "Inscrição realizada! Em breve você será redirecionado para o pagamento.", false);
+      $("registrationForm").reset();
+    })
+    .catch((error) => {
+      console.error("Erro:", error);
+      showStatus("formMessage", "Erro ao enviar. Tente novamente.", true);
+    })
+    .finally(() => { btn.disabled = false; btn.textContent = "Continuar inscrição →"; });
 });
 
 /* =====================================================================
-   Painel administrativo — abertura
+   PAINEL ADMINISTRATIVO E ACESSOS
    ===================================================================== */
 $("openAdmin").addEventListener("click", () => {
-  $("adminModal").classList.add("open");
-  hideStatus("loginMessage");
-  // onAuthStateChanged cuidará de mostrar login ou admin
-  if (!auth) {
-    showLoginArea();
-    showStatus("loginMessage","Firebase não configurado. Preencha o firebaseConfig no código para habilitar o login.", true);
-  }
+  $("adminModal").classList.add("open"); hideStatus("loginMessage");
+  if (!auth) { showLoginArea(); showStatus("loginMessage","Firebase não configurado.", true); }
 });
-
 $("closeAdmin").addEventListener("click", () => $("adminModal").classList.remove("open"));
+$("adminModal").addEventListener("click", e => { if(e.target === $("adminModal")) $("adminModal").classList.remove("open"); });
 
-$("adminModal").addEventListener("click", e => {
-  if(e.target === $("adminModal")) $("adminModal").classList.remove("open");
-});
-
-function showLoginArea(){
-  $("loginArea").classList.remove("hidden");
-  $("adminArea").classList.add("hidden");
-}
+function showLoginArea(){ $("loginArea").classList.remove("hidden"); $("adminArea").classList.add("hidden"); }
 
 function showAdminArea(user){
-  $("loginArea").classList.add("hidden");
-  $("adminArea").classList.remove("hidden");
-  $("loggedUser").textContent = user?.email ? "Logado como: " + user.email : "";
+  $("loginArea").classList.add("hidden"); $("adminArea").classList.remove("hidden");
+  $("loggedUser").textContent = "Logado como: " + user.email;
 
-  // Preenche os campos com a config atual
+  const isDev = user.email === "teiteitata36@gmail.com";
+  if (isDev) {
+    $("tabAppearance").style.display = "block"; $("tabPrizes").style.display = "block"; $("tabNumbers").style.display = "block";
+    document.querySelector('[data-tab="participantsAdmin"]').click();
+  } else {
+    $("tabAppearance").style.display = "none"; $("tabPrizes").style.display = "none"; $("tabNumbers").style.display = "none";
+    document.querySelector('[data-tab="participantsAdmin"]').click();
+  }
+
+  // Preenche campos do Admin
   $("imageUrl").value = config.imageUrl || "";
   $("dateConfig").value = config.date || "";
+  $("timeConfig").value = config.time || "";
   $("locationConfig").value = config.location || "";
+  $("distanceConfig").value = config.distance || "";
   $("titleConfig").value = config.title || "";
+  $("shirtConfig").value = config.shirt || "";
+  $("mapConfig").value = config.mapUrl || "";
   $("totalConfig").value = config.total || 200;
+  
   $("pm1").value = config.prizes?.m1 || "";
   $("pm2").value = config.prizes?.m2 || "";
+  $("pm3").value = config.prizes?.m3 || "";
   $("pf1").value = config.prizes?.f1 || "";
   $("pf2").value = config.prizes?.f2 || "";
+  $("pf3").value = config.prizes?.f3 || "";
+
+  carregarInscritos();
 }
 
-/* =====================================================================
-   Firebase Auth
-   ===================================================================== */
-if (auth) {
-  auth.onAuthStateChanged(user => {
-    if (user) showAdminArea(user);
-    else showLoginArea();
-  });
-}
+if (auth) { auth.onAuthStateChanged(user => { if (user) showAdminArea(user); else showLoginArea(); }); }
 
 $("loginBtn").addEventListener("click", async () => {
-  const email = $("adminEmail").value.trim();
-  const password = $("adminPassword").value;
-
+  const email = $("adminEmail").value.trim(); const password = $("adminPassword").value;
   hideStatus("loginMessage");
+  if (!email || !password) { showStatus("loginMessage","Preencha e-mail e senha.", true); return; }
+  if (!auth) { showStatus("loginMessage","Firebase não configurado.", true); return; }
 
-  if (!email || !password) {
-    showStatus("loginMessage","Preencha e-mail e senha.", true);
-    return;
-  }
-  if (!auth) {
-    showStatus("loginMessage","Firebase não configurado. Preencha o firebaseConfig no código.", true);
-    return;
-  }
-
-  const btn = $("loginBtn");
-  btn.disabled = true;
-  btn.textContent = "Entrando...";
-
+  const btn = $("loginBtn"); btn.disabled = true; btn.textContent = "Entrando...";
   try {
     await auth.signInWithEmailAndPassword(email, password);
-    // onAuthStateChanged vai cuidar de trocar a UI
     $("adminPassword").value = "";
   } catch (err) {
-    const messages = {
-      "auth/invalid-email": "E-mail inválido.",
-      "auth/user-not-found": "Usuário não encontrado. Confira o e-mail.",
-      "auth/wrong-password": "Senha incorreta.",
-      "auth/invalid-credential": "E-mail ou senha incorretos.",
-      "auth/too-many-requests": "Muitas tentativas. Tente novamente em alguns minutos.",
-      "auth/user-disabled": "Esta conta foi desativada.",
-      "auth/network-request-failed": "Falha de conexão. Verifique sua internet.",
-      "auth/operation-not-allowed": "Login por e-mail/senha está desabilitado no Firebase. Ative em Authentication → Sign-in method."
-    };
-    showStatus("loginMessage", messages[err.code] || ("Erro: " + err.message), true);
-  } finally {
-    btn.disabled = false;
-    btn.textContent = "Entrar";
-  }
+    const msg = { "auth/user-not-found":"Usuário não encontrado.", "auth/wrong-password":"Senha incorreta.", "auth/invalid-credential":"E-mail ou senha incorretos." };
+    showStatus("loginMessage", msg[err.code] || ("Erro: " + err.message), true);
+  } finally { btn.disabled = false; btn.textContent = "Entrar"; }
 });
 
-/* =====================================================================
-   Logout
-   ===================================================================== */
 $("logout").addEventListener("click", async () => {
-  if (auth) {
-    try { await auth.signOut(); } catch(e){ console.warn(e); }
-  }
-  $("adminPassword").value = "";
-  hideStatus("adminMessage");
-  showLoginArea();
+  if (auth) { try { await auth.signOut(); } catch(e){} }
+  $("adminPassword").value = ""; hideStatus("adminMessage"); showLoginArea();
 });
 
-/* =====================================================================
-   Abas do painel
-   ===================================================================== */
 document.querySelectorAll("[data-tab]").forEach(btn => btn.addEventListener("click", () => {
   document.querySelectorAll("[data-tab]").forEach(x => x.classList.toggle("active", x === btn));
   document.querySelectorAll(".admin-section").forEach(x => x.classList.toggle("active", x.id === btn.dataset.tab));
 }));
 
 /* =====================================================================
-   Salvar configurações (permanece em localStorage por enquanto)
+   SALVAR CONFIGURAÇÕES DO ADMIN
    ===================================================================== */
 $("saveAppearance").addEventListener("click", () => {
   config.imageUrl = $("imageUrl").value.trim() || defaultConfig.imageUrl;
-  config.date = $("dateConfig").value.trim() || "Data a confirmar";
+  config.date = $("dateConfig").value;
+  config.time = $("timeConfig").value.trim() || "06:00";
   config.location = $("locationConfig").value.trim() || "Local a confirmar";
+  config.distance = $("distanceConfig").value.trim() || "7km";
   config.title = $("titleConfig").value.trim() || defaultConfig.title;
+  config.shirt = $("shirtConfig").value.trim() || "Garante a camiseta!";
+  
+  // Extrai o link se o usuário colar o iframe inteiro
+  let mapInput = $("mapConfig").value.trim();
+  const match = mapInput.match(/src="([^"]+)"/);
+  config.mapUrl = match ? match[1] : mapInput;
+
   config.total = Math.max(1, Math.min(2000, Number($("totalConfig").value) || 200));
-  config.unavailable = (config.unavailable || []).filter(n => Number(n) <= config.total);
-  saveConfig();
-  render();
-  showStatus("adminMessage","Configurações salvas neste navegador. Para atualizar para todos os visitantes, conecte o Firestore.");
+  saveConfig(); render();
+  showStatus("adminMessage","Configurações salvas com sucesso!");
 });
 
 $("savePrizes").addEventListener("click", () => {
   config.prizes = {
-    m1: $("pm1").value.trim() || "Prêmio a confirmar",
-    m2: $("pm2").value.trim() || "Prêmio a confirmar",
-    f1: $("pf1").value.trim() || "Prêmio a confirmar",
-    f2: $("pf2").value.trim() || "Prêmio a confirmar"
+    m1: $("pm1").value.trim() || "A confirmar", m2: $("pm2").value.trim() || "A confirmar", m3: $("pm3").value.trim() || "A confirmar",
+    f1: $("pf1").value.trim() || "A confirmar", f2: $("pf2").value.trim() || "A confirmar", f3: $("pf3").value.trim() || "A confirmar"
   };
-  saveConfig();
-  render();
-  showStatus("adminMessage","Premiação salva nesta prévia local.");
+  saveConfig(); render();
+  showStatus("adminMessage","Premiação salva com sucesso!");
 });
 
 /* =====================================================================
-   Init
+   LISTAGEM DE INSCRITOS (FIREBASE)
    ===================================================================== */
+function carregarInscritos() {
+  if (!db) return;
+  const tbody = document.querySelector("#tabelaInscritos tbody");
+  
+  db.ref('inscricoes').on('value', (snapshot) => {
+    const dados = snapshot.val();
+    tbody.innerHTML = "";
+    if (!dados) {
+      tbody.innerHTML = "<tr><td colspan='5' style='text-align:center;'>Nenhuma inscrição recebida ainda.</td></tr>";
+      return;
+    }
+    const lista = Object.keys(dados).map(id => ({ id, ...dados[id] }));
+    lista.sort((a, b) => new Date(b.dataInscricao) - new Date(a.dataInscricao));
+
+    lista.forEach(item => {
+      const dataInsc = new Date(item.dataInscricao).toLocaleString('pt-BR');
+      const dataNasc = item.nascimento ? new Date(item.nascimento + "T12:00:00").toLocaleDateString('pt-BR') : '-';
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${item.nome}</td>
+        <td>${item.email}<br><span style="font-size:11px;color:#aaa">${item.telefone}</span></td>
+        <td>${dataNasc}</td>
+        <td>${dataInsc}</td>
+        <td class="no-print"><button class="btn-delete" onclick="deletarInscrito('${item.id}')">Excluir</button></td>
+      `;
+      tbody.appendChild(tr);
+    });
+  });
+}
+
+window.deletarInscrito = (id) => {
+  if (confirm("Excluir esta inscrição permanentemente?")) {
+    db.ref('inscricoes/' + id).remove().catch(err => alert("Erro: " + err.message));
+  }
+};
+
 render();
 </script>
 </body>
