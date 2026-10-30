@@ -20,11 +20,11 @@ header{border-bottom:1px solid #263949;background:#071827}
 h1{font-size:clamp(42px,6vw,76px);line-height:.93;letter-spacing:-3px;margin:18px 0 12px;font-weight:900;text-transform:uppercase}
 h1 span{color:var(--yellow)}.tagline{font-size:16px;font-weight:800;font-style:italic;letter-spacing:.5px}.tagline span{color:var(--yellow)}
 
-/* NOVOS SELOS (BADGES) */
+/* SELOS */
 .hero-badges {display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px;}
-.badge {background: rgba(255, 210, 26, 0.1); border: 1px solid var(--yellow); color: var(--white); padding: 8px 14px; border-radius: 50px; font-size: 12px; font-weight: 700; display: flex; align-items: center; gap: 6px; text-transform: uppercase; letter-spacing: 0.5px;}
-.badge span {color: var(--yellow); font-weight: 900;}
-.badge-shirt {background: rgba(35, 134, 91, 0.15); border-color: var(--green);}
+.badge {background: rgba(255, 255, 255, 0.05); border: 1px solid #587087; color: var(--white); padding: 8px 14px; border-radius: 50px; font-size: 12px; font-weight: 700; display: flex; align-items: center; text-transform: uppercase; letter-spacing: 0.5px;}
+.badge span {color: var(--yellow); font-weight: 900; margin-left: 5px;}
+.badge-shirt {background: rgba(35, 134, 91, 0.15); border-color: var(--green); color: #fff;}
 
 /* CONTADOR */
 .countdown-box{display:flex;gap:15px;margin-bottom:20px;background:rgba(255,255,255,.05);padding:15px;border-radius:5px;border:1px solid #30485c;max-width:max-content;}
@@ -50,13 +50,17 @@ h1 span{color:var(--yellow)}.tagline{font-size:16px;font-weight:800;font-style:i
 .highlight{padding:6px 16px;border-right:1px solid #3b5061}.highlight:last-child{border:0}.highlight strong{display:block;color:var(--yellow);font-size:12px;text-transform:uppercase;margin-bottom:6px}.highlight span{font-size:11px;color:#d4dde5;line-height:1.5}
 section.content{padding:45px 0}.section-title{font-size:27px;text-transform:uppercase;margin:0 0 8px}.section-title span{color:var(--yellow)}.section-desc{color:var(--muted);margin:0 0 22px;font-size:14px}
 
-/* PREMIAÇÃO E MAPA */
+/* PREMIAÇÃO COM DESTAQUE (PÓDIO) */
 .prizes{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
-.prize{border-top:3px solid var(--yellow);background:#0d2233;padding:18px;transition:transform 0.2s;}
+.prize{background:#0d2233;padding:20px;transition:transform 0.2s; position:relative;}
 .prize:hover{transform:translateY(-3px);}
-.prize small{color:var(--muted);text-transform:uppercase;font-size:10px;letter-spacing:1px}.prize h3{font-size:15px;margin:9px 0}.prize p{font-size:13px;color:#d4dde5;margin:0}
+.prize small{color:var(--muted);text-transform:uppercase;font-size:10px;letter-spacing:1px}.prize h3{font-size:16px;margin:9px 0; color:#fff;}.prize p{font-size:13px;color:#d4dde5;margin:0}
+.prize-1 { border-top: 4px solid #FFD700; box-shadow: inset 0 20px 20px -20px rgba(255, 215, 0, 0.2); }
+.prize-2 { border-top: 4px solid #C0C0C0; }
+.prize-3 { border-top: 4px solid #CD7F32; }
 
-.map-wrapper {margin-top: 20px; border-radius: 8px; overflow: hidden; border: 2px solid #30485c; box-shadow: 0 10px 30px rgba(0,0,0,0.5); transition: all 0.4s ease; position: relative;}
+/* MAPA */
+.map-wrapper {margin-top: 20px; border-radius: 8px; overflow: hidden; border: 2px solid #30485c; box-shadow: 0 10px 30px rgba(0,0,0,0.5); transition: all 0.4s ease;}
 .map-wrapper:hover {border-color: var(--yellow); box-shadow: 0 15px 40px rgba(255, 210, 26, 0.15);}
 .map-wrapper iframe {width: 100%; height: 400px; border: 0; display: block; filter: grayscale(20%) contrast(1.1);}
 .map-wrapper:hover iframe {filter: grayscale(0%) contrast(1.1);}
@@ -72,7 +76,6 @@ section.content{padding:45px 0}.section-title{font-size:27px;text-transform:uppe
 .availability-card>p{font-size:12px;color:#b9c5d0;margin:12px 0 20px}
 .availability-card>p strong{color:#fff}
 .availability-cta{display:block;text-align:center;text-decoration:none;background:var(--yellow);color:#091522;font-size:12px;font-weight:900;letter-spacing:.5px;padding:15px;border-radius:3px}
-.notice{border-left:3px solid var(--yellow);padding:12px 14px;background:#102438;color:#cbd6df;font-size:12px;line-height:1.6;margin-top:18px}
 footer{padding:24px 0;border-top:1px solid #293e50;color:#9eafbd;font-size:12px;text-align:center}
 
 /* MODAL ADMIN */
@@ -86,7 +89,7 @@ th{background:#142d40;color:var(--yellow);font-weight:700}
 .btn-delete{background:#a83d3d;color:white;border:0;padding:5px 10px;border-radius:3px;font-size:11px;cursor:pointer}
 .btn-print{background:var(--green);color:white;border:0;padding:10px 15px;border-radius:3px;font-weight:bold;cursor:pointer;margin-bottom:10px}
 
-/* ESTILOS DE IMPRESSÃO */
+/* IMPRESSÃO */
 @media print {
   body * { visibility: hidden; }
   #printArea, #printArea * { visibility: visible; }
@@ -98,11 +101,11 @@ th{background:#142d40;color:var(--yellow);font-weight:700}
 }
 
 @media(max-width:760px){
-  .wrap{padding:0 15px}.nav{height:auto;min-height:70px;flex-wrap:wrap;padding:14px 0}.navlinks{order:3;width:100%;justify-content:space-between;gap:8px}.navlinks a{font-size:10px}.hero-inner{grid-template-columns:1fr;gap:0;padding-top:38px}.runner-stage{height:330px;grid-row:1}.runner-stage:before{inset:2% 12% 0 12%}.hero-copy{grid-row:2}.hero-inner{min-height:auto}.hero{min-height:0}h1{font-size:48px}.facts{gap:12px}.fact{min-width:95px}.signup{padding:15px}.highlights{grid-template-columns:1fr 1fr}.highlight:nth-child(2){border-right:0}.prizes{grid-template-columns:1fr 1fr}.panel-grid{grid-template-columns:1fr}
+  .wrap{padding:0 15px}.nav{height:auto;min-height:70px;flex-wrap:wrap;padding:14px 0}.navlinks{order:3;width:100%;justify-content:space-between;gap:8px}.navlinks a{font-size:10px}.hero-inner{grid-template-columns:1fr;gap:0;padding-top:38px}.runner-stage{height:330px;grid-row:1}.runner-stage:before{inset:2% 12% 0 12%}.hero-copy{grid-row:2}.hero-inner{min-height:auto}.hero{min-height:0}h1{font-size:48px}.facts{gap:12px}.fact{min-width:95px}.signup{padding:15px}.highlights{grid-template-columns:1fr 1fr}.highlight:nth-child(2){border-right:0}.prizes{grid-template-columns:1fr}.panel-grid{grid-template-columns:1fr}
   .map-wrapper iframe {height: 300px;}
 }
 @media(max-width:380px){
-  h1{font-size:39px}.fields{grid-template-columns:1fr}.fields .wide{grid-column:auto}.highlights,.prizes{grid-template-columns:1fr}.highlight{border-right:0;border-bottom:1px solid #3b5061}
+  h1{font-size:39px}.fields{grid-template-columns:1fr}.fields .wide{grid-column:auto}.highlights{grid-template-columns:1fr}.highlight{border-right:0;border-bottom:1px solid #3b5061}
 }
 </style>
 </head>
@@ -111,7 +114,7 @@ th{background:#142d40;color:var(--yellow);font-weight:700}
   <div class="wrap nav">
     <div class="brand">HIPER <span>MIX</span></div>
     <nav class="navlinks"><a href="#inicio">INÍCIO</a><a href="#sobre">SOBRE</a><a href="#vagas">INSCRIÇÕES</a><a href="#premiacao">PREMIAÇÃO</a><a href="#localizacao">LOCAL</a></nav>
-    <button class="admin-open" id="openAdmin">⚙ ADMINISTRAÇÃO</button>
+    <button class="admin-open" id="openAdmin">ADMINISTRAÇÃO</button>
   </div>
 </header>
 <main class="no-print">
@@ -123,12 +126,11 @@ th{background:#142d40;color:var(--yellow);font-weight:700}
       <div class="tagline" id="tagline">SUPERE SEUS LIMITES. <span>CELEBRE CADA CONQUISTA.</span></div>
       
       <div class="hero-badges">
-        <div class="badge">🏃‍♂️ Distância: <span id="eventDistance">7km</span></div>
-        <div class="badge">⏰ Largada: <span id="eventTime">06:00</span></div>
-        <div class="badge badge-shirt">👕 <span id="eventShirt">Garante a camiseta!</span></div>
+        <div class="badge">Distância: <span id="eventDistance">7km</span></div>
+        <div class="badge">Largada: <span id="eventTime">06:00</span></div>
+        <div class="badge badge-shirt"><span id="eventShirt">Garante a camiseta!</span></div>
       </div>
 
-      <!-- CONTADOR REGRESSIVO -->
       <div class="countdown-box" id="countdownContainer">
         <div class="countdown-item"><span id="cdDays">0</span><small>Dias</small></div>
         <div class="countdown-item"><span id="cdHours">0</span><small>Horas</small></div>
@@ -142,7 +144,7 @@ th{background:#142d40;color:var(--yellow);font-weight:700}
         <div class="fact"><small>Vagas</small><strong><span id="availableCount">200</span> disponíveis</strong></div>
       </div>
       <div class="signup" id="cadastro">
-        <h2>Faça sua inscrição</h2><p>Preencha seus dados para solicitar sua vaga.</p>
+        <h2>Faça sua inscrição</h2><p>Preencha seus dados para garantir sua vaga.</p>
         <form id="registrationForm">
           <div class="fields">
             <input class="wide" id="fullName" required maxlength="120" placeholder="Nome completo" autocomplete="name">
@@ -150,8 +152,8 @@ th{background:#142d40;color:var(--yellow);font-weight:700}
             <input id="phone" type="tel" required placeholder="Telefone com DDD" autocomplete="tel">
             <input class="wide" id="birthDate" type="date" required aria-label="Data de nascimento">
           </div>
-          <button class="cta" type="submit" id="btnSubmit">Continuar inscrição →</button>
-          <p class="fineprint">Idade mínima: 16 anos. O pagamento será realizado via Eduzz na próxima etapa (em breve).</p>
+          <button class="cta" type="submit" id="btnSubmit">Confirmar Inscrição</button>
+          <p class="fineprint">Evento gratuito. Idade mínima: 16 anos.</p>
         </form>
         <div id="formMessage" class="status hidden" role="status"></div>
       </div>
@@ -174,12 +176,12 @@ th{background:#142d40;color:var(--yellow);font-weight:700}
   <h2 class="section-title">A <span>premiação</span></h2>
   <p class="section-desc">Confira os prêmios definidos pela organização.</p>
   <div class="prizes">
-    <article class="prize"><small>Masculino</small><h3>1º lugar</h3><p id="prizeM1">Prêmio a confirmar</p></article>
-    <article class="prize"><small>Masculino</small><h3>2º lugar</h3><p id="prizeM2">Prêmio a confirmar</p></article>
-    <article class="prize"><small>Masculino</small><h3>3º lugar</h3><p id="prizeM3">Prêmio a confirmar</p></article>
-    <article class="prize"><small>Feminino</small><h3>1º lugar</h3><p id="prizeF1">Prêmio a confirmar</p></article>
-    <article class="prize"><small>Feminino</small><h3>2º lugar</h3><p id="prizeF2">Prêmio a confirmar</p></article>
-    <article class="prize"><small>Feminino</small><h3>3º lugar</h3><p id="prizeF3">Prêmio a confirmar</p></article>
+    <article class="prize prize-1"><small>Masculino</small><h3>1º lugar</h3><p id="prizeM1">A confirmar</p></article>
+    <article class="prize prize-2"><small>Masculino</small><h3>2º lugar</h3><p id="prizeM2">A confirmar</p></article>
+    <article class="prize prize-3"><small>Masculino</small><h3>3º lugar</h3><p id="prizeM3">A confirmar</p></article>
+    <article class="prize prize-1"><small>Feminino</small><h3>1º lugar</h3><p id="prizeF1">A confirmar</p></article>
+    <article class="prize prize-2"><small>Feminino</small><h3>2º lugar</h3><p id="prizeF2">A confirmar</p></article>
+    <article class="prize prize-3"><small>Feminino</small><h3>3º lugar</h3><p id="prizeF3">A confirmar</p></article>
   </div>
 </section>
 <section class="content wrap" id="vagas">
@@ -190,16 +192,14 @@ th{background:#142d40;color:var(--yellow);font-weight:700}
     <div class="availability-number"><strong id="remainingCount">200</strong><span>vagas disponíveis</span></div>
     <div class="availability-track"><span id="availabilityBar"></span></div>
     <p><strong id="takenCount">0</strong> de <strong id="totalCount">200</strong> vagas preenchidas</p>
-    <a class="availability-cta" href="#cadastro">FAZER MINHA INSCRIÇÃO →</a>
+    <a class="availability-cta" href="#cadastro">FAZER MINHA INSCRIÇÃO</a>
   </div>
 </section>
 
-<!-- SEÇÃO DO MAPA -->
 <section class="content wrap" id="localizacao">
   <h2 class="section-title">Como <span>Chegar</span></h2>
   <p class="section-desc">Confira o local da largada e programe-se para chegar no horário.</p>
   <div class="map-wrapper">
-    <!-- O SRC será preenchido dinamicamente pelo JavaScript com base no Admin -->
     <iframe id="googleMap" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
   </div>
 </section>
@@ -207,10 +207,9 @@ th{background:#142d40;color:var(--yellow);font-weight:700}
 </main>
 <footer class="no-print"><div class="wrap">Treinão Hiper Mix · Informações e premiações sujeitas à confirmação oficial.</div></footer>
 
-<!-- MODAL ADMIN -->
 <div class="modal no-print" id="adminModal" role="dialog" aria-modal="true" aria-labelledby="adminTitle">
  <div class="panel">
-  <div class="panel-head"><h2 id="adminTitle">Painel administrativo</h2><button class="close" id="closeAdmin">Fechar ✕</button></div>
+  <div class="panel-head"><h2 id="adminTitle">Painel administrativo</h2><button class="close" id="closeAdmin">Fechar</button></div>
   
   <div id="loginArea">
     <p class="small">Área restrita à organização. Faça login com o e-mail e senha cadastrados no Firebase.</p>
@@ -233,7 +232,7 @@ th{background:#142d40;color:var(--yellow);font-weight:700}
     <div class="admin-section active" id="participantsAdmin">
       <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
         <h3 style="margin:0; font-size:16px; color:var(--yellow);">Relatório de Inscritos</h3>
-        <button class="btn-print" onclick="window.print()">🖨️ Imprimir Relatório</button>
+        <button class="btn-print" onclick="window.print()">Imprimir Relatório</button>
       </div>
       <div id="printArea">
         <h2 style="display:none; text-align:center; margin-bottom:20px;">Relatório Oficial - Treinão Hiper Mix</h2>
@@ -261,7 +260,7 @@ th{background:#142d40;color:var(--yellow);font-weight:700}
       <label for="imageUrl">URL pública da imagem PNG transparente</label><input id="imageUrl" type="url" placeholder="https://.../corredor.png">
       
       <div class="panel-grid">
-        <div><label for="dateConfig">Data do evento (Para o contador)</label><input id="dateConfig" type="date"></div>
+        <div><label for="dateConfig">Data do evento</label><input id="dateConfig" type="date"></div>
         <div><label for="timeConfig">Horário de Largada</label><input id="timeConfig" placeholder="Ex: 06:00"></div>
         <div><label for="locationConfig">Nome do Local</label><input id="locationConfig" placeholder="Ex: Supermercado Supermix"></div>
         <div><label for="distanceConfig">Distância do Percurso</label><input id="distanceConfig" placeholder="Ex: 7km"></div>
@@ -270,7 +269,7 @@ th{background:#142d40;color:var(--yellow);font-weight:700}
         <div><label for="totalConfig">Total de vagas (prévia)</label><input id="totalConfig" type="number" min="1" max="2000" value="200"></div>
         <div class="wide" style="grid-column: 1/-1;"><label for="mapConfig">Link SRC do Mapa (Google Maps Embed)</label><input id="mapConfig" placeholder="https://www.google.com/maps/embed?..."></div>
       </div>
-      <button class="primary" id="saveAppearance">Salvar configurações nesta prévia</button>
+      <button class="primary" id="saveAppearance">Salvar configurações</button>
     </div>
 
     <div class="admin-section" id="prizesAdmin">
@@ -282,7 +281,7 @@ th{background:#142d40;color:var(--yellow);font-weight:700}
         <div><label for="pf2">Feminino — 2º lugar</label><input id="pf2" placeholder="Prêmio"></div>
         <div><label for="pf3">Feminino — 3º lugar</label><input id="pf3" placeholder="Prêmio"></div>
       </div>
-      <button class="primary" id="savePrizes">Salvar premiação nesta prévia</button>
+      <button class="primary" id="savePrizes">Salvar premiação</button>
     </div>
 
     <div class="admin-section" id="numbersAdmin">
@@ -303,6 +302,8 @@ th{background:#142d40;color:var(--yellow);font-weight:700}
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-database-compat.js"></script>
+<!-- EmailJS SDK -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
 <script>
 /* =====================================================================
@@ -319,8 +320,8 @@ const firebaseConfig = {
   measurementId: "G-LFWE2ETJZP"
 };
 
-// E-MAIL DA NOVA ADMINISTRADORA (ELA SÓ VERÁ A ABA DE RELATÓRIO)
-const EMAIL_ADMIN_2 = "hipermix296@gmail.com"; // ⚠️ TROQUE AQUI PARA O EMAIL DELA
+// E-MAIL DA NOVA ADMINISTRADORA (Ela só verá a tabela e poderá apagar)
+const EMAIL_ADMIN_2 = "hipermix296@gmail.com"; 
 
 let auth = null;
 let db = null;
@@ -331,13 +332,23 @@ try {
 } catch (e) { console.warn("[Firebase] Indisponível:", e.message); }
 
 /* =====================================================================
+   CONFIGURAÇÃO DO EMAILJS (Aviso de nova inscrição)
+   ===================================================================== */
+// Substitua pelas suas credenciais do EmailJS (https://www.emailjs.com/)
+const EMAILJS_PUBLIC_KEY = "SUA_PUBLIC_KEY_AQUI"; 
+const EMAILJS_SERVICE_ID = "SEU_SERVICE_ID_AQUI";
+const EMAILJS_TEMPLATE_ID = "SEU_TEMPLATE_ID_AQUI";
+
+if (typeof emailjs !== "undefined") {
+  emailjs.init(EMAILJS_PUBLIC_KEY);
+}
+
+/* =====================================================================
    CONFIGURAÇÕES PADRÃO
    ===================================================================== */
 const $ = id => document.getElementById(id);
-const STORAGE_KEY = "hipermix_config_v4"; // Atualizado para v4 devido as novas opções
+const STORAGE_KEY = "hipermix_config_v5";
 const RAW_IMAGE_URL = "https://raw.githubusercontent.com/teiteitata36-ops/treinao/54119c9bc86d1cbd26b3cdc8f621fa0dbb6a1621/WhatsApp_Image_2026-10-29_at_14.24.36-removebg-preview.png";
-
-// Link extraído do iframe que você mandou
 const DEFAULT_MAP_URL = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3971.5157703600235!2d-47.44721352410529!3d-5.4901350944896885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x92cf8b218bd40d2f%3A0xb6951643f68d1de2!2sSUPERMERCADO%20SUPERMIX%20VAREJO!5e0!3m2!1spt-BR!2sbr!4v1793319142130!5m2!1spt-BR!2sbr";
 
 const defaultConfig = {
@@ -364,10 +375,7 @@ function loadConfig(){
     return merged;
   }catch{ return { ...defaultConfig }; }
 }
-
-function saveConfig(){
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(config));
-}
+function saveConfig(){ localStorage.setItem(STORAGE_KEY, JSON.stringify(config)); }
 
 function showStatus(id,msg,isError){
   const el = $(id); if(!el) return;
@@ -376,24 +384,31 @@ function showStatus(id,msg,isError){
 function hideStatus(id){ const el = $(id); if(el) el.classList.add("hidden"); }
 
 /* =====================================================================
-   CONTADOR E RENDERIZAÇÃO
+   CONTADOR E RENDERIZAÇÃO (DATA + HORA)
    ===================================================================== */
 let countdownInterval;
-function startCountdown(dateString) {
+function startCountdown(dateString, timeString) {
   clearInterval(countdownInterval);
+  
   if (!dateString) { $("countdownContainer").classList.add("hidden"); return; }
-  const targetDate = new Date(dateString + "T23:59:59").getTime();
+  
+  // Junta a data e a hora configurada (Ex: "2026-11-15T06:00:00")
+  const timeToUse = timeString || "06:00";
+  const targetDate = new Date(dateString + "T" + timeToUse + ":00").getTime();
+  
   if(isNaN(targetDate)) { $("countdownContainer").classList.add("hidden"); return; }
   $("countdownContainer").classList.remove("hidden");
 
   countdownInterval = setInterval(() => {
     const now = new Date().getTime();
     const distance = targetDate - now;
+    
     if (distance < 0) {
       clearInterval(countdownInterval);
       $("countdownContainer").innerHTML = "<span style='color:var(--yellow);font-weight:bold;'>O evento começou!</span>";
       return;
     }
+    
     $("cdDays").textContent = Math.floor(distance / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
     $("cdHours").textContent = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
     $("cdMins").textContent = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
@@ -428,12 +443,9 @@ function render(){
   $("prizeF3").textContent = config.prizes?.f3 || "A confirmar";
 
   setImage(config.imageUrl);
-  startCountdown(config.date);
+  startCountdown(config.date, config.time); // Passando hora também
   
-  // Atualiza Mapa
-  if(config.mapUrl) {
-    $("googleMap").src = config.mapUrl;
-  }
+  if(config.mapUrl) { $("googleMap").src = config.mapUrl; }
 
   const total = Math.max(1, Math.min(2000, Number(config.total) || 200));
   const unavailable = new Set(config.unavailable || []);
@@ -450,13 +462,16 @@ function render(){
 }
 
 /* =====================================================================
-   FORMULÁRIO DE INSCRIÇÃO
+   FORMULÁRIO DE INSCRIÇÃO (FIREBASE + EMAIL)
    ===================================================================== */
 $("birthDate").max = new Date().toISOString().slice(0,10);
 
 $("registrationForm").addEventListener("submit", e => {
   e.preventDefault();
   const btn = $("btnSubmit");
+  const nome = $("fullName").value.trim();
+  const emailUser = $("email").value.trim();
+  const telefone = $("phone").value.trim();
   const nascimento = $("birthDate").value;
 
   if(!nascimento){ showStatus("formMessage","Informe sua data de nascimento.", true); return; }
@@ -469,24 +484,39 @@ $("registrationForm").addEventListener("submit", e => {
   btn.disabled = true; btn.textContent = "Enviando...";
 
   const novaInscricao = {
-    nome: $("fullName").value.trim(),
-    email: $("email").value.trim(),
-    telefone: $("phone").value.trim(),
+    nome: nome,
+    email: emailUser,
+    telefone: telefone,
     nascimento: nascimento,
     dataInscricao: new Date().toISOString(),
-    status: "pendente"
+    status: "confirmado" // Evento gratuito, já entra confirmado
   };
 
+  // 1. Salva no Firebase Realtime Database
   db.ref('inscricoes').push(novaInscricao)
     .then(() => {
-      showStatus("formMessage", "Inscrição realizada! Em breve você será redirecionado para o pagamento.", false);
+      showStatus("formMessage", "Inscrição realizada com sucesso! Sua vaga está garantida. Nos vemos lá!", false);
       $("registrationForm").reset();
+
+      // 2. Dispara o e-mail via EmailJS para a administradora
+      if (typeof emailjs !== "undefined" && EMAILJS_PUBLIC_KEY !== "SUA_PUBLIC_KEY_AQUI") {
+        const templateParams = {
+          to_email: EMAIL_ADMIN_2,
+          nome: nome,
+          email: emailUser,
+          telefone: telefone,
+          nascimento: nascimento
+        };
+        emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+          .then(() => console.log("E-mail de notificação enviado!"))
+          .catch((err) => console.error("Erro ao enviar e-mail:", err));
+      }
     })
     .catch((error) => {
       console.error("Erro:", error);
       showStatus("formMessage", "Erro ao enviar. Tente novamente.", true);
     })
-    .finally(() => { btn.disabled = false; btn.textContent = "Continuar inscrição →"; });
+    .finally(() => { btn.disabled = false; btn.textContent = "Confirmar Inscrição"; });
 });
 
 /* =====================================================================
@@ -506,10 +536,17 @@ function showAdminArea(user){
   $("loggedUser").textContent = "Logado como: " + user.email;
 
   const isDev = user.email === "teiteitata36@gmail.com";
+  const isAdmin2 = user.email === EMAIL_ADMIN_2;
+
   if (isDev) {
     $("tabAppearance").style.display = "block"; $("tabPrizes").style.display = "block"; $("tabNumbers").style.display = "block";
     document.querySelector('[data-tab="participantsAdmin"]').click();
+  } else if (isAdmin2) {
+    // A segunda admin só vê o relatório
+    $("tabAppearance").style.display = "none"; $("tabPrizes").style.display = "none"; $("tabNumbers").style.display = "none";
+    document.querySelector('[data-tab="participantsAdmin"]').click();
   } else {
+    // Se alguém sem permissão logar (por erro), esconde tudo
     $("tabAppearance").style.display = "none"; $("tabPrizes").style.display = "none"; $("tabNumbers").style.display = "none";
     document.querySelector('[data-tab="participantsAdmin"]').click();
   }
@@ -575,7 +612,6 @@ $("saveAppearance").addEventListener("click", () => {
   config.title = $("titleConfig").value.trim() || defaultConfig.title;
   config.shirt = $("shirtConfig").value.trim() || "Garante a camiseta!";
   
-  // Extrai o link se o usuário colar o iframe inteiro
   let mapInput = $("mapConfig").value.trim();
   const match = mapInput.match(/src="([^"]+)"/);
   config.mapUrl = match ? match[1] : mapInput;
@@ -595,12 +631,13 @@ $("savePrizes").addEventListener("click", () => {
 });
 
 /* =====================================================================
-   LISTAGEM DE INSCRITOS (FIREBASE)
+   LISTAGEM E EXCLUSÃO DE INSCRITOS
    ===================================================================== */
 function carregarInscritos() {
   if (!db) return;
   const tbody = document.querySelector("#tabelaInscritos tbody");
   
+  // Fica ouvindo em tempo real
   db.ref('inscricoes').on('value', (snapshot) => {
     const dados = snapshot.val();
     tbody.innerHTML = "";
@@ -628,8 +665,10 @@ function carregarInscritos() {
 }
 
 window.deletarInscrito = (id) => {
-  if (confirm("Excluir esta inscrição permanentemente?")) {
-    db.ref('inscricoes/' + id).remove().catch(err => alert("Erro: " + err.message));
+  if (confirm("Tem certeza que deseja excluir esta inscrição permanentemente?")) {
+    db.ref('inscricoes/' + id).remove()
+      .then(() => console.log("Excluído"))
+      .catch(err => alert("Erro ao excluir. Verifique as regras do Firebase: " + err.message));
   }
 };
 
