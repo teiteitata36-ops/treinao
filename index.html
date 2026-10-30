@@ -43,7 +43,10 @@ h1 span{color:var(--yellow)}.tagline{font-size:16px;font-weight:800;font-style:i
 
 .signup{max-width:590px;border:1px solid #496176;background:rgba(4,17,29,.72);padding:20px;border-radius:5px}
 .signup h2{font-size:22px;color:var(--yellow);margin:0 0 5px;text-transform:uppercase}.signup p{margin:0 0 15px;color:#d7e0e8;font-size:13px}
-.fields{display:grid;grid-template-columns:1fr 1fr;gap:10px}.fields input,.fields select{width:100%;background:#081a29;color:white;border:1px solid #587087;padding:13px 12px;border-radius:3px;min-width:0}.fields input::placeholder{color:#c1ccd5}.fields .wide{grid-column:1/-1}
+
+/* ESTILO DOS CAMPOS E LABELS */
+.signup label { display: block; font-size: 11px; color: #d7e0e8; margin-bottom: 6px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; }
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:15px}.fields input,.fields select{width:100%;background:#081a29;color:white;border:1px solid #587087;padding:13px 12px;border-radius:3px;min-width:0}.fields input::placeholder{color:#c1ccd5}.fields .wide{grid-column:1/-1}
 .cta{width:100%;margin-top:12px;padding:15px;border:0;background:var(--yellow);color:#091522;font-weight:900;text-transform:uppercase;letter-spacing:.5px; transition: all 0.3s;}
 .cta:disabled {background: #3b5061; color: #8294a5; cursor: not-allowed;}
 .fineprint{font-size:11px!important;color:#aebdca!important;line-height:1.5;margin-top:10px!important}
@@ -102,7 +105,7 @@ th{background:#142d40;color:var(--yellow);font-weight:700}
 .btn-print{background:var(--green);color:white;border:0;padding:10px 15px;border-radius:3px;font-weight:bold;cursor:pointer;margin-bottom:10px}
 
 /* ==========================================
-   CONFIGURAÇÃO DE IMPRESSÃO (CORRIGIDA)
+   CONFIGURAÇÃO DE IMPRESSÃO
    ========================================== */
 @media print {
   @page { margin: 1cm; }
@@ -196,12 +199,27 @@ th{background:#142d40;color:var(--yellow);font-weight:700}
       <div class="signup" id="cadastro">
         <h2>Faça sua inscrição</h2><p>Preencha seus dados para garantir sua vaga.</p>
         <form id="registrationForm">
+          
+          <!-- FORMULÁRIO COM LABELS EXPLICATIVAS -->
           <div class="fields">
-            <input class="wide" id="fullName" required maxlength="120" placeholder="Nome completo" autocomplete="name">
-            <input id="email" type="email" required placeholder="E-mail" autocomplete="email">
-            <input id="phone" type="tel" required placeholder="Telefone com DDD" autocomplete="tel">
-            <input class="wide" id="birthDate" type="date" required aria-label="Data de nascimento">
+            <div class="wide">
+              <label for="fullName">Nome Completo</label>
+              <input id="fullName" required maxlength="120" placeholder="Digite seu nome completo" autocomplete="name">
+            </div>
+            <div>
+              <label for="email">E-mail</label>
+              <input id="email" type="email" required placeholder="seu@email.com" autocomplete="email">
+            </div>
+            <div>
+              <label for="phone">Telefone / WhatsApp</label>
+              <input id="phone" type="tel" required placeholder="(11) 99999-9999" autocomplete="tel">
+            </div>
+            <div class="wide">
+              <label for="birthDate">Data de Nascimento</label>
+              <input id="birthDate" type="date" required>
+            </div>
           </div>
+
           <button class="cta" type="submit" id="btnSubmit">Confirmar Inscrição</button>
           <p class="fineprint">Evento gratuito. Idade mínima: 16 anos.</p>
         </form>
@@ -318,7 +336,7 @@ th{background:#142d40;color:var(--yellow);font-weight:700}
       <div class="panel-grid">
         <div><label for="dateConfig">Data do evento</label><input id="dateConfig" type="date"></div>
         <div><label for="timeConfig">Horário de Largada</label><input id="timeConfig" placeholder="Ex: 06:00"></div>
-        <div><label for="locationConfig">Nome do Local</label><input id="locationConfig" placeholder="Ex: Supermercado Supermix"></div>
+        <div><label for="locationConfig">Nome do Local</label><input id="locationConfig" placeholder="Ex: Hiper Mix Supermercados"></div>
         <div><label for="distanceConfig">Distância do Percurso</label><input id="distanceConfig" placeholder="Ex: 7km"></div>
         <div><label for="titleConfig">Título</label><input id="titleConfig" placeholder="1º TREINÃO..."></div>
         <div><label for="shirtConfig">Texto da Camiseta</label><input id="shirtConfig" placeholder="Garante a camiseta!"></div>
@@ -396,13 +414,13 @@ if (typeof emailjs !== "undefined") { emailjs.init(EMAILJS_PUBLIC_KEY); }
    CONFIGURAÇÕES PADRÃO E ESTADO GLOBAL
    ===================================================================== */
 const $ = id => document.getElementById(id);
-const DEFAULT_MAP_URL = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3971.5157703600235!2d-47.44721352410529!3d-5.4901350944896885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x92cf8b218bd40d2f%3A0xb6951643f68d1de2!2sSUPERMERCADO%20SUPERMIX%20VAREJO!5e0!3m2!1spt-BR!2sbr!4v1793319142130!5m2!1spt-BR!2sbr";
+const DEFAULT_MAP_URL = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3970.839177100208!2d-47.019681925676856!3d-5.590770694389959!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x92cfdb006329c103%3A0x779a7e724e9ec1eb!2sHiper%20Mix%20Supermercados!5e0!3m2!1spt-BR!2sbr!4v1793360581870!5m2!1spt-BR!2sbr";
 
 const defaultConfig = {
   imageUrl: "https://raw.githubusercontent.com/teiteitata36-ops/treinao/54119c9bc86d1cbd26b3cdc8f621fa0dbb6a1621/WhatsApp_Image_2026-10-29_at_14.24.36-removebg-preview.png",
   date: "2026-12-04",
   time: "18:00",
-  location: "Supermercado Supermix Varejo",
+  location: "Hiper Mix Supermercados",
   distance: "7km",
   shirt: "Garante a camiseta!",
   mapUrl: DEFAULT_MAP_URL,
@@ -576,7 +594,7 @@ if (db) {
 }
 
 /* =====================================================================
-   FORMULÁRIO E CONFETES (COM VALIDAÇÃO)
+   FORMULÁRIO E CONFETES (COM CORREÇÃO DE IDADE)
    ===================================================================== */
 $("birthDate").max = new Date().toISOString().slice(0,10);
 
@@ -589,9 +607,24 @@ $("registrationForm").addEventListener("submit", e => {
   const nascimento = $("birthDate").value;
 
   if(!nascimento){ showStatus("formMessage","Informe sua data de nascimento.", true); return; }
-  const b = new Date(nascimento + "T12:00:00"), now = new Date();
+  
+  // CORREÇÃO DO CÁLCULO DE IDADE PARA TODOS OS NAVEGADORES
+  const partesData = nascimento.split('-');
+  if(partesData.length !== 3) { showStatus("formMessage","Data de nascimento inválida.", true); return; }
+  
+  const anoNasc = parseInt(partesData[0], 10);
+  const mesNasc = parseInt(partesData[1], 10) - 1;
+  const diaNasc = parseInt(partesData[2], 10);
+  
+  const b = new Date(anoNasc, mesNasc, diaNasc);
+  const now = new Date();
+  
   let age = now.getFullYear() - b.getFullYear();
-  if(now.getMonth() < b.getMonth() || (now.getMonth() === b.getMonth() && now.getDate() < b.getDate())) age--;
+  const m = now.getMonth() - b.getMonth();
+  if (m < 0 || (m === 0 && now.getDate() < b.getDate())) {
+      age--;
+  }
+
   if(age < 16){ showStatus("formMessage","A inscrição é permitida somente para pessoas com 16 anos ou mais.", true); return; }
   if (!db) { showStatus("formMessage","Erro: Banco de dados não configurado.", true); return; }
 
