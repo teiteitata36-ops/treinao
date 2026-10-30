@@ -44,12 +44,24 @@ h1 span{color:var(--yellow)}.tagline{font-size:16px;font-weight:800;font-style:i
 .signup{max-width:590px;border:1px solid #496176;background:rgba(4,17,29,.72);padding:20px;border-radius:5px}
 .signup h2{font-size:22px;color:var(--yellow);margin:0 0 5px;text-transform:uppercase}.signup p{margin:0 0 15px;color:#d7e0e8;font-size:13px}
 
-/* ESTILO DOS CAMPOS E LABELS */
-.signup label { display: block; font-size: 11px; color: #d7e0e8; margin-bottom: 6px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; }
-.fields{display:grid;grid-template-columns:1fr 1fr;gap:15px}.fields input,.fields select{width:100%;background:#081a29;color:white;border:1px solid #587087;padding:13px 12px;border-radius:3px;min-width:0}.fields input::placeholder{color:#c1ccd5}.fields .wide{grid-column:1/-1}
-.cta{width:100%;margin-top:12px;padding:15px;border:0;background:var(--yellow);color:#091522;font-weight:900;text-transform:uppercase;letter-spacing:.5px; transition: all 0.3s;}
+/* ESTILO DOS CAMPOS E LABELS (BEM DESTACADO) */
+.signup label { display: block; font-size:13px; color: var(--yellow); margin-bottom: 8px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.5px; }
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.fields input,.fields select{width:100%;background:#081a29;color:white;border:1px solid #587087;padding:15px 12px;border-radius:3px;min-width:0; font-size: 15px;}
+.fields input::placeholder{color:#8294a5;}
+.fields .wide{grid-column:1/-1}
+
+/* Customização para o Input Date no Mobile ficar visível */
+input[type="date"] { position: relative; color: white; }
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+.cta{width:100%;margin-top:15px;padding:16px;border:0;background:var(--yellow);color:#091522;font-weight:900;text-transform:uppercase;letter-spacing:.5px; transition: all 0.3s; font-size: 16px;}
 .cta:disabled {background: #3b5061; color: #8294a5; cursor: not-allowed;}
-.fineprint{font-size:11px!important;color:#aebdca!important;line-height:1.5;margin-top:10px!important}
+.fineprint{font-size:11px!important;color:#aebdca!important;line-height:1.5;margin-top:15px!important; text-align: center;}
 
 /* ANIMAÇÃO DO CORREDOR */
 .runner-stage{height:500px;position:relative;display:flex;align-items:flex-end;justify-content:center;overflow:hidden}
@@ -151,13 +163,13 @@ th{background:#142d40;color:var(--yellow);font-weight:700}
 }
 
 @media(max-width:760px){
-  .wrap{padding:0 15px}.nav{height:auto;min-height:70px;flex-wrap:wrap;padding:14px 0}.navlinks{order:3;width:100%;justify-content:space-between;gap:8px}.navlinks a{font-size:10px}.hero-inner{grid-template-columns:1fr;gap:0;padding-top:38px}.runner-stage{height:330px;grid-row:1}.runner-stage:before{inset:2% 12% 0 12%}.hero-copy{grid-row:2}.hero-inner{min-height:auto}.hero{min-height:0}h1{font-size:48px}.facts{grid-template-columns:1fr; gap:10px;}.signup{padding:15px}.highlights{grid-template-columns:1fr 1fr}.highlight:nth-child(2){border-right:0}.prizes{grid-template-columns:1fr}.panel-grid{grid-template-columns:1fr}
+  .wrap{padding:0 15px}.nav{height:auto;min-height:70px;flex-wrap:wrap;padding:14px 0}.navlinks{order:3;width:100%;justify-content:space-between;gap:8px}.navlinks a{font-size:10px}.hero-inner{grid-template-columns:1fr;gap:0;padding-top:38px}.runner-stage{height:330px;grid-row:1}.runner-stage:before{inset:2% 12% 0 12%}.hero-copy{grid-row:2}.hero-inner{min-height:auto}.hero{min-height:0}h1{font-size:48px}.facts{grid-template-columns:1fr; gap:10px;}.signup{padding:15px}.fields{grid-template-columns:1fr; gap:15px;}.highlights{grid-template-columns:1fr 1fr}.highlight:nth-child(2){border-right:0}.prizes{grid-template-columns:1fr}.panel-grid{grid-template-columns:1fr}
   .map-wrapper iframe {height: 300px;}
   .countdown-item {min-width: 50px;}
   .countdown-item span {font-size: 28px;}
 }
 @media(max-width:380px){
-  h1{font-size:39px}.fields{grid-template-columns:1fr}.fields .wide{grid-column:auto}.highlights{grid-template-columns:1fr}.highlight{border-right:0;border-bottom:1px solid #3b5061}
+  h1{font-size:39px}.highlights{grid-template-columns:1fr}.highlight{border-right:0;border-bottom:1px solid #3b5061}
 }
 </style>
 </head>
@@ -200,22 +212,22 @@ th{background:#142d40;color:var(--yellow);font-weight:700}
         <h2>Faça sua inscrição</h2><p>Preencha seus dados para garantir sua vaga.</p>
         <form id="registrationForm">
           
-          <!-- FORMULÁRIO COM LABELS EXPLICATIVAS -->
+          <!-- FORMULÁRIO COM LABELS BEM VISÍVEIS -->
           <div class="fields">
             <div class="wide">
-              <label for="fullName">Nome Completo</label>
-              <input id="fullName" required maxlength="120" placeholder="Digite seu nome completo" autocomplete="name">
+              <label for="fullName">Nome Completo *</label>
+              <input id="fullName" required maxlength="120" placeholder="Ex: João da Silva" autocomplete="name">
             </div>
             <div>
-              <label for="email">E-mail</label>
-              <input id="email" type="email" required placeholder="seu@email.com" autocomplete="email">
+              <label for="email">E-mail *</label>
+              <input id="email" type="email" required placeholder="Ex: joao@email.com" autocomplete="email">
             </div>
             <div>
-              <label for="phone">Telefone / WhatsApp</label>
-              <input id="phone" type="tel" required placeholder="(11) 99999-9999" autocomplete="tel">
+              <label for="phone">Telefone / WhatsApp *</label>
+              <input id="phone" type="tel" required placeholder="Ex: (11) 99999-9999" autocomplete="tel">
             </div>
             <div class="wide">
-              <label for="birthDate">Data de Nascimento</label>
+              <label for="birthDate">Data de Nascimento *</label>
               <input id="birthDate" type="date" required>
             </div>
           </div>
