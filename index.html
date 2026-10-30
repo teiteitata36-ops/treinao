@@ -109,7 +109,6 @@ th{background:#142d40;color:var(--yellow);font-weight:700}
   body { background: #fff !important; color: #000 !important; }
   body * { visibility: hidden; }
   
-  /* Exibe apenas a área de impressão */
   #printArea, #printArea * { visibility: visible; }
   
   #printArea { 
@@ -142,7 +141,6 @@ th{background:#142d40;color:var(--yellow);font-weight:700}
   
   #printArea th { font-weight: bold; }
   
-  /* Esconde tudo que não deve ser impresso */
   .no-print, .admin-tabs, .btn-print, .panel-head, .secondary, 
   #loginArea, #appearance, #prizesAdmin, #numbersAdmin, .modal, .modal * { 
     display: none !important; 
@@ -260,7 +258,7 @@ th{background:#142d40;color:var(--yellow);font-weight:700}
 <footer class="no-print">
   <div class="wrap">
     Todos os direitos reservados por <strong>HIPERMIX</strong><br>
-    Desenvolvido por <strong>HRprints3D</strong>
+    Desenvolvido por <strong>DESENVOLVETECH</strong>
   </div>
 </footer>
 
@@ -292,7 +290,6 @@ th{background:#142d40;color:var(--yellow);font-weight:700}
         <button class="btn-print" onclick="window.print()">Imprimir Relatório</button>
       </div>
       
-      <!-- Área formatada para impressão -->
       <div id="printArea">
         <h2 style="display:none; text-align:center; margin-bottom:20px;">Relatório Oficial - Treinão Hiper Mix</h2>
         <div class="table-responsive">
@@ -379,7 +376,6 @@ const firebaseConfig = {
   measurementId: "G-LFWE2ETJZP"
 };
 
-// E-MAIL DA NOVA ADMINISTRADORA
 const EMAIL_ADMIN_2 = "hipermix296@gmail.com"; 
 
 let auth = null;
@@ -390,9 +386,6 @@ try {
   db = firebase.database();
 } catch (e) { console.warn("[Firebase] Indisponível:", e.message); }
 
-/* =====================================================================
-   CONFIGURAÇÃO DO EMAILJS 
-   ===================================================================== */
 const EMAILJS_PUBLIC_KEY = "SUA_PUBLIC_KEY_AQUI"; 
 const EMAILJS_SERVICE_ID = "SEU_SERVICE_ID_AQUI";
 const EMAILJS_TEMPLATE_ID = "SEU_TEMPLATE_ID_AQUI";
@@ -400,38 +393,27 @@ const EMAILJS_TEMPLATE_ID = "SEU_TEMPLATE_ID_AQUI";
 if (typeof emailjs !== "undefined") { emailjs.init(EMAILJS_PUBLIC_KEY); }
 
 /* =====================================================================
-   CONFIGURAÇÕES PADRÃO
+   CONFIGURAÇÕES PADRÃO E ESTADO GLOBAL
    ===================================================================== */
 const $ = id => document.getElementById(id);
-const STORAGE_KEY = "hipermix_config_v5";
-const RAW_IMAGE_URL = "https://raw.githubusercontent.com/teiteitata36-ops/treinao/54119c9bc86d1cbd26b3cdc8f621fa0dbb6a1621/WhatsApp_Image_2026-10-29_at_14.24.36-removebg-preview.png";
 const DEFAULT_MAP_URL = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3971.5157703600235!2d-47.44721352410529!3d-5.4901350944896885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x92cf8b218bd40d2f%3A0xb6951643f68d1de2!2sSUPERMERCADO%20SUPERMIX%20VAREJO!5e0!3m2!1spt-BR!2sbr!4v1793319142130!5m2!1spt-BR!2sbr";
 
 const defaultConfig = {
-  imageUrl: RAW_IMAGE_URL,
-  date: "",
-  time: "06:00",
+  imageUrl: "https://raw.githubusercontent.com/teiteitata36-ops/treinao/54119c9bc86d1cbd26b3cdc8f621fa0dbb6a1621/WhatsApp_Image_2026-10-29_at_14.24.36-removebg-preview.png",
+  date: "2026-12-04",
+  time: "18:00",
   location: "Supermercado Supermix Varejo",
   distance: "7km",
   shirt: "Garante a camiseta!",
   mapUrl: DEFAULT_MAP_URL,
   title: "1º TREINÃO\nDE ANIVERSÁRIO",
   total: 200,
-  prizes: { m1: "A confirmar", m2: "A confirmar", m3: "A confirmar", f1: "A confirmar", f2: "A confirmar", f3: "A confirmar" },
-  unavailable: []
+  prizes: { m1: "A confirmar", m2: "A confirmar", m3: "A confirmar", f1: "A confirmar", f2: "A confirmar", f3: "A confirmar" }
 };
 
-let config = loadConfig();
-
-function loadConfig(){
-  try{
-    const stored = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
-    const merged = { ...defaultConfig, ...stored };
-    if(!merged.imageUrl) merged.imageUrl = defaultConfig.imageUrl;
-    return merged;
-  }catch{ return { ...defaultConfig }; }
-}
-function saveConfig(){ localStorage.setItem(STORAGE_KEY, JSON.stringify(config)); }
+// Inicia a config vazia para ser preenchida pelo Firebase
+let config = { ...defaultConfig };
+let inscricoesGlobais = null;
 
 function showStatus(id,msg,isError){
   const el = $(id); if(!el) return;
@@ -500,6 +482,10 @@ function render(){
   startCountdown(config.date, config.time);
   
   if(config.mapUrl) { $("googleMap").src = config.mapUrl; }
+  
+  if (inscricoesGlobais !== null) {
+    updateVagasUI(inscricoesGlobais);
+  }
 }
 
 /* =====================================================================
@@ -534,16 +520,28 @@ function updateVagasUI(totalRegistrations) {
   }
 }
 
-// Escuta o Firebase para atualizar Vagas e Tabela do Admin
+/* =====================================================================
+   PUXANDO CONFIGURAÇÕES DO BANCO E LISTENER
+   ===================================================================== */
 if (db) {
+  // Escuta mudanças na configuração do evento
+  db.ref('config').on('value', (snapshot) => {
+    const data = snapshot.val();
+    if (data) {
+      config = { ...defaultConfig, ...data };
+    } else {
+      // Se não existe config no banco, salva o padrão para começar
+      db.ref('config').set(defaultConfig);
+    }
+    render();
+  });
+
+  // Escuta o banco de inscrições em tempo real
   db.ref('inscricoes').on('value', (snapshot) => {
     const dados = snapshot.val();
-    const totalRegistrations = dados ? Object.keys(dados).length : 0;
-    
-    // 1. Atualiza os contadores na tela
-    updateVagasUI(totalRegistrations);
+    inscricoesGlobais = dados ? Object.keys(dados).length : 0;
+    updateVagasUI(inscricoesGlobais);
 
-    // 2. Atualiza o Relatório
     const tbody = document.querySelector("#tabelaInscritos tbody");
     if (!tbody) return; 
     
@@ -571,15 +569,14 @@ if (db) {
     });
   }, (error) => {
     console.error("Erro no Firebase:", error);
-    const tbody = document.querySelector("#tabelaInscritos tbody");
-    if (tbody) {
-      tbody.innerHTML = "<tr><td colspan='5' style='text-align:center; color:#ff6b6b;'>Erro de permissão. Verifique as regras do Firebase Realtime Database.</td></tr>";
-    }
   });
+} else {
+  // Fallback se não tiver Firebase
+  render();
 }
 
 /* =====================================================================
-   FORMULÁRIO E CONFETES (AGORA COM VALIDAÇÃO DE DUPLICIDADE)
+   FORMULÁRIO E CONFETES (COM VALIDAÇÃO)
    ===================================================================== */
 $("birthDate").max = new Date().toISOString().slice(0,10);
 
@@ -600,7 +597,6 @@ $("registrationForm").addEventListener("submit", e => {
 
   btn.disabled = true; btn.textContent = "Verificando...";
 
-  // 1. Verificar Duplicidade (Mesmo Nome OU Mesmo E-mail)
   db.ref('inscricoes').once('value').then(snapshot => {
     const dados = snapshot.val();
     let duplicado = false;
@@ -616,25 +612,27 @@ $("registrationForm").addEventListener("submit", e => {
     if (duplicado) {
       showStatus("formMessage", "Você já possui uma inscrição com este e-mail ou nome.", true);
       btn.disabled = false; btn.textContent = "Confirmar Inscrição";
-      return; // Para a execução e não salva
+      return; 
     }
 
-    // 2. Se não for duplicado, prossegue com o salvamento
     btn.textContent = "Enviando...";
     const novaInscricao = {
-      nome: nome, email: emailUser, telefone: telefone, nascimento: nascimento,
-      dataInscricao: new Date().toISOString(), status: "confirmado"
+      nome: nome, 
+      email: emailUser, 
+      telefone: telefone, 
+      nascimento: nascimento,
+      dataInscricao: new Date().toISOString(), 
+      status: "confirmado"
     };
 
     return db.ref('inscricoes').push(novaInscricao);
   })
   .then((ref) => {
-    if (!ref) return; // Se caiu na validação de duplicidade, a ref será undefined
+    if (!ref) return; 
     
     showStatus("formMessage", "Inscrição realizada com sucesso! Sua vaga está garantida. Nos vemos lá!", false);
     $("registrationForm").reset();
     
-    // 🎉 EFEITO DE CONFETE 🎉
     confetti({
       particleCount: 150,
       spread: 80,
@@ -689,6 +687,7 @@ function showAdminArea(user){
     document.querySelector('[data-tab="participantsAdmin"]').click();
   }
 
+  // Preenche os campos com o 'config' atual que veio do Firebase
   $("imageUrl").value = config.imageUrl || ""; $("dateConfig").value = config.date || "";
   $("timeConfig").value = config.time || ""; $("locationConfig").value = config.location || "";
   $("distanceConfig").value = config.distance || ""; $("titleConfig").value = config.title || "";
@@ -727,6 +726,9 @@ document.querySelectorAll("[data-tab]").forEach(btn => btn.addEventListener("cli
   document.querySelectorAll(".admin-section").forEach(x => x.classList.toggle("active", x.id === btn.dataset.tab));
 }));
 
+/* =====================================================================
+   SALVANDO CONFIGURAÇÕES DIRETO NO FIREBASE
+   ===================================================================== */
 $("saveAppearance").addEventListener("click", () => {
   config.imageUrl = $("imageUrl").value.trim() || defaultConfig.imageUrl;
   config.date = $("dateConfig").value;
@@ -741,14 +743,15 @@ $("saveAppearance").addEventListener("click", () => {
   config.mapUrl = match ? match[1] : mapInput;
 
   config.total = Math.max(1, Math.min(2000, Number($("totalConfig").value) || 200));
-  saveConfig(); render();
   
   if (db) {
-    db.ref('inscricoes').once('value').then(snap => {
-      updateVagasUI(snap.exists() ? Object.keys(snap.val()).length : 0);
-    });
+    db.ref('config').set(config).then(() => {
+      showStatus("adminMessage","Configurações salvas no BANCO DE DADOS! Já está visível para todos.");
+    }).catch(err => showStatus("adminMessage","Erro ao salvar: " + err.message, true));
+  } else {
+    render();
+    showStatus("adminMessage","Aviso: Salvo apenas no navegador (Firebase não configurado).", true);
   }
-  showStatus("adminMessage","Configurações salvas com sucesso!");
 });
 
 $("savePrizes").addEventListener("click", () => {
@@ -756,8 +759,15 @@ $("savePrizes").addEventListener("click", () => {
     m1: $("pm1").value.trim() || "A confirmar", m2: $("pm2").value.trim() || "A confirmar", m3: $("pm3").value.trim() || "A confirmar",
     f1: $("pf1").value.trim() || "A confirmar", f2: $("pf2").value.trim() || "A confirmar", f3: $("pf3").value.trim() || "A confirmar"
   };
-  saveConfig(); render();
-  showStatus("adminMessage","Premiação salva com sucesso!");
+  
+  if (db) {
+    db.ref('config/prizes').set(config.prizes).then(() => {
+      showStatus("adminMessage","Premiação salva no BANCO DE DADOS!");
+    }).catch(err => showStatus("adminMessage","Erro ao salvar: " + err.message, true));
+  } else {
+    render();
+    showStatus("adminMessage","Aviso: Salvo apenas no navegador.");
+  }
 });
 
 window.deletarInscrito = (id) => {
@@ -768,7 +778,6 @@ window.deletarInscrito = (id) => {
   }
 };
 
-render();
 </script>
 </body>
 </html>
