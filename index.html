@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>1º Treinão de Aniversário | Hiper Mix</title>
+<!-- ÍCONE DE TROFÉU NA ABA DO NAVEGADOR -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏆</text></svg>">
+
 <style>
 :root{--navy:#071827;--navy2:#0d263b;--yellow:#ffd21a;--white:#f7f8fa;--muted:#b9c5d0;--line:#30485c;--green:#23865b;--red:#a83d3d}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#07121d;color:var(--white);font-family:Arial,Helvetica,sans-serif}
@@ -26,13 +29,13 @@ h1 span{color:var(--yellow)}.tagline{font-size:16px;font-weight:800;font-style:i
 .badge span {color: var(--yellow); font-weight: 900; margin-left: 5px;}
 .badge-shirt {background: rgba(35, 134, 91, 0.15); border-color: var(--green); color: #fff;}
 
-/* CONTADOR MELHORADO */
+/* CONTADOR */
 .countdown-box{display:flex;gap:12px;margin-bottom:25px;background:rgba(0,0,0,0.4);padding:15px 20px;border-radius:8px;border:1px solid var(--line);max-width:max-content; box-shadow: 0 10px 20px rgba(0,0,0,0.3);}
 .countdown-item{text-align:center;min-width:65px;}
 .countdown-item span{display:block;font-size:36px;font-weight:900;color:var(--yellow);line-height:1;}
 .countdown-item small{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-top:6px;display:block;font-weight:bold;}
 
-/* INFORMAÇÕES (DATA, LOCAL, VAGAS) FORMATADAS */
+/* INFORMAÇÕES */
 .facts{display:grid;grid-template-columns:repeat(3, 1fr);gap:15px;margin:25px 0;}
 .fact{background:rgba(255,255,255,0.03);border-left:3px solid var(--yellow);padding:12px 15px;border-radius:4px;}
 .fact small{display:block;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;}
@@ -57,7 +60,7 @@ h1 span{color:var(--yellow)}.tagline{font-size:16px;font-weight:800;font-style:i
 .highlight{padding:6px 16px;border-right:1px solid #3b5061}.highlight:last-child{border:0}.highlight strong{display:block;color:var(--yellow);font-size:12px;text-transform:uppercase;margin-bottom:6px}.highlight span{font-size:11px;color:#d4dde5;line-height:1.5}
 section.content{padding:45px 0}.section-title{font-size:27px;text-transform:uppercase;margin:0 0 8px}.section-title span{color:var(--yellow)}.section-desc{color:var(--muted);margin:0 0 22px;font-size:14px}
 
-/* PREMIAÇÃO COM DESTAQUE (PÓDIO) */
+/* PREMIAÇÃO */
 .prizes{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
 .prize{background:#0d2233;padding:20px;transition:transform 0.2s; position:relative;}
 .prize:hover{transform:translateY(-3px);}
@@ -83,7 +86,9 @@ section.content{padding:45px 0}.section-title{font-size:27px;text-transform:uppe
 .availability-card>p{font-size:12px;color:#b9c5d0;margin:12px 0 20px}
 .availability-card>p strong{color:#fff}
 .availability-cta{display:block;text-align:center;text-decoration:none;background:var(--yellow);color:#091522;font-size:12px;font-weight:900;letter-spacing:.5px;padding:15px;border-radius:3px}
-footer{padding:24px 0;border-top:1px solid #293e50;color:#9eafbd;font-size:12px;text-align:center}
+
+footer{padding:24px 0;border-top:1px solid #293e50;color:#9eafbd;font-size:12px;text-align:center; line-height: 1.6;}
+footer strong { color: #fff; }
 
 /* MODAL ADMIN */
 .modal{position:fixed;inset:0;background:rgba(0,0,0,.76);z-index:10;display:none;align-items:center;justify-content:center;padding:18px;overflow:auto}.modal.open{display:flex}.panel{width:min(980px,100%);background:#0b1e2d;border:1px solid #52687a;padding:24px;max-height:94vh;overflow:auto}.panel-head{display:flex;align-items:center;justify-content:space-between;gap:15px;border-bottom:1px solid #30485c;padding-bottom:14px;margin-bottom:18px}.panel h2{margin:0;font-size:23px}.close{background:transparent;color:white;border:1px solid #64788a;padding:8px 12px}.panel label{display:block;font-size:12px;color:#cad5de;margin:12px 0 6px}.panel input,.panel select{width:100%;padding:12px;background:#061522;border:1px solid #52687a;color:white}.panel button.primary{background:var(--yellow);color:#091522;border:0;padding:12px 16px;font-weight:800;margin-top:12px}.panel button.primary:disabled{opacity:.6;cursor:not-allowed}.panel button.secondary{background:transparent;border:1px solid #718496;color:white;padding:10px 14px;margin-top:12px}.panel-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.admin-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:15px}.admin-tabs button{background:#142d40;color:white;border:1px solid #3c566b;padding:10px}.admin-tabs button.active{border-color:var(--yellow);color:var(--yellow)}.admin-section{display:none}.admin-section.active{display:block}.small{font-size:11px;line-height:1.5;color:#aebdca}.status{padding:10px;background:#102b3d;color:#dce7ef;margin-top:12px;font-size:12px;line-height:1.5; border-radius:4px;}.status.error{background:#3a1a1a;color:#f0b8b8}.hidden{display:none!important}.logged-user{font-size:11px;color:#8ee0b5;margin-top:6px}
@@ -96,15 +101,52 @@ th{background:#142d40;color:var(--yellow);font-weight:700}
 .btn-delete{background:#a83d3d;color:white;border:0;padding:5px 10px;border-radius:3px;font-size:11px;cursor:pointer}
 .btn-print{background:var(--green);color:white;border:0;padding:10px 15px;border-radius:3px;font-weight:bold;cursor:pointer;margin-bottom:10px}
 
-/* IMPRESSÃO */
+/* ==========================================
+   CONFIGURAÇÃO DE IMPRESSÃO (CORRIGIDA)
+   ========================================== */
 @media print {
+  @page { margin: 1cm; }
+  body { background: #fff !important; color: #000 !important; }
   body * { visibility: hidden; }
+  
+  /* Exibe apenas a área de impressão */
   #printArea, #printArea * { visibility: visible; }
-  #printArea { position: absolute; left: 0; top: 0; width: 100%; color: black; }
-  #printArea table { border: 1px solid #000; }
-  #printArea th, #printArea td { border: 1px solid #000; padding: 8px; color: black; }
-  #printArea h2 { color: black; display: block !important; }
-  .no-print { display: none !important; }
+  
+  #printArea { 
+    position: absolute; 
+    left: 0; 
+    top: 0; 
+    width: 100%; 
+    color: #000 !important; 
+  }
+  
+  #printArea h2 { 
+    display: block !important; 
+    color: #000 !important; 
+    font-size: 20px;
+    margin-bottom: 20px !important;
+  }
+  
+  #printArea table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    color: #000 !important;
+  }
+  
+  #printArea th, #printArea td { 
+    border: 1px solid #000 !important; 
+    padding: 8px !important; 
+    color: #000 !important; 
+    background: transparent !important;
+  }
+  
+  #printArea th { font-weight: bold; }
+  
+  /* Esconde tudo que não deve ser impresso */
+  .no-print, .admin-tabs, .btn-print, .panel-head, .secondary, 
+  #loginArea, #appearance, #prizesAdmin, #numbersAdmin, .modal, .modal * { 
+    display: none !important; 
+  }
 }
 
 @media(max-width:760px){
@@ -215,7 +257,12 @@ th{background:#142d40;color:var(--yellow);font-weight:700}
 </section>
 
 </main>
-<footer class="no-print"><div class="wrap">Treinão Hiper Mix · Informações e premiações sujeitas à confirmação oficial.</div></footer>
+<footer class="no-print">
+  <div class="wrap">
+    Todos os direitos reservados por <strong>HIPERMIX</strong><br>
+    Desenvolvido por <strong>HRprints3D</strong>
+  </div>
+</footer>
 
 <div class="modal no-print" id="adminModal" role="dialog" aria-modal="true" aria-labelledby="adminTitle">
  <div class="panel">
@@ -244,6 +291,8 @@ th{background:#142d40;color:var(--yellow);font-weight:700}
         <h3 style="margin:0; font-size:16px; color:var(--yellow);">Relatório de Inscritos</h3>
         <button class="btn-print" onclick="window.print()">Imprimir Relatório</button>
       </div>
+      
+      <!-- Área formatada para impressão -->
       <div id="printArea">
         <h2 style="display:none; text-align:center; margin-bottom:20px;">Relatório Oficial - Treinão Hiper Mix</h2>
         <div class="table-responsive">
@@ -276,7 +325,7 @@ th{background:#142d40;color:var(--yellow);font-weight:700}
         <div><label for="distanceConfig">Distância do Percurso</label><input id="distanceConfig" placeholder="Ex: 7km"></div>
         <div><label for="titleConfig">Título</label><input id="titleConfig" placeholder="1º TREINÃO..."></div>
         <div><label for="shirtConfig">Texto da Camiseta</label><input id="shirtConfig" placeholder="Garante a camiseta!"></div>
-        <div><label for="totalConfig">Total de vagas (prévia)</label><input id="totalConfig" type="number" min="1" max="2000" value="200"></div>
+        <div><label for="totalConfig">Total de vagas</label><input id="totalConfig" type="number" min="1" max="2000" value="200"></div>
         <div class="wide" style="grid-column: 1/-1;"><label for="mapConfig">Link SRC do Mapa (Google Maps Embed)</label><input id="mapConfig" placeholder="https://www.google.com/maps/embed?..."></div>
       </div>
       <button class="primary" id="saveAppearance">Salvar configurações</button>
@@ -460,7 +509,6 @@ function updateVagasUI(totalRegistrations) {
   const total = Math.max(1, Math.min(2000, Number(config.total) || 200));
   const available = Math.max(0, total - totalRegistrations);
 
-  // Elementos na tela principal e admin
   $("availableCount").textContent = available;
   $("remainingCount").textContent = available;
   $("totalCount").textContent = total;
@@ -473,7 +521,6 @@ function updateVagasUI(totalRegistrations) {
   const barWidth = totalRegistrations > total ? 100 : (totalRegistrations / total * 100);
   $("availabilityBar").style.width = barWidth + "%";
 
-  // Regra de bloqueio se esgotar
   if (available <= 0) {
     $("btnSubmit").disabled = true;
     $("btnSubmit").textContent = "VAGAS ESGOTADAS";
@@ -483,7 +530,7 @@ function updateVagasUI(totalRegistrations) {
     $("btnSubmit").disabled = false;
     $("btnSubmit").textContent = "Confirmar Inscrição";
     $("registrationForm").querySelectorAll('input').forEach(i => i.disabled = false);
-    hideStatus("formMessage"); // limpa msg se voltar a ter vaga
+    hideStatus("formMessage"); 
   }
 }
 
@@ -496,7 +543,7 @@ if (db) {
     // 1. Atualiza os contadores na tela
     updateVagasUI(totalRegistrations);
 
-    // 2. Atualiza o Relatório (se a tabela existir)
+    // 2. Atualiza o Relatório
     const tbody = document.querySelector("#tabelaInscritos tbody");
     if (!tbody) return; 
     
@@ -532,7 +579,7 @@ if (db) {
 }
 
 /* =====================================================================
-   FORMULÁRIO E CONFETES
+   FORMULÁRIO E CONFETES (AGORA COM VALIDAÇÃO DE DUPLICIDADE)
    ===================================================================== */
 $("birthDate").max = new Date().toISOString().slice(0,10);
 
@@ -551,45 +598,68 @@ $("registrationForm").addEventListener("submit", e => {
   if(age < 16){ showStatus("formMessage","A inscrição é permitida somente para pessoas com 16 anos ou mais.", true); return; }
   if (!db) { showStatus("formMessage","Erro: Banco de dados não configurado.", true); return; }
 
-  btn.disabled = true; btn.textContent = "Enviando...";
+  btn.disabled = true; btn.textContent = "Verificando...";
 
-  const novaInscricao = {
-    nome: nome, email: emailUser, telefone: telefone, nascimento: nascimento,
-    dataInscricao: new Date().toISOString(), status: "confirmado"
-  };
+  // 1. Verificar Duplicidade (Mesmo Nome OU Mesmo E-mail)
+  db.ref('inscricoes').once('value').then(snapshot => {
+    const dados = snapshot.val();
+    let duplicado = false;
+    
+    if (dados) {
+      const lista = Object.values(dados);
+      duplicado = lista.some(item => 
+        (item.email && item.email.toLowerCase() === emailUser.toLowerCase()) ||
+        (item.nome && item.nome.trim().toLowerCase() === nome.trim().toLowerCase())
+      );
+    }
 
-  db.ref('inscricoes').push(novaInscricao)
-    .then(() => {
-      showStatus("formMessage", "Inscrição realizada com sucesso! Sua vaga está garantida. Nos vemos lá!", false);
-      $("registrationForm").reset();
-      
-      // 🎉 EFEITO DE CONFETE 🎉
-      confetti({
-        particleCount: 150,
-        spread: 80,
-        origin: { y: 0.6 },
-        colors: ['#ffd21a', '#ffffff', '#23865b']
-      });
-      setTimeout(() => {
-        confetti({ particleCount: 100, angle: 60, spread: 55, origin: { x: 0 }, colors: ['#ffd21a'] });
-        confetti({ particleCount: 100, angle: 120, spread: 55, origin: { x: 1 }, colors: ['#23865b'] });
-      }, 250);
+    if (duplicado) {
+      showStatus("formMessage", "Você já possui uma inscrição com este e-mail ou nome.", true);
+      btn.disabled = false; btn.textContent = "Confirmar Inscrição";
+      return; // Para a execução e não salva
+    }
 
-      if (typeof emailjs !== "undefined" && EMAILJS_PUBLIC_KEY !== "SUA_PUBLIC_KEY_AQUI") {
-        const templateParams = { to_email: EMAIL_ADMIN_2, nome, email: emailUser, telefone, nascimento };
-        emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams).catch(()=>{});
-      }
-    })
-    .catch((error) => {
-      console.error("Erro:", error);
-      showStatus("formMessage", "Erro ao enviar. Tente novamente.", true);
-    })
-    .finally(() => { 
-      // Se ainda houver vagas, o botão é reativado pelo updateVagasUI
-      if(btn.textContent === "Enviando...") {
-        btn.textContent = "Confirmar Inscrição";
-      }
+    // 2. Se não for duplicado, prossegue com o salvamento
+    btn.textContent = "Enviando...";
+    const novaInscricao = {
+      nome: nome, email: emailUser, telefone: telefone, nascimento: nascimento,
+      dataInscricao: new Date().toISOString(), status: "confirmado"
+    };
+
+    return db.ref('inscricoes').push(novaInscricao);
+  })
+  .then((ref) => {
+    if (!ref) return; // Se caiu na validação de duplicidade, a ref será undefined
+    
+    showStatus("formMessage", "Inscrição realizada com sucesso! Sua vaga está garantida. Nos vemos lá!", false);
+    $("registrationForm").reset();
+    
+    // 🎉 EFEITO DE CONFETE 🎉
+    confetti({
+      particleCount: 150,
+      spread: 80,
+      origin: { y: 0.6 },
+      colors: ['#ffd21a', '#ffffff', '#23865b']
     });
+    setTimeout(() => {
+      confetti({ particleCount: 100, angle: 60, spread: 55, origin: { x: 0 }, colors: ['#ffd21a'] });
+      confetti({ particleCount: 100, angle: 120, spread: 55, origin: { x: 1 }, colors: ['#23865b'] });
+    }, 250);
+
+    if (typeof emailjs !== "undefined" && EMAILJS_PUBLIC_KEY !== "SUA_PUBLIC_KEY_AQUI") {
+      const templateParams = { to_email: EMAIL_ADMIN_2, nome, email: emailUser, telefone, nascimento };
+      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams).catch(()=>{});
+    }
+  })
+  .catch((error) => {
+    console.error("Erro:", error);
+    showStatus("formMessage", "Erro ao enviar. Tente novamente.", true);
+  })
+  .finally(() => { 
+    if(btn.textContent === "Enviando...") {
+      btn.textContent = "Confirmar Inscrição";
+    }
+  });
 });
 
 /* =====================================================================
@@ -673,7 +743,6 @@ $("saveAppearance").addEventListener("click", () => {
   config.total = Math.max(1, Math.min(2000, Number($("totalConfig").value) || 200));
   saveConfig(); render();
   
-  // Força atualizar o contador de vagas com o novo total
   if (db) {
     db.ref('inscricoes').once('value').then(snap => {
       updateVagasUI(snap.exists() ? Object.keys(snap.val()).length : 0);
