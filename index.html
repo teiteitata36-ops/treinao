@@ -108,6 +108,21 @@ footer strong { color: #fff; }
 /* MODAL ADMIN */
 .modal{position:fixed;inset:0;background:rgba(0,0,0,.76);z-index:10;display:none;align-items:center;justify-content:center;padding:18px;overflow:auto}.modal.open{display:flex}.panel{width:min(980px,100%);background:#0b1e2d;border:1px solid #52687a;padding:24px;max-height:94vh;overflow:auto}.panel-head{display:flex;align-items:center;justify-content:space-between;gap:15px;border-bottom:1px solid #30485c;padding-bottom:14px;margin-bottom:18px}.panel h2{margin:0;font-size:23px}.close{background:transparent;color:white;border:1px solid #64788a;padding:8px 12px}.panel label{display:block;font-size:12px;color:#cad5de;margin:12px 0 6px}.panel input,.panel select{width:100%;padding:12px;background:#061522;border:1px solid #52687a;color:white}.panel button.primary{background:var(--yellow);color:#091522;border:0;padding:12px 16px;font-weight:800;margin-top:12px}.panel button.primary:disabled{opacity:.6;cursor:not-allowed}.panel button.secondary{background:transparent;border:1px solid #718496;color:white;padding:10px 14px;margin-top:12px}.panel-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.admin-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:15px}.admin-tabs button{background:#142d40;color:white;border:1px solid #3c566b;padding:10px}.admin-tabs button.active{border-color:var(--yellow);color:var(--yellow)}.admin-section{display:none}.admin-section.active{display:block}.small{font-size:11px;line-height:1.5;color:#aebdca}.status{padding:10px;background:#102b3d;color:#dce7ef;margin-top:12px;font-size:12px;line-height:1.5; border-radius:4px;}.status.error{background:#3a1a1a;color:#f0b8b8}.hidden{display:none!important}.logged-user{font-size:11px;color:#8ee0b5;margin-top:6px}
 
+/* MODAL DE ESCOLHA DA CAMISETA */
+.shirt-dialog{width:min(480px,100%);background:#0b1e2d;border:1px solid #52687a;padding:26px;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,.45)}
+.shirt-dialog h2{margin:0 0 8px;color:var(--yellow);font-size:23px;text-transform:uppercase}
+.shirt-dialog p{margin:0 0 20px;color:#d7e0e8;font-size:13px;line-height:1.5}
+.shirt-fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.shirt-fields label{display:block;color:var(--yellow);font-size:12px;font-weight:900;text-transform:uppercase;margin-bottom:7px}
+.shirt-fields select{width:100%;padding:14px 12px;background:#061522;border:1px solid #52687a;color:#fff;border-radius:3px;min-width:0}
+.shirt-actions{display:flex;gap:10px;margin-top:20px}
+.shirt-actions button{flex:1;padding:14px;border:0;font-weight:900;cursor:pointer}
+.shirt-actions .confirm-shirt{background:var(--yellow);color:#091522}
+.shirt-actions .cancel-shirt{background:transparent;border:1px solid #718496;color:#fff}
+.shirt-actions button:disabled{opacity:.6;cursor:not-allowed}
+@media(max-width:480px){.shirt-dialog{padding:20px}.shirt-fields{grid-template-columns:1fr}.shirt-actions{flex-direction:column}}
+
+
 /* TABELA ADMIN */
 .table-responsive{overflow-x:auto; margin-top:15px;}
 table{width:100%;border-collapse:collapse;font-size:13px;text-align:left}
@@ -121,44 +136,68 @@ th{background:#142d40;color:var(--yellow);font-weight:700}
    ========================================== */
 @media print {
   @page { margin: 1cm; }
-  body { background: #fff !important; color: #000 !important; }
-  body * { visibility: hidden; }
-  
-  #printArea, #printArea * { visibility: visible; }
-  
-  #printArea { 
-    position: absolute; 
-    left: 0; 
-    top: 0; 
-    width: 100%; 
-    color: #000 !important; 
-  }
-  
-  #printArea h2 { 
-    display: block !important; 
-    color: #000 !important; 
-    font-size: 20px;
-    margin-bottom: 20px !important;
-  }
-  
-  #printArea table { 
-    width: 100%; 
-    border-collapse: collapse; 
-    color: #000 !important;
-  }
-  
-  #printArea th, #printArea td { 
-    border: 1px solid #000 !important; 
-    padding: 8px !important; 
-    color: #000 !important; 
+  html, body { background: #fff !important; color: #000 !important; }
+  body * { visibility: hidden !important; }
+
+  /* O relatório fica dentro do modal administrativo; não o esconda ao imprimir. */
+  #adminModal.no-print {
+    display: block !important;
+    position: static !important;
+    inset: auto !important;
+    width: 100% !important;
+    padding: 0 !important;
+    overflow: visible !important;
     background: transparent !important;
   }
-  
-  #printArea th { font-weight: bold; }
-  
-  .no-print, .admin-tabs, .btn-print, .panel-head, .secondary, 
-  #loginArea, #appearance, #prizesAdmin, #numbersAdmin, .modal, .modal * { 
-    display: none !important; 
+  #adminModal .panel {
+    display: block !important;
+    width: 100% !important;
+    max-height: none !important;
+    overflow: visible !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: #fff !important;
+    color: #000 !important;
+  }
+  #adminArea, #participantsAdmin { display: block !important; }
+
+  #printArea, #printArea * { visibility: visible !important; }
+  #printArea {
+    display: block !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    color: #000 !important;
+  }
+  #printArea h2 {
+    display: block !important;
+    color: #000 !important;
+    font-size: 20px !important;
+    margin: 0 0 20px !important;
+    text-align: center !important;
+  }
+  #printArea table {
+    display: table !important;
+    width: 100% !important;
+    border-collapse: collapse !important;
+    color: #000 !important;
+  }
+  #printArea th, #printArea td {
+    border: 1px solid #000 !important;
+    padding: 8px !important;
+    color: #000 !important;
+    background: transparent !important;
+  }
+  #printArea th { font-weight: bold !important; }
+
+  /* Esconde a página pública e os controles, mantendo o conteúdo do relatório. */
+  header.no-print, main.no-print, footer.no-print { display: none !important; }
+  #printArea .table-responsive { overflow: visible !important; }
+  #adminModal .no-print,
+  .admin-tabs, .btn-print, .panel-head, .secondary,
+  #loginArea, #appearance, #prizesAdmin, #numbersAdmin {
+    display: none !important;
   }
 }
 
@@ -329,12 +368,14 @@ th{background:#142d40;color:var(--yellow);font-weight:700}
                 <th>Nome</th>
                 <th>Contato</th>
                 <th>Nascimento</th>
+                <th>Modelo da camiseta</th>
+                <th>Tamanho</th>
                 <th>Data Inscrição</th>
                 <th class="no-print">Ação</th>
               </tr>
             </thead>
             <tbody>
-              <tr><td colspan="5" style="text-align:center;">Carregando dados...</td></tr>
+              <tr><td colspan="7" style="text-align:center;">Carregando dados...</td></tr>
             </tbody>
           </table>
         </div>
@@ -382,6 +423,40 @@ th{background:#142d40;color:var(--yellow);font-weight:700}
     <button class="secondary" id="logout">Sair do painel</button>
   </div>
  </div>
+</div>
+
+<!-- MODAL DE ESCOLHA DA CAMISETA: aparece antes de gravar a inscrição -->
+<div class="modal no-print" id="shirtModal" role="dialog" aria-modal="true" aria-labelledby="shirtModalTitle">
+  <div class="shirt-dialog">
+    <h2 id="shirtModalTitle">Escolha sua camiseta</h2>
+    <p>Antes de confirmar sua inscrição, selecione o modelo e o tamanho da camiseta que deseja receber.</p>
+    <div class="shirt-fields">
+      <div>
+        <label for="shirtGender">Modelo da camiseta *</label>
+        <select id="shirtGender" required>
+          <option value="">Selecione</option>
+          <option value="Feminino">Feminino</option>
+          <option value="Masculino">Masculino</option>
+        </select>
+      </div>
+      <div>
+        <label for="shirtSize">Tamanho *</label>
+        <select id="shirtSize" required>
+          <option value="">Selecione</option>
+          <option value="PP">PP</option>
+          <option value="P">P</option>
+          <option value="M">M</option>
+          <option value="G">G</option>
+          <option value="GG">GG</option>
+        </select>
+      </div>
+    </div>
+    <div id="shirtMessage" class="status hidden" role="alert"></div>
+    <div class="shirt-actions">
+      <button type="button" class="cancel-shirt" id="cancelShirt">Voltar</button>
+      <button type="button" class="confirm-shirt" id="confirmShirt">Confirmar e enviar inscrição</button>
+    </div>
+  </div>
 </div>
 
 <!-- Firebase SDK -->
@@ -546,7 +621,10 @@ function updateVagasUI(totalRegistrations) {
     $("btnSubmit").disabled = false;
     $("btnSubmit").textContent = "Confirmar Inscrição";
     $("registrationForm").querySelectorAll('input').forEach(i => i.disabled = false);
-    hideStatus("formMessage"); 
+    const mensagem = $("formMessage");
+    if (mensagem && mensagem.textContent === "As inscrições para este evento estão esgotadas.") {
+      hideStatus("formMessage");
+    }
   }
 }
 
@@ -577,28 +655,56 @@ if (db) {
     
     tbody.innerHTML = "";
     if (!dados) {
-      tbody.innerHTML = "<tr><td colspan='5' style='text-align:center;'>Nenhuma inscrição recebida ainda.</td></tr>";
+      tbody.innerHTML = "<tr><td colspan='7' style='text-align:center;'>Nenhuma inscrição recebida ainda.</td></tr>";
       return;
     }
-    
+
     const lista = Object.keys(dados).map(id => ({ id, ...dados[id] }));
-    lista.sort((a, b) => new Date(b.dataInscricao) - new Date(a.dataInscricao));
+    lista.sort((a, b) => new Date(b.dataInscricao || 0) - new Date(a.dataInscricao || 0));
 
     lista.forEach(item => {
-      const dataInsc = new Date(item.dataInscricao).toLocaleString('pt-BR');
+      const dataInsc = item.dataInscricao ? new Date(item.dataInscricao).toLocaleString('pt-BR') : '-';
       const dataNasc = item.nascimento ? new Date(item.nascimento + "T12:00:00").toLocaleDateString('pt-BR') : '-';
       const tr = document.createElement("tr");
-      tr.innerHTML = `
-        <td>${item.nome}</td>
-        <td>${item.email}<br><span style="font-size:11px;color:#aaa">${item.telefone}</span></td>
-        <td>${dataNasc}</td>
-        <td>${dataInsc}</td>
-        <td class="no-print"><button class="btn-delete" onclick="deletarInscrito('${item.id}')">Excluir</button></td>
-      `;
+
+      const tdNome = document.createElement("td");
+      tdNome.textContent = item.nome || '-';
+
+      const tdContato = document.createElement("td");
+      tdContato.appendChild(document.createTextNode(item.email || '-'));
+      tdContato.appendChild(document.createElement("br"));
+      const telefoneSpan = document.createElement("span");
+      telefoneSpan.style.fontSize = "11px";
+      telefoneSpan.style.color = "#aaa";
+      telefoneSpan.textContent = item.telefone || '-';
+      tdContato.appendChild(telefoneSpan);
+
+      const tdNascimento = document.createElement("td");
+      tdNascimento.textContent = dataNasc;
+      const tdModelo = document.createElement("td");
+      tdModelo.textContent = item.modeloCamisa || '-';
+      const tdTamanho = document.createElement("td");
+      tdTamanho.textContent = item.tamanhoCamisa || '-';
+      const tdData = document.createElement("td");
+      tdData.textContent = dataInsc;
+
+      const tdAcao = document.createElement("td");
+      tdAcao.className = "no-print";
+      const btnExcluir = document.createElement("button");
+      btnExcluir.className = "btn-delete";
+      btnExcluir.textContent = "Excluir";
+      btnExcluir.addEventListener("click", () => deletarInscrito(item.id));
+      tdAcao.appendChild(btnExcluir);
+
+      [tdNome, tdContato, tdNascimento, tdModelo, tdTamanho, tdData, tdAcao].forEach(td => tr.appendChild(td));
       tbody.appendChild(tr);
     });
   }, (error) => {
     console.error("Erro no Firebase:", error);
+    const tbody = document.querySelector("#tabelaInscritos tbody");
+    if (tbody) {
+      tbody.innerHTML = "<tr><td colspan='7' style='text-align:center;'>Não foi possível carregar os inscritos. Verifique a conexão e as permissões de leitura do Firebase.</td></tr>";
+    }
   });
 } else {
   // Fallback se não tiver Firebase
@@ -606,104 +712,204 @@ if (db) {
 }
 
 /* =====================================================================
-   FORMULÁRIO E CONFETES (COM CORREÇÃO DE IDADE)
+   FORMULÁRIO, ESCOLHA DA CAMISETA E CONFETES
    ===================================================================== */
 $("birthDate").max = new Date().toISOString().slice(0,10);
 
-$("registrationForm").addEventListener("submit", e => {
+// Mantém os dados digitados até a pessoa escolher e confirmar a camiseta.
+let cadastroPendente = null;
+
+function restaurarBotaoInscricao() {
+  const btn = $("btnSubmit");
+  const total = Math.max(1, Math.min(2000, Number(config.total) || 200));
+  const inscritos = Number(inscricoesGlobais) || 0;
+  const vagasRestantes = Math.max(0, total - inscritos);
+  btn.disabled = vagasRestantes <= 0;
+  btn.textContent = vagasRestantes <= 0 ? "VAGAS ESGOTADAS" : "Confirmar Inscrição";
+}
+
+function fecharModalCamiseta() {
+  $("shirtModal").classList.remove("open");
+  $("shirtGender").value = "";
+  $("shirtSize").value = "";
+  hideStatus("shirtMessage");
+  cadastroPendente = null;
+  restaurarBotaoInscricao();
+}
+
+$("cancelShirt").addEventListener("click", fecharModalCamiseta);
+$("shirtModal").addEventListener("click", e => {
+  if (e.target === $("shirtModal")) fecharModalCamiseta();
+});
+
+$("registrationForm").addEventListener("submit", async e => {
   e.preventDefault();
   const btn = $("btnSubmit");
+  if (btn.disabled) return;
+
   const nome = $("fullName").value.trim();
   const emailUser = $("email").value.trim();
   const telefone = $("phone").value.trim();
   const nascimento = $("birthDate").value;
 
-  if(!nascimento){ showStatus("formMessage","Informe sua data de nascimento.", true); return; }
-  
-  // CORREÇÃO DO CÁLCULO DE IDADE PARA TODOS OS NAVEGADORES
+  if (!nascimento) {
+    showStatus("formMessage", "Informe sua data de nascimento.", true);
+    return;
+  }
+
+  // Cálculo de idade preservado.
   const partesData = nascimento.split('-');
-  if(partesData.length !== 3) { showStatus("formMessage","Data de nascimento inválida.", true); return; }
-  
+  if (partesData.length !== 3) {
+    showStatus("formMessage", "Data de nascimento inválida.", true);
+    return;
+  }
+
   const anoNasc = parseInt(partesData[0], 10);
   const mesNasc = parseInt(partesData[1], 10) - 1;
   const diaNasc = parseInt(partesData[2], 10);
-  
   const b = new Date(anoNasc, mesNasc, diaNasc);
   const now = new Date();
-  
+
   let age = now.getFullYear() - b.getFullYear();
   const m = now.getMonth() - b.getMonth();
-  if (m < 0 || (m === 0 && now.getDate() < b.getDate())) {
-      age--;
+  if (m < 0 || (m === 0 && now.getDate() < b.getDate())) age--;
+
+  if (age < 16) {
+    showStatus("formMessage", "A inscrição é permitida somente para pessoas com 16 anos ou mais.", true);
+    return;
+  }
+  if (!db) {
+    showStatus("formMessage", "Erro: Banco de dados não configurado.", true);
+    return;
   }
 
-  if(age < 16){ showStatus("formMessage","A inscrição é permitida somente para pessoas com 16 anos ou mais.", true); return; }
-  if (!db) { showStatus("formMessage","Erro: Banco de dados não configurado.", true); return; }
+  btn.disabled = true;
+  btn.textContent = "Verificando...";
+  hideStatus("formMessage");
 
-  btn.disabled = true; btn.textContent = "Verificando...";
-
-  db.ref('inscricoes').once('value').then(snapshot => {
+  try {
+    const snapshot = await db.ref('inscricoes').once('value');
     const dados = snapshot.val();
     let duplicado = false;
-    
+
     if (dados) {
       const lista = Object.values(dados);
-      duplicado = lista.some(item => 
+      duplicado = lista.some(item =>
         (item.email && item.email.toLowerCase() === emailUser.toLowerCase()) ||
-        (item.nome && item.nome.trim().toLowerCase() === nome.trim().toLowerCase())
+        (item.nome && item.nome.trim().toLowerCase() === nome.toLowerCase())
       );
     }
 
     if (duplicado) {
       showStatus("formMessage", "Você já possui uma inscrição com este e-mail ou nome.", true);
-      btn.disabled = false; btn.textContent = "Confirmar Inscrição";
-      return; 
+      return;
     }
 
-    btn.textContent = "Enviando...";
-    const novaInscricao = {
-      nome: nome, 
-      email: emailUser, 
-      telefone: telefone, 
-      nascimento: nascimento,
-      dataInscricao: new Date().toISOString(), 
-      status: "confirmado"
-    };
+    // Ainda não grava no Firebase: primeiro abre a seleção obrigatória da camiseta.
+    cadastroPendente = { nome, email: emailUser, telefone, nascimento };
+    hideStatus("shirtMessage");
+    $("shirtGender").value = "";
+    $("shirtSize").value = "";
+    $("shirtModal").classList.add("open");
+    btn.textContent = "Aguardando camiseta...";
+  } catch (error) {
+    console.error("Erro ao verificar inscrição:", error);
+    showStatus("formMessage", "Não foi possível verificar sua inscrição. Tente novamente.", true);
+  } finally {
+    // O botão continua bloqueado enquanto o modal estiver aberto.
+    if (!$("shirtModal").classList.contains("open")) restaurarBotaoInscricao();
+  }
+});
 
-    return db.ref('inscricoes').push(novaInscricao);
-  })
-  .then((ref) => {
-    if (!ref) return; 
-    
-    showStatus("formMessage", "Inscrição realizada com sucesso! Sua vaga está garantida. Nos vemos lá!", false);
+async function confirmarInscricaoComCamiseta() {
+  if (!cadastroPendente) {
+    showStatus("shirtMessage", "Preencha seus dados novamente para continuar.", true);
+    return;
+  }
+
+  const modeloCamisa = $("shirtGender").value;
+  const tamanhoCamisa = $("shirtSize").value;
+  if (!modeloCamisa || !tamanhoCamisa) {
+    showStatus("shirtMessage", "Selecione o modelo e o tamanho da camiseta.", true);
+    return;
+  }
+  if (!db) {
+    showStatus("shirtMessage", "Banco de dados indisponível. Tente novamente.", true);
+    return;
+  }
+
+  const confirmBtn = $("confirmShirt");
+  confirmBtn.disabled = true;
+  confirmBtn.textContent = "Enviando inscrição...";
+
+  // Cópia dos dados associados a esta pessoa, incluindo a escolha da camiseta.
+  const dadosInscricao = {
+    ...cadastroPendente,
+    modeloCamisa,
+    tamanhoCamisa,
+    dataInscricao: new Date().toISOString(),
+    status: "confirmado"
+  };
+
+  try {
+    await db.ref('inscricoes').push(dadosInscricao);
+
+    cadastroPendente = null;
+    $("shirtModal").classList.remove("open");
     $("registrationForm").reset();
-    
-    confetti({
-      particleCount: 150,
-      spread: 80,
-      origin: { y: 0.6 },
-      colors: ['#ffd21a', '#ffffff', '#23865b']
-    });
-    setTimeout(() => {
-      confetti({ particleCount: 100, angle: 60, spread: 55, origin: { x: 0 }, colors: ['#ffd21a'] });
-      confetti({ particleCount: 100, angle: 120, spread: 55, origin: { x: 1 }, colors: ['#23865b'] });
-    }, 250);
+    $("shirtGender").value = "";
+    $("shirtSize").value = "";
+    hideStatus("shirtMessage");
+    // Atualiza a quantidade de vagas. Se essa leitura falhar, a inscrição já gravada
+    // continua válida e o listener em tempo real poderá atualizar o contador.
+    try {
+      const atualizacao = await db.ref('inscricoes').once('value');
+      const registrosAtuais = atualizacao.val();
+      inscricoesGlobais = registrosAtuais ? Object.keys(registrosAtuais).length : 0;
+      updateVagasUI(inscricoesGlobais);
+    } catch (erroContagem) {
+      console.warn("Inscrição salva, mas não foi possível atualizar a contagem agora:", erroContagem);
+    }
+
+    showStatus("formMessage", "Inscrição realizada com sucesso! Sua vaga está garantida. Nos vemos lá!", false);
+
+    if (typeof confetti === "function") {
+      confetti({
+        particleCount: 150,
+        spread: 80,
+        origin: { y: 0.6 },
+        colors: ['#ffd21a', '#ffffff', '#23865b']
+      });
+      setTimeout(() => {
+        confetti({ particleCount: 100, angle: 60, spread: 55, origin: { x: 0 }, colors: ['#ffd21a'] });
+        confetti({ particleCount: 100, angle: 120, spread: 55, origin: { x: 1 }, colors: ['#23865b'] });
+      }, 250);
+    }
 
     if (typeof emailjs !== "undefined" && EMAILJS_PUBLIC_KEY !== "SUA_PUBLIC_KEY_AQUI") {
-      const templateParams = { to_email: EMAIL_ADMIN_2, nome, email: emailUser, telefone, nascimento };
-      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams).catch(()=>{});
+      const templateParams = {
+        to_email: EMAIL_ADMIN_2,
+        nome: dadosInscricao.nome,
+        email: dadosInscricao.email,
+        telefone: dadosInscricao.telefone,
+        nascimento: dadosInscricao.nascimento,
+        modelo_camisa: dadosInscricao.modeloCamisa,
+        tamanho_camisa: dadosInscricao.tamanhoCamisa
+      };
+      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams).catch(() => {});
     }
-  })
-  .catch((error) => {
-    console.error("Erro:", error);
-    showStatus("formMessage", "Erro ao enviar. Tente novamente.", true);
-  })
-  .finally(() => { 
-    if(btn.textContent === "Enviando...") {
-      btn.textContent = "Confirmar Inscrição";
-    }
-  });
-});
+  } catch (error) {
+    console.error("Erro ao salvar inscrição:", error);
+    showStatus("shirtMessage", "Erro ao enviar a inscrição. Confira sua conexão e tente novamente.", true);
+  } finally {
+    confirmBtn.disabled = false;
+    confirmBtn.textContent = "Confirmar e enviar inscrição";
+    if (!$("shirtModal").classList.contains("open")) restaurarBotaoInscricao();
+  }
+}
+
+$("confirmShirt").addEventListener("click", confirmarInscricaoComCamiseta);
+
 
 /* =====================================================================
    PAINEL ADMINISTRATIVO E ACESSOS
